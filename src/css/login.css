@@ -1,0 +1,45 @@
+*{
+    background-image: url('../assets/img/hero-bg.jpg');
+}
+
+.Body{
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container{
+    
+    width: 40%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #18326B;
+    opacity: 100%;
+    border-radius: 14px;
+}
+
+.form-container h2{
+    color: #72EFDB;
+    background-color:#18326B;
+}
+
+.form-container form{
+    
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: spa;
+
+}
+
+.text-input{
+
+    width: 100%;
+}

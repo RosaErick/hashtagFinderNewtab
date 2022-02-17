@@ -8,6 +8,7 @@ import './css/index.css';
 //components imports
 import App from './components/App';
 import NotFound from './components/NotFound.jsx';
+import Login from './components/login';
 
 
 ReactDOM.render(
@@ -17,6 +18,8 @@ ReactDOM.render(
       <Route path="/" element={<App />}/>
       <Route path="/404" element={<NotFound/>}/>
       <Route path="*" element={<Navigate to="/404"/>}/>
+      <Route path="/login" element={<Login /> } />
+
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,
