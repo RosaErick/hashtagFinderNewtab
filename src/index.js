@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+
+//css imports
+import './index.css';
+
+//components imports
+import App from './App';
+import NotFound from './components/NotFound.jsx';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />}/>
+      <Route path="/404" element={<NotFound/>}/>
+      <Route path="*" element={<Navigate to="/404"/>}/>
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

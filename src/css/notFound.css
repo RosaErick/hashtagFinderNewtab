@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* Import Roboto font (Bold: 700, Light: 300) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+html, body, #root, .main{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-image: url('../assets/img/table-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchImg{
+    width: 20%;
+}
+
+.searchImg > img{
+    width: 100%;
+    animation: floating 4s infinite;
+    position: relative;
+}
+
+.texts {
+    font-size: 1.5vw;
+    color: white;
+    font-weight: 700;
+}
+
+.texts > h2{
+    font-weight: 300;
+}
+
+#home{
+    font-weight: 700;
+    display: inline;
+    text-decoration: underline;
+}
+
+#home:hover{
+    cursor: pointer;
+}
+
+/* Keyframe floating effect */
+@keyframes floating {
+	0%{
+		bottom: 0px;
+	}
+    50%{
+		bottom: 20px;
+	}
+    100%{
+		bottom: 0px;	
+	}
+}
+
+/* unset Link tag style */
+.link{
+    text-decoration: none;
+    color: unset;
+}
+
+/* Mobile reponsive */
+@media only screen and (max-width: 768px) {
+    .main{
+        flex-direction: column-reverse;
+    }
+    .searchImg{
+        padding-top: 30px;
+    }
+
+    .texts{
+        width: 80%;
+        font-size: 3vw;
+    }
+}
