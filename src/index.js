@@ -5,17 +5,17 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 //css imports
 // import './css/index.css';
 
-//components imports
-import App from './components/App';
+//pages imports
 import NotFound from './components/NotFound';
-import Login from './components/login/Login';
+import Login from './pages/login/Login';
+import Home from './pages/home/Home';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}/>
+      <Route path="/" element={<Home />}/>
       <Route path="/404" element={<NotFound/>}/>
       <Route path="*" element={<Navigate to="/404"/>}/>
       <Route path="/login" element={<Login /> } />
