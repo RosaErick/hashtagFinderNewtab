@@ -53,6 +53,10 @@ body{
     cursor: pointer;
 }
 
+.Body{
+    width: 20%;
+}
+
 /* Keyframe floating effect */
 @keyframes floating {
 	0%{

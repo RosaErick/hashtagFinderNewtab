@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 //css imports
-import './css/index.css';
+// import './css/index.css';
 
 //components imports
 import App from './components/App';
-import NotFound from './components/NotFound.jsx';
-import Login from './components/login';
+import NotFound from './components/NotFound';
+import Login from './components/login/Login';
 
 
 ReactDOM.render(
