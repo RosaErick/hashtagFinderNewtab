@@ -1,0 +1,42 @@
+.hero-header {
+background-image: url(../assets/img/hero-bg.jpg);
+height: 120vh;
+width: 100%;
+padding:0;
+margin:0;
+background-repeat:no-repeat;
+object-fit: contain;
+display: flex;
+flex-direction: column;
+color:#fff;
+
+}
+
+.hero-container{
+display: flex;
+flex-direction: column;
+
+width: 55%;
+justify-content: space-around;
+margin: 200px;
+}
+
+.hero-container h1 {
+font-size: 82px;
+}
+
+.hero-container p {
+
+font-size:31px;
+
+
+
+
+}
+
+
+.hero-search-bar {
+
+justify-self: center;
+align-self: center;
+}

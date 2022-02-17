@@ -1,4 +1,3 @@
-import '../../css/App.css';
 import '../../css/login.css';
 
 function Login() {
