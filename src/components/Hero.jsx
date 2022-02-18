@@ -19,7 +19,9 @@ export default function Hero() {
       <div className="hero-search-bar">
                     <img src={IconSearch} alt="" /> <input type="search"  placeholder="Buscar..." /> 
                     </div>
-                   
-    </header>
+                <div className="gradient-bg"></div>   
+        </header>
+      
+      
   );
 }

@@ -1,0 +1,14 @@
+
+
+.main-home{
+    width: 100%;
+    background:var(--dark-blue-variation);
+    height: 100vh;
+
+}
+.main-home h2{
+text-align: center;
+color:var(--white);
+font-size: 32px;
+padding: 30px 0;
+}
