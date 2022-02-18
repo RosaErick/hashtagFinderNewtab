@@ -9,7 +9,7 @@ import "./"
 
 //pages and imports
 import NotFound from './components/NotFound';
-import Login from './pages/login/Login';
+import Login from './pages/login/login';
 import Home from './pages/home/Home';
 import List from './pages/list/List';
 import About from "./pages/about/AppAbout";
@@ -21,8 +21,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/404" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/404" />} />
+        <Route path="*" element={<NotFound />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/list" element={<List />}/>
         <Route path="/about" element={<About/>}/>

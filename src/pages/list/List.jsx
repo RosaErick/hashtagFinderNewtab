@@ -27,7 +27,7 @@ const List = () => {
                     }
                 ]
                 }/>
-                
+
             <div className="ListContainer">
                 <h1 className="ListTitle">Buscas realizadas</h1>
 
@@ -44,12 +44,6 @@ const List = () => {
                         <p className="HourDate">09:30</p>
                     </div>
 
-                    {/* <div className="ListRow">
-                        <p className="RowHashtagName">#hashtagname</p>
-                        <p className="RowDate">25/02</p>
-                        <p className="HourDate">09:30</p>
-                    </div>
-
                     <div className="ListRow">
                         <p className="RowHashtagName">#hashtagname</p>
                         <p className="RowDate">25/02</p>
@@ -96,7 +90,13 @@ const List = () => {
                         <p className="RowHashtagName">#hashtagname</p>
                         <p className="RowDate">25/02</p>
                         <p className="HourDate">09:30</p>
-                    </div> */}
+                    </div>
+
+                    <div className="ListRow">
+                        <p className="RowHashtagName">#hashtagname</p>
+                        <p className="RowDate">25/02</p>
+                        <p className="HourDate">09:30</p>
+                    </div>
                 </div>
             </div>
         </div>
