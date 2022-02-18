@@ -25,7 +25,7 @@ ReactDOM.render(
         <Route path="*" element={<Navigate to="/404" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/list" element={<List />}/>
-        <Route path="/About" element={<About/>}/>
+        <Route path="/about" element={<About/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

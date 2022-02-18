@@ -8,7 +8,26 @@ import logoutIcon from "../../assets/img/icon-power-off.svg";
 const List = () => {
     return (
         <div className="ListMain">
-            <Navbar buttons={[{"title": "Home", "icon": logIcon, "route": "/","backgroundColor": "#72EFDB", "textColor": "#0A1744"}, {"title": "Sair", "icon": logoutIcon, "route": "/sair","backgroundColor": "#0A1744", "textColor": "#FFF"}]}/>
+            <Navbar buttons={
+                [
+                    {
+                        "title": "Home", 
+                        "icon": logIcon, 
+                        "route": "/",
+                        "backgroundColor": "#72EFDB", 
+                        "textColor": "#0A1744"
+                    }, 
+                    {
+                        "title": "Sair", 
+                        "icon": logoutIcon, 
+                        "route": "/sair",
+                        "backgroundColor": "#0A1744", 
+                        "textColor": 
+                        "#FFF"
+                    }
+                ]
+                }/>
+                
             <div className="ListContainer">
                 <h1 className="ListTitle">Buscas realizadas</h1>
 
