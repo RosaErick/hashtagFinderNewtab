@@ -38,7 +38,7 @@
   border-radius: 72px;
   opacity: 1;
   border: none;
-  margin-top: 70px;
+  margin-top: 20px;
   width: 800px;
   justify-content: baseline;
   gap: 10px;
@@ -73,12 +73,18 @@ input:focus {
   position: absolute;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
   .hero-container {
-    width: 60%;
+    width: 80%;
   }
 
   .hero-container h1 {
-    font-size: 60px;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-right: 70px;
+  }
+
+  .hero-container p {
+    font-size: 20px;
   }
 }
