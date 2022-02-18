@@ -1,4 +1,4 @@
-.hero-header {
+.heroHeader {
   background: url(../assets/img/hero-bg.jpg) 100% no-repeat;
   position: relative;
   height: 100vh;
@@ -11,7 +11,7 @@
   align-items: flex-start;
 }
 
-.hero-container {
+.heroContainer {
   display: flex;
   flex-direction: column;
   width: 42%;
@@ -21,15 +21,15 @@
   gap: 17px;
 }
 
-.hero-container h1 {
+.heroContainer h1 {
   font-size: 82px;
 }
 
-.hero-container p {
+.heroContainer p {
   font-size: 31px;
 }
 
-.hero-search-bar {
+.heroSearchBar {
   justify-self: center;
   align-self: center;
   display: flex;
@@ -43,11 +43,11 @@
   gap: 10px;
 }
 
-.hero-search-bar img {
+.heroSearchBar img {
   padding-left: 20px;
 }
 
-.hero-search-bar input {
+.heroSearchBar input {
   padding: 35px 0;
   text-align: left;
   background: none;
@@ -73,17 +73,17 @@ input:focus {
 }
 
 @media (max-width: 1500px) {
-  .hero-container {
+  .heroContainer {
     width: 80%;
   }
 
-  .hero-container h1 {
+  .heroContainer h1 {
     font-size: 50px;
     margin-top: 20px;
     margin-right: 70px;
   }
 
-  .hero-container p {
+  .heroContainer p {
     font-size: 20px;
   }
 }

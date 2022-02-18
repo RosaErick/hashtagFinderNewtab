@@ -6,8 +6,8 @@ import IconSearch from "../assets/img/icon-search.svg"
 
 export default function Hero() {
   return (
-    <header className="hero-header">
-      <div className="hero-container">
+    <header className="heroHeader">
+      <div className="heroContainer">
         <h1>Encontre hashtags de maneira fácil.</h1>
 
         <p>
@@ -16,7 +16,7 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="hero-search-bar">
+      <div className="heroSearchBar">
                     <img src={IconSearch} alt="" /> <input type="search"  placeholder="Buscar..." /> 
                     </div>
                 <div className="gradient-bg"></div>   
