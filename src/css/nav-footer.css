@@ -26,7 +26,6 @@
 
 .nav-title {
   margin-left: 50px;
- 
 }
 
 .nav-title h2 {
@@ -47,39 +46,36 @@
   margin-right: 50px;
   display: flex;
   flex-direction: space-between;
-
 }
 
 .nav-menu button {
   border-radius: 25px;
   font-size: 17px;
-padding:14px 30px;
+  padding: 14px 30px;
   font-weight: bold;
   border: none;
   text-transform: uppercase;
   letter-spacing: 2.55px;
-
 }
 
-.nav-menu button:nth-child(1) {
+.nav-menu button {
   background-color: #72efdb;
   color: #0b1741;
   margin-right: 15px;
 }
 
-.nav-menu button:nth-child(2) {
+.nav-menu a > button {
   background-color: #1e3e7b;
   margin-right: 10px;
-  
+  color: #fff;
 }
 
-.nav-menu button:nth-child(2) img{
+.nav-menu a > button > img {
   padding-right: 10px;
 }
 
-.nav-menu button a {
+.nav-menu a {
   text-decoration: none;
-  color:#ffff;
 }
 .nav-menu svg {
   width: 12px;
