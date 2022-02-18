@@ -9,7 +9,7 @@ import "./"
 
 //pages and imports
 import NotFound from './components/NotFound';
-import Login from './pages/login/login';
+import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 import List from './pages/list/List';
 import About from "./pages/about/AppAbout";

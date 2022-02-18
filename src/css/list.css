@@ -63,3 +63,16 @@
 }
 
 /* Responsive */
+
+@media only screen and (max-width: 768px) {
+    .ListTitle{
+        display: flex;
+        justify-content: center;
+    }
+
+    .ListContainer{
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
