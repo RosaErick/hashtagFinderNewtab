@@ -4,32 +4,50 @@ import infoIcon from "../assets/img/icon-info-circle.svg";
 import logIcon from "../assets/img/icon-user-alt.svg";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ aboutPage, logPage, homePage, buttonTitle, buttonIcon }) {
   return (
     <>
-      <div className="nav-wrapper">
-      <nav className="nav-header">
-        <div className="nav-title">
+      <div className="navWrapper">
+      <nav className="navHeader">
+        <div className="navTitle">
           <Link to="/">
             {" "}
             <h2>
               hashtag<span>finder</span>
             </h2>
           </Link>
-        </div>
+         </div>
+    <div className="navMenu">
+          
+            {aboutPage && (<Link to={aboutPage}>
 
-        <div className="nav-menu">
-          <button className="about-btn">
+      <button className="aboutBtn">
             {" "}
             <img src={infoIcon} alt="info-icon" /> Sobre
           </button>
-          <Link to="/login">
-            <button className="login-btn">
+
+            </Link>)}
+            
+
+            {logPage && (<Link to={logPage}>
+            <button className="loginBtn">
               {" "}
               <img src={logIcon} alt="icon-user" />
-              Login
+              {buttonTitle}
             </button>
-          </Link>
+            </Link>)}
+            
+
+            {homePage && (<Link to={homePage}>
+      <button className="aboutBtn">
+            {" "}
+            <img src={buttonIcon} alt="info-icon" />Home
+          </button>
+
+            </Link>)}
+       
+       
+     
         </div>
         </nav>
         </div>

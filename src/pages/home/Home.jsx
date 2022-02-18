@@ -5,10 +5,11 @@ import React from 'react';
 import "../../css/Home.css"
 
 
+
 const Home = () => {
     return (
         <>
-            <Navbar />
+            <Navbar logPage={"/login"} buttonTitle="Login" aboutPage={"/about"} />
             <Hero />
             <main className="main-home">
                 

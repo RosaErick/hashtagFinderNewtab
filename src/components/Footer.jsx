@@ -4,7 +4,7 @@ import "../css/footer.css";
 const Footer = () => {
   return (
     <>
-      <footer className="footer-div">
+      <footer className="footerDiv">
         <p>&copy;Concreare 2022. Todos os direitos reservados.</p>
       </footer>
     </>
