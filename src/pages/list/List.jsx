@@ -20,7 +20,7 @@ const List = () => {
                     {
                         "title": "Sair", 
                         "icon": logoutIcon, 
-                        "route": "/sair",
+                        "route": "/logout",
                         "backgroundColor": "#0A1744", 
                         "textColor": 
                         "#FFF"
