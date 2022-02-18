@@ -1,34 +1,21 @@
 import React from "react";
-import Icon from "./img/iconInfoCircle.svg";
-import User from "./img/iconUser.svg";
-import Ilustration from "./img/aboutIlustration.svg";
-import IconGitHub from "./img/iconGithub.svg";
-import IconLinkedin from "./img/iconAwesomeLinkedin.svg";
-import IconMessage from "./img/iconEnvelope.svg";
+import Ilustration from "../../assets/img/aboutIlustration.svg";
+import IconGitHub from "../../assets/img/iconGithub.svg";
+import IconLinkedin from "../../assets/img/iconAwesomeLinkedin.svg";
+import IconMessage from "../../assets/img/iconEnvelope.svg";
+import ErickRosa from "../../assets/img/erickRosa.jpeg";
+import SamirSantos from "../../assets/img/samirSantos.jpeg";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import "../../css/AppStyleAbout.css"
+
+
 
 export default function App () {
-
+  
   return(
       <div className="divContainer">
-        <header>
-          <div className="logo">
-            hashtag<span>finder</span>
-          </div>
-          <div className="divButtonsHeader">
-            <div className="buttonAbout">
-              <button>
-                <img src={Icon}/>
-                Sobre
-              </button>
-            </div>
-            <div className="buttonLogin">
-              <button>
-              <img src={User}/>
-                Login
-              </button>
-            </div>
-          </div>
-        </header>
+        <Navbar/>
         <body>
           <div className="divAboutProject">
             <div className="descriptionAboutProject">
@@ -56,20 +43,20 @@ export default function App () {
             <div className="boxAboutWe">
               <div className="profile">
                 <img className="imgProfile" src="#"/>
-                <h4>Nome Sobrenome</h4>
+                <h4>Daniel Denardi</h4>
                 <p>
                    Lorem Ipsum is simply dummy text of the
                    printing and typesetting industry. 
                 </p>
                 <div className="ourIcons">
-                  <img src={IconGitHub}/>
+                  <img href="" src={IconGitHub}/>
                   <img src={IconMessage}/>
                   <img src={IconLinkedin}/>
                 </div>
               </div>
               <div className="profile">
-                <img className="imgProfile" src="#"/>
-                <h4>Nome Sobrenome</h4>
+                <img className="imgProfile" src={ErickRosa}/>
+                <h4>Erick Rosa</h4>
                 <p>
                    Lorem Ipsum is simply dummy text of the
                    printing and typesetting industry.
@@ -82,7 +69,7 @@ export default function App () {
               </div>
               <div className="profile">
                 <img className="imgProfile" src="#"/>
-                <h4>Nome Sobrenome</h4>
+                <h4>Luan Santos</h4>
                 <p>
                    Lorem Ipsum is simply dummy text of the
                    printing and typesetting industry.
@@ -94,8 +81,8 @@ export default function App () {
                 </div>
               </div>
               <div className="profile">
-                <img className="imgProfile" src="#"/>
-                <h4>Nome Sobrenome</h4>
+                <img className="imgProfile" src={SamirSantos}/>
+                <h4>Samir Santos</h4>
                 <p>
                    Lorem Ipsum is simply dummy text of the
                    printing and typesetting industry.
@@ -109,9 +96,7 @@ export default function App () {
             </div>
           </div>
         </body>
-        <footer>
-          <p>@Cocreare 2022.Todos os direitos reservados</p>
-        </footer>
+        <Footer />
       </div>
   )
 }
