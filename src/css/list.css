@@ -1,0 +1,63 @@
+.ListMain{
+    height: 100vh;
+    background-color: #1E3E7B;
+    display: flex;
+    justify-content: center;
+}
+
+.ListContainer{
+    margin-top: 130px;
+    width: 80%;
+    
+}
+
+.ListTitle{
+    color: #72EFDB;
+}
+
+.ListTable {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: rgba(24, 50, 107, 0.7);
+    border-radius: 14px;
+}
+
+.ListColumns {
+    display: flex;
+    align-items: end;
+    padding: 30px;
+    background-color: rgba(24, 50, 107, 1);
+    border-radius: 14px;
+    opacity: 0.78;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    color: #72EFDB;
+    height: 100px;
+}
+
+/* Columns width */
+.hashTagColumn{
+    width: 70%;
+    font-weight: 600;
+}
+
+.dateColumn, .hourColumn{
+    width: 15%;
+    font-weight: 600;
+}
+
+/* Row Styles */
+.ListRow {
+    display: flex;
+    padding: 30px;
+    color: white;
+}
+
+.RowHashtagName{
+    width: 70%;
+}
+
+.RowDate, .HourDate{
+    width: 15%;
+}

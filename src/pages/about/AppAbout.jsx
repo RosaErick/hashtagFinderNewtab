@@ -7,7 +7,12 @@ import ErickRosa from "../../assets/img/erickRosa.jpeg";
 import SamirSantos from "../../assets/img/samirSantos.jpeg";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import "../../css/AppStyleAbout.css"
+import "../../css/AppStyleAbout.css";
+
+// navbar icons
+import logIcon from "../../assets/img/icon-home.svg";
+import logoutIcon from "../../assets/img/icon-power-off.svg"
+
 
 
 
@@ -15,7 +20,7 @@ export default function App () {
   
   return(
       <div className="divContainer">
-        <Navbar/>
+        <Navbar buttons={[{"title": "Home", "icon": logIcon, "route": "/","backgroundColor": "#72EFDB", "textColor": "#0A1744"}, {"title": "Sair", "icon": logoutIcon, "route": "/sair","backgroundColor": "#0A1744", "textColor": "#FFF"}]}/>
         <body>
           <div className="divAboutProject">
             <div className="descriptionAboutProject">
