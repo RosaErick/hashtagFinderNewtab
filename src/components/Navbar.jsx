@@ -18,13 +18,13 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div class="nav-menu">
-          <button class="about-btn">
+        <div className="nav-menu">
+          <button className="about-btn">
             {" "}
             <img src={infoIcon} alt="info-icon" /> Sobre
           </button>
           <Link to="/login">
-            <button class="login-btn">
+            <button className="login-btn">
               {" "}
               <img src={logIcon} alt="icon-user" />
               Login

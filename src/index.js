@@ -16,13 +16,12 @@ import Home from './pages/home/Home';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />}/>
-      <Route path="/404" element={<NotFound/>}/>
-      <Route path="*" element={<Navigate to="/404"/>}/>
-      <Route path="/login" element={<Login /> } />
-
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
