@@ -75,4 +75,22 @@
         margin-left: 10px;
         margin-right: 10px;
     }
+
+    /* Column Responsive Styles */
+    .hashTagColumn {
+        width: 60%;
+    }
+
+    .dateColumn, .hourColumn {
+        width: 20%;
+    }
+
+    /* Row Responsive Styles */
+    .RowHashtagName {
+        width: 60%;
+    }
+
+    .RowDate, .HourDate {
+        width: 20%;
+    }
 }
