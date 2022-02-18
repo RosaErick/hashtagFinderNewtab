@@ -1,4 +1,4 @@
-.nav-wrapper {
+.navWrapper {
   position: fixed;
   width: 100%;
   background: rgb(10, 23, 68, 0.75);
@@ -6,7 +6,7 @@
   opacity: 1;
 }
 
-.nav-header {
+.navHeader {
   top: 0px;
   left: 0px;
   height: 100px;
@@ -21,11 +21,11 @@
   z-index: 1;
 }
 
-.nav-title {
+.navTitle {
   margin-left: 50px;
 }
 
-.nav-title h2 {
+.navTitle h2 {
   font-size: 35px;
   font-weight: 400;
   opacity: 1;
@@ -33,11 +33,11 @@
   letter-spacing: 0px;
 }
 
-.nav-title span {
+.navTitle span {
   font: normal normal bold 35px/27px Rubik;
 }
 
-.nav-menu {
+.navMenu {
   max-width: 100%;
   max-height: 100%;
   margin-right: 50px;
@@ -45,13 +45,13 @@
   flex-direction: space-between;
 }
 
-.about-btn {
+.aboutBtn {
   background-color: #72efdb;
   color: #0b1741;
   margin-right: 30px;
 }
 
-.nav-menu button {
+.navMenu button {
   border-radius: 25px;
   font-size: 17px;
   padding: 13px 30px;
@@ -61,19 +61,19 @@
   letter-spacing: 2.55px;
 }
 
-.login-btn {
+.loginBtn {
   background-color: #1e3e7b;
   color: #fff;
 }
 
-.nav-menu button > img {
+.navMenu button > img {
   padding-right: 10px;
 }
 
-.nav-menu a {
+.navMenu a {
   text-decoration: none;
 }
-.nav-menu svg {
+.navMenu svg {
   width: 12px;
   height: 12px;
 }
@@ -82,24 +82,24 @@
 
 @media (max-width:800px) {
 
-.nav-title{
+.navTitle{
 margin-left:15px;
 
 }
 
-.nav-title h2{
+.navTitle h2{
 font-size: 30px;
 font: normal normal normal 19px/14px Rubik;
 }
 
-.nav-title span{
+.navTitle span{
 font: normal normal bold 19px/14px Rubik;
 }
-.nav-menu{
+.navMenu{
 margin-right: 0;
 }
 
-.nav-menu button{
+.navMenu button{
 font: normal normal bold 10px/7px Rubik;
   padding: 10px 25px;
   margin-right: 15px;
