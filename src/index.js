@@ -8,7 +8,7 @@ import "./css/Global.css";
 
 //pages and imports
 import NotFound from './components/NotFound';
-import Login from './pages/login/Login';
+import Login from './pages/login/login';
 import Home from './pages/home/Home';
 
 

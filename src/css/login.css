@@ -1,48 +1,101 @@
- body{
-    background-image: url('../assets/img/hero-bg.jpg');
-    background-size: cover;
-}
 
-.Body{
+.mainLogin{
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
-.form-container{
-    
-    width: 40%;
-    height: 300px;
+    height: 140vh;
+    background:var(--dark-blue-variation);
+    background-image: url('../assets/img/hero-bg.jpg');
+    background-position: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    
+}
+
+.formContainer{
+    
+    margin-top: 15%;
+    width: 35%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     background-color: #18326B;
-    opacity: 100%;
+    opacity: 70%;
     border-radius: 14px;
 }
 
-.form-container h2{
+
+.formContainer h2{
+    margin-top: 10%;
+    margin-bottom: 20%;
     color: #72EFDB;
     background-color:#18326B;
-}
-
-.form-container form{
-    
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: spa;
 
 }
 
-.text-input{
+  
+.loginForm {
 
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 40px;
+    color: #E9E9F0;
+    background: #18326B;
+    opacity: 100%;
+    border-radius: 10px;
 }
+    
+.formInput {
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+    margin: 8px;
+    background-color: #18326B;
+    border-color: #E9E9F0;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+  
+
+.inputContainer{
+    width: 100%;
+    
+}
+
+.textInput{
+    width: 90%;
+    opacity: 100%;
+    border-bottom: #E9E9F0;
+}
+
+.submitBtn {
+    background-color: #72efdb;
+    color: #0b1741;
+    margin-top: 20%;
+    margin-left: 20%;
+}
+
+@media screen and (min-width: 411px) {
+    
+    .formContainer{
+    
+        margin-top: 30%;
+        width: 60%;
+        height: 60vh;
+        
+    }
+
+    .submitBtn {
+
+        margin-top: 20%;
+        margin-left: 0%;
+    }
+    
+  } 
