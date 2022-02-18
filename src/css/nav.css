@@ -78,61 +78,47 @@
   height: 12px;
 }
 
+@media (max-width: 800px) {
+  .navTitle {
+    margin-left: 15px;
+  }
 
-@media (max-width:768px) {
+  .navTitle h2 {
+    font-size: 30px;
+    font: normal normal normal 19px/14px Rubik;
+  }
 
-.navTitle{
-margin-left:15px;
+  .navTitle span {
+    font: normal normal bold 19px/14px Rubik;
+  }
+  .navMenu {
+    margin-right: 0;
+  }
 
+  .navMenu button {
+    font: normal normal bold 10px/7px Rubik;
+    padding: 10px 25px;
+    margin-right: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1.5px;
+    opacity: 1;
+  }
 }
 
-.navTitle h2{
-font-size: 30px;
-font: normal normal normal 19px/14px Rubik;
-}
+@media (max-width: 414px) {
+  .navTitle {
+    margin: 0 0 0 10px;
+  }
 
-.navTitle span{
-font: normal normal bold 19px/14px Rubik;
-}
-.navMenu{
-margin-right: 0;
-}
-
-.navMenu button{
-font: normal normal bold 10px/7px Rubik;
-  padding: 10px 25px;
-  margin-right: 15px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  letter-spacing: 1.5px;
-  opacity: 1;
-
-}
-
-
-
-
-}
-
-
-@media (max-width:414px) {
-.navTitle{
-margin: 0 0 0 10px;
-}
-
-
-
-
-  
   .navMenu button {
     font: normal normal bold 10px/7px Rubik;
     padding: 10px 10px;
     display: flex;
     letter-spacing: 1.5px;
     opacity: 1;
-    margin:0 10px 0 0;
+    margin: 0 10px 0 0;
   }
-
 }
