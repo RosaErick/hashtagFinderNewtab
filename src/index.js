@@ -21,8 +21,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/404" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/404" />} />
+        <Route path="*" element={<NotFound />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/list" element={<List />}/>
         <Route path="/about" element={<About/>}/>
