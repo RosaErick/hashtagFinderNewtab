@@ -8,3 +8,16 @@
     list-style: none;
     font-family: "Rubik", sans-serif;
 }
+
+
+
+
+:root {
+--dark-blue: #0A1744;
+--dark-blue-variation:#0B1741;
+--blue: #1E3E7B;
+--white: #FFFFFF;
+--purple-mid:#5538EE29;
+--black:#000000;
+--light-green:#72EFDB;
+}
