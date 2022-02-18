@@ -72,15 +72,15 @@ input:focus {
   position: absolute;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1440px) {
   .heroContainer {
-    width: 80%;
+    width: 100%;
+    margin: 0 auto;
   }
 
+  
   .heroContainer h1 {
-    font-size: 50px;
-    margin-top: 20px;
-    margin-right: 70px;
+    font-size: 60px;
   }
 
   .heroContainer p {
@@ -113,7 +113,7 @@ input:focus {
 
   .heroContainer {
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
     align-items: center;
   }
 

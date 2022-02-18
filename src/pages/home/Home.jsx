@@ -9,7 +9,7 @@ import logIcon from "../../assets/img/icon-user-alt.svg";
 const Home = () => {
   return (
     <>
-          <Navbar buttons={[{ "title": "Sobre", "icon":infoIcon, "route": "/about","textColor": "#0A1744", "backgroundColor": "#72EFDB" }, {"title": "Login", "icon":logIcon, "route": "/login","textColor": "#FFF", "backgroundColor": "#0A1744"}]} />
+          <Navbar buttons={[{ "title": "Sobre", "icon":infoIcon, "route": "/about","textColor": "#0A1744", "backgroundColor": "#72EFDB" }, {"title": "Login", "icon":logIcon, "route": "/login","textColor": "#FFF", "backgroundColor": "#1E3E7B"}]} />
       <Hero />
       <main className="main-home">
         <h2>Exibindo os 10 resultados mais recentes para #Natureza</h2>
