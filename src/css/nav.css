@@ -1,12 +1,9 @@
-
-
-
 .nav-wrapper {
-  position:fixed;
+  position: fixed;
   width: 100%;
-  backdrop-filter: blur(500px);
+  background: rgb(10, 23, 68, 0.75);
   z-index: 1;
-
+  opacity: 1;
 }
 
 .nav-header {
@@ -16,15 +13,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-  background: #0A1744 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 29px #5538EE1F;
+  background: #0a1744 0% 0% transparent padding-box;
+  box-shadow: 0px 3px 29px #5538ee1f;
   opacity: 1;
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
   flex-wrap: wrap;
-
-  
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1;
 }
 
 .nav-title {
@@ -52,19 +47,19 @@
 }
 
 .about-btn {
- background-color: #72efdb;
- color: #0b1741;
- margin-right: 30px;
+  background-color: #72efdb;
+  color: #0b1741;
+  margin-right: 30px;
 }
 
 .nav-menu button {
- border-radius: 25px;
- font-size: 17px;
- padding: 13px 30px;
- font-weight: bold;
- border: none;
- text-transform: uppercase;
- letter-spacing: 2.55px;
+  border-radius: 25px;
+  font-size: 17px;
+  padding: 13px 30px;
+  font-weight: bold;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2.55px;
 }
 
 .login-btn {
@@ -83,5 +78,3 @@
   width: 12px;
   height: 12px;
 }
-
-
