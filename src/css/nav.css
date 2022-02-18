@@ -79,7 +79,6 @@
 }
 
 
-
 @media (max-width:800px) {
 
 .navTitle{
@@ -114,5 +113,26 @@ font: normal normal bold 10px/7px Rubik;
 
 
 
+
+}
+
+
+@media (max-width:414px) {
+.navTitle{
+margin: 0 0 0 10px;
+}
+
+
+
+
+  
+  .navMenu button {
+    font: normal normal bold 10px/7px Rubik;
+    padding: 10px 10px;
+    display: flex;
+    letter-spacing: 1.5px;
+    opacity: 1;
+    margin:0 10px 0 0;
+  }
 
 }

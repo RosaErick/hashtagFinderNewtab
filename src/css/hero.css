@@ -87,3 +87,51 @@ input:focus {
     font-size: 20px;
   }
 }
+
+@media (max-width: 414px) {
+  .heroHeader {
+    background: url(../assets/img/mobile-hero-bg.jpg) 50% no-repeat;
+  }
+}
+
+@media (max-width: 800px) {
+  .heroHeader {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heroSearchBar input {
+    font-size: 17px;
+  }
+
+  .heroSearchBar img {
+    padding: 20px 0px 0 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+  }
+
+  .heroContainer {
+    width: 100%;
+    margin: 0;
+    align-items: center;
+  }
+
+  .heroContainer h1 {
+    font: normal normal bold 36px/39px Rubik;
+    margin: 0 30px;
+    text-align: left;
+  }
+  .heroContainer p {
+    font: normal normal normal 16px/22px Rubik;
+    margin: 0 30px;
+  }
+
+  .heroSearchBar {
+    max-width: 330px;
+  }
+
+  .heroSearchBar input {
+    padding: 20px 0;
+  }
+}
