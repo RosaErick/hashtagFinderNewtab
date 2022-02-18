@@ -18,8 +18,8 @@
   width: 42%;
   justify-content: space-around;
   align-items: center;
-  margin: 120px 100px 30px 100px;
-  gap: 20px;
+  margin: 30px 100px 30px 100px;
+  gap: 15px;
 }
 
 .hero-container h1 {
@@ -69,6 +69,18 @@ input:focus {
   z-index: 1;
   width: 100%;
   height: 100px;
-  bottom: 0;
+  bottom:0;
   position: absolute;
+}
+
+@media (max-width: 1400px){
+.hero-container{
+  width: 60%;
+
+}
+
+.hero-container h1 {
+font-size: 60px;
+}
+
 }
