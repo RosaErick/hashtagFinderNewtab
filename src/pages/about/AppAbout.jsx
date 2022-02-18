@@ -25,7 +25,6 @@ export default function App () {
         <Navbar buttons={[{"title": "Sobre", "icon": iconInfo, "route": "/about","backgroundColor": "#72EFDB", "textColor": "#0A1744"},
                           {"title": "Login", "icon": iconUser, "route": "/login","backgroundColor": "#0A1744", "textColor": "#FFF"}
                         ]}/>
-        <body>
           <div className="divAboutProject">
             <div className="descriptionAboutProject">
               <h1>Sobre o projeto</h1>
@@ -105,7 +104,6 @@ export default function App () {
               </div>
             </div>
           </div>
-        </body>
         <Footer />
       </div>
   )
