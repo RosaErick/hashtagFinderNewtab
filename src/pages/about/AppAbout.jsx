@@ -12,14 +12,9 @@ import Navbar from "../../components/Navbar";
 import "../../css/AppStyleAbout.css";
 
 // navbar icons
-<<<<<<< HEAD
 import iconInfo from "../../assets/img/iconInfoCircle.svg";
 import iconUser from "../../assets/img/iconUserAlt.svg"
 
-=======
-import homeIcon from "../../assets/img/icon-home.svg"
-import logIcon from "../../assets/img/icon-user-alt.svg";
->>>>>>> 888bb6bea51a730931c854c0e9a81049e471a8da
 
 
 
@@ -27,13 +22,9 @@ export default function App () {
   
   return(
       <div className="divContainer">
-<<<<<<< HEAD
         <Navbar buttons={[{"title": "Sobre", "icon": iconInfo, "route": "/about","backgroundColor": "#72EFDB", "textColor": "#0A1744"},
                           {"title": "Login", "icon": iconUser, "route": "/login","backgroundColor": "#0A1744", "textColor": "#FFF"}
                         ]}/>
-=======
-                  <Navbar buttons={[{ "title": "Home", "icon":homeIcon, "route": "/","textColor": "#0A1744", "backgroundColor": "#72EFDB" }, {"title": "Login", "icon":logIcon, "route": "/login","textColor": "#FFF", "backgroundColor": "#0A1744"}]} />
->>>>>>> 888bb6bea51a730931c854c0e9a81049e471a8da
         <body>
           <div className="divAboutProject">
             <div className="descriptionAboutProject">
