@@ -1,7 +1,7 @@
 
 .mainLogin{
     width: 100%;
-    height: 140vh;
+    height: 100vh;
     background:var(--dark-blue-variation);
     background-image: url('../assets/img/hero-bg.jpg');
     background-position: 40%;
@@ -13,17 +13,16 @@
 
 .formContainer{
     
-    margin-top: 15%;
-    height: 80vh;
-    width: 40%;
-    height: 300px;
+    margin-top: 12%;
+    height: 80px;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background-color: #18326B;
     opacity: 70%;
-    border-radius: 14px;
+    
 }
 
 
@@ -83,8 +82,13 @@
     margin-left: 20%;
 }
 
-@media screen and (min-width: 411px) {
+@media screen and (max-width: 414px) {
     
+    .mainLogin{
+
+        height: 70vh;
+    }
+
     .formContainer{
     
         margin-top: 30%;
@@ -99,4 +103,22 @@
         margin-left: 0%;
     }
     
-  } 
+} 
+
+@media screen and (min-width: 414px) and (max-width: 768px) {
+    
+    .mainLogin{
+
+        height: 100vh;
+    }
+
+    .formContainer{
+    
+        margin-top: 15%;
+        width: 50%;
+        height: 50vh;
+        
+    }
+
+    
+}

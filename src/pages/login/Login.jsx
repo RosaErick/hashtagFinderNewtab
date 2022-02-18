@@ -7,8 +7,15 @@ import '../../css/login.css';
 function Login() {
     return (
       <>
-        <Navbar />
-        <main className="mainLogin">
+        <Navbar buttons={[
+            {"title": "Home", 
+              "icon": iconHome, 
+              "route": "/",
+              "backgroundColor": "#72EFDB", 
+              "textColor": "#0A1744"},
+              
+            ]}/>
+          <main className="mainLogin">
             
           
           <div className="formContainer">
@@ -25,7 +32,7 @@ function Login() {
                   
                 </div>
               
-                <div class="nav-menu">
+                <div class="navMenu">
                   <button class="submitBtn">
                     {" "}
                     ACESSAR
