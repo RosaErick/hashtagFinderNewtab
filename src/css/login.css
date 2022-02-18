@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 .mainLogin{
     width: 100%;
@@ -15,13 +14,9 @@
 .formContainer{
     
     margin-top: 15%;
-    width: 35%;
     height: 80vh;
-=======
-.form-container{
     width: 40%;
     height: 300px;
->>>>>>> 8eda7d1d78c4ec5616edd2c47e885bee8fcf1534
     display: flex;
     flex-direction: column;
     align-items: center;
