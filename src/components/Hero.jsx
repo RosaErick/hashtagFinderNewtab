@@ -1,5 +1,7 @@
 import React from "react";
 import "../css/hero.css";
+import IconSearch from "../assets/img/icon-search.svg"
+
 
 
 export default function Hero() {
@@ -15,8 +17,9 @@ export default function Hero() {
       </div>
 
       <div className="hero-search-bar">
-        <input type="search" />
-      </div>
+                    <img src={IconSearch} alt="" /> <input type="search"  placeholder="Buscar..." /> 
+                    </div>
+                   
     </header>
   );
 }
