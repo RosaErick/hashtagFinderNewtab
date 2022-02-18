@@ -1,7 +1,6 @@
 import React from "react";
 import "../css/nav.css";
-import infoIcon from "../assets/img/icon-info-circle.svg";
-import logIcon from "../assets/img/icon-user-alt.svg";
+
 import { Link } from "react-router-dom";
 
 export default function Navbar({buttons}) {
