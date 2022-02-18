@@ -5,7 +5,7 @@
 
 /*Início da Estilização div Sobre o Projeto*/
 .divAboutProject{
-    width: 1920px;
+    width: 100%;
     height: 916px;
     display: flex;
     flex-direction: row;
@@ -47,7 +47,7 @@
 
 /*Início da Estilização div Quem Somos*/
 .divWhoWeAre{
-    width: 1920px;
+    width: 100%;
     height: 802px;
     background: #0A1744 0% 0% no-repeat padding-box;
 }

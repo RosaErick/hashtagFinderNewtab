@@ -45,11 +45,12 @@ export default function App () {
                 <img className="imgProfile" src="#"/>
                 <h4>Daniel Denardi</h4>
                 <p>
-                   Lorem Ipsum is simply dummy text of the
-                   printing and typesetting industry. 
+                  M.e em Ciências da Linguagem, Eng. Elétrico e Psicólogo,
+                  aprimorando habilidades técnicas em Desenvolvimento Web Full Stack,
+                  com foco em React. 
                 </p>
                 <div className="ourIcons">
-                  <img href="" src={IconGitHub}/>
+                  <img src={IconGitHub}/>
                   <img src={IconMessage}/>
                   <img src={IconLinkedin}/>
                 </div>
@@ -58,8 +59,8 @@ export default function App () {
                 <img className="imgProfile" src={ErickRosa}/>
                 <h4>Erick Rosa</h4>
                 <p>
-                   Lorem Ipsum is simply dummy text of the
-                   printing and typesetting industry.
+                  Esp. em Tradução de Inglês, Ldo. em História, aprimorando
+                  habilidades técnicas em Desenvolvimento Web, com foco em Front End.
                 </p>
                 <div className="ourIcons">
                   <img src={IconGitHub}/>
@@ -71,8 +72,8 @@ export default function App () {
                 <img className="imgProfile" src="#"/>
                 <h4>Luan Santos</h4>
                 <p>
-                   Lorem Ipsum is simply dummy text of the
-                   printing and typesetting industry.
+                  Tec. em Multimídia e Design Gráfico, Desenvolvedor Júnior pioneiro
+                  com os Bots no Discord, e aprimorando habilidades técnicas em Desenvolvimento Web Full Stack.
                 </p>
                 <div className="ourIcons">
                   <img src={IconGitHub}/>
@@ -84,8 +85,8 @@ export default function App () {
                 <img className="imgProfile" src={SamirSantos}/>
                 <h4>Samir Santos</h4>
                 <p>
-                   Lorem Ipsum is simply dummy text of the
-                   printing and typesetting industry.
+                   M.e em Ciências da Educação, Ldo. em Ciências Biológicas,
+                   aprimorando habilidades técnicas em Desenvolvimento Web Full Stack.
                 </p>
                 <div className="ourIcons">
                   <img src={IconGitHub}/>
