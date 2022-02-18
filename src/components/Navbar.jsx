@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/nav-footer.css";
+import "../css/nav.css";
 import infoIcon from "../assets/img/icon-info-circle.svg";
 import logIcon from "../assets/img/icon-user-alt.svg";
 import { Link } from "react-router-dom";
@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <>
-      <nav class="nav-header">
-        <div class="nav-title">
+      <div className="nav-wrapper">
+      <nav className="nav-header">
+        <div className="nav-title">
           <Link to="/">
             {" "}
             <h2>
@@ -18,19 +19,20 @@ export default function Navbar() {
         </div>
 
         <div class="nav-menu">
-          <button>
+          <button class="about-btn">
             {" "}
             <img src={infoIcon} alt="info-icon" /> Sobre
           </button>
           <Link to="/login">
-            <button>
+            <button class="login-btn">
               {" "}
               <img src={logIcon} alt="icon-user" />
               Login
             </button>
           </Link>
         </div>
-      </nav>
+        </nav>
+        </div>
     </>
   );
 }

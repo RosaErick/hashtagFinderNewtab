@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 //css imports
+import "./css/Global.css";
 // import './css/index.css';
 
-//pages imports
+//pages and imports
 import NotFound from './components/NotFound';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
+
 
 
 ReactDOM.render(

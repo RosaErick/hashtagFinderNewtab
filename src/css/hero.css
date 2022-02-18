@@ -1,5 +1,5 @@
 .hero-header {
-background-image: url(../assets/img/hero-bg.jpg) 50% no-repeat;
+background: url(../assets/img/hero-bg.jpg) 100% no-repeat;
 position: relative;
 height: 100vh;
 width: 100%;
@@ -9,9 +9,6 @@ margin:0;
 display: flex;
 flex-direction: column;
 color:#fff;
- -webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
  background-size: cover;
 }
 

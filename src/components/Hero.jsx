@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/hero.css";
-import "../css/nav-footer.css";
+
 
 export default function Hero() {
   return (

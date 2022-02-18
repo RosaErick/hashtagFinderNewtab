@@ -1,0 +1,87 @@
+
+
+
+.nav-wrapper {
+  position:fixed;
+  width: 100%;
+  backdrop-filter: blur(500px);
+  z-index: 1;
+
+}
+
+.nav-header {
+  top: 0px;
+  left: 0px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  background: #0A1744 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 29px #5538EE1F;
+  opacity: 1;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  flex-wrap: wrap;
+
+  
+}
+
+.nav-title {
+  margin-left: 50px;
+}
+
+.nav-title h2 {
+  font-size: 35px;
+  font-weight: 400;
+  opacity: 1;
+  color: #ffffff;
+  letter-spacing: 0px;
+}
+
+.nav-title span {
+  font: normal normal bold 35px/27px Rubik;
+}
+
+.nav-menu {
+  max-width: 100%;
+  max-height: 100%;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: space-between;
+}
+
+.about-btn {
+ background-color: #72efdb;
+ color: #0b1741;
+ margin-right: 30px;
+}
+
+.nav-menu button {
+ border-radius: 25px;
+ font-size: 17px;
+ padding: 13px 30px;
+ font-weight: bold;
+ border: none;
+ text-transform: uppercase;
+ letter-spacing: 2.55px;
+}
+
+.login-btn {
+  background-color: #1e3e7b;
+  color: #fff;
+}
+
+.nav-menu a > button > img {
+  padding-right: 10px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+}
+.nav-menu svg {
+  width: 12px;
+  height: 12px;
+}
+
+
