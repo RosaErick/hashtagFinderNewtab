@@ -10,7 +10,7 @@ import Navbar from "../../components/Navbar";
 import "../../css/AppStyleAbout.css";
 
 // navbar icons
-import infoIcon from "../../assets/img/icon-info-circle.svg"
+import homeIcon from "../../assets/img/icon-home.svg"
 import logIcon from "../../assets/img/icon-user-alt.svg";
 
 
@@ -19,7 +19,7 @@ export default function App () {
   
   return(
       <div className="divContainer">
-                  <Navbar buttons={[{ "title": "Home", "icon":infoIcon, "route": "/","textColor": "#0A1744", "backgroundColor": "#72EFDB" }, {"title": "Login", "icon":logIcon, "route": "/login","textColor": "#FFF", "backgroundColor": "#0A1744"}]} />
+                  <Navbar buttons={[{ "title": "Home", "icon":homeIcon, "route": "/","textColor": "#0A1744", "backgroundColor": "#72EFDB" }, {"title": "Login", "icon":logIcon, "route": "/login","textColor": "#FFF", "backgroundColor": "#0A1744"}]} />
         <body>
           <div className="divAboutProject">
             <div className="descriptionAboutProject">
