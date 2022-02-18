@@ -1,30 +1,22 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
-/* Import Roboto font (Bold: 700, Light: 300) */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
-
-html, body, #root, .main{
-    height: 100%;
-    width: 100%;
-}
-
-body{
+.NotFoundMain{
+    height: 100vh;
     background-image: url('../assets/img/table-bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
 }
 
-.main{
+.NotFoundContainer{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 90%;
 }
 
 .searchImg{
     width: 20%;
+    margin: 20px;
 }
 
 .searchImg > img{
@@ -78,7 +70,7 @@ body{
 
 /* Mobile reponsive */
 @media only screen and (max-width: 768px) {
-    .main{
+    .NotFoundContainer{
         flex-direction: column-reverse;
     }
     .searchImg{
@@ -86,7 +78,7 @@ body{
     }
 
     .texts{
-        width: 80%;
+        width: 90%;
         font-size: 3vw;
     }
 }
