@@ -29,17 +29,17 @@ export default function App () {
             <div className="descriptionAboutProject">
               <h1>Sobre o projeto</h1>
               <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-                eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-                sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna 
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem 
-                ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt 
-                ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.
+                Este projeto visa envolver as atuações de um Desenvolvedor Web Front End. Com isso,
+                elaboramos uma página web responsiva para visualização de mensagens e imagens associados
+                com a API do <i>Twitter</i>. Ele foi desenvolvido por quatro indivíduos, todos estudantes
+                do curso de Desenvolvimento Web da <strong>Newtab Academy</strong>, uma escola de tecnologia
+                especializada na formação profissional e empregabilidade na área de programação, em que foram
+                utilizados os conhecimentos adquiridos nos módulos de HTML, CSS, Javascript e React. O projeto
+                está distribuido em duas partes: as páginas acessíveis ao público e as páginas restritas. As
+                acessíveis são a <i>Home</i>, com um campo de busca via <i>hashtag</i> e áreas para observar
+                mensagens e imagens; e a <i>Sobre</i>, onde vemos uma breve explicação do projeto e apresentação
+                dos envolvidos. Nas restritas, temos a <i>Login</i>, com campo de e-mail, senha e botão de acesso;
+                e a <i>Listagem de buscas</i>, que apresenta uma tabela com as <i>hashtags</i>, data e hora das publicações. 
               </p>
             </div>
             <div className="ilustrationAboutProject">
