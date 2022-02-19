@@ -17,7 +17,7 @@
   box-shadow: 0px 3px 29px #5538ee1f;
   opacity: 1;
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 1;
 }
 

@@ -1,0 +1,68 @@
+.cardContainer {
+  display: flex;
+  max-width: 800px;
+  background: #1e3e7b17 0% 0% no-repeat padding-box;
+  border: 1px solid #ffffff24;
+  border-radius: 15px;
+  opacity: 1;
+  padding: 20px;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: space-around;
+  max-height: fit-content;
+  margin: 5px;
+}
+
+.cardContentTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cardContentTitle h3 {
+  color: var(--white);
+  text-align: left;
+  font: normal normal medium 27px/30px Rubik;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+
+.cardContentTitle p {
+  font: normal normal normal 20px/22px Rubik;
+  letter-spacing: 0px;
+  color: var(--white);
+  opacity: 0.43;
+}
+
+.tweetText {
+  min-height: 80px;
+  width: 100%;
+  max-height: fit-content;
+  font: normal normal normal 19px/25px Rubik;
+  color: #d9d9d9;
+  letter-spacing: 0.23px;
+  text-align: left;
+  opacity: 1;
+}
+
+.cardImage img {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+}
+
+.cardContent span {
+  color: var(--light-green);
+  text-align: left;
+  font: medium medium medium 20px/22px Rubik;
+  letter-spacing: 0px;
+  color: #72efdb;
+  opacity: 1;
+}
