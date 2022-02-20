@@ -34,9 +34,16 @@
 
 @media (max-width: 414px) {
   .imgContainer {
-    min-width: auto;
-    width: 50%;
+    min-width: 140px;
+    width: 60%;
     height: auto;
     margin: 10px 15px;
+  }
+
+  .imgContainer p {
+    font-size: 10px;
+  }
+  .imgContainer h3 {
+    font-size: 10px;
   }
 }
