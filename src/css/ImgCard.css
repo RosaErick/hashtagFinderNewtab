@@ -35,6 +35,7 @@
 @media (max-width: 414px) {
   .imgContainer {
     min-width: auto;
+    width: 50%;
     height: auto;
     margin: 10px 5px;
   }
