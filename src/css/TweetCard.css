@@ -1,13 +1,14 @@
 .cardContainer {
   display: flex;
-  max-width: 800px;
+  max-width: 80%;
   background: #1e3e7b17 0% 0% no-repeat padding-box;
   border: 1px solid #ffffff24;
   border-radius: 15px;
   opacity: 1;
-  padding: 20px;
+  padding: 25px;
   gap: 15px;
   margin-bottom: 20px;
+  min-width: none;
 }
 
 .cardContent {
@@ -18,6 +19,7 @@
   justify-content: space-around;
   max-height: fit-content;
   margin: 5px;
+  padding: 20px 30px 20px 0;
 }
 
 .cardContentTitle {
@@ -65,4 +67,18 @@
   letter-spacing: 0px;
   color: #72efdb;
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    max-width: 800px;
+  }
+
+  .cardContent {
+    padding: 0;
+  }
+
+  .tweetText {
+    font: medium medium medium 16px/18px;
+  }
 }

@@ -1,11 +1,10 @@
 .mainHome {
-background: #0A1744 0% 0% no-repeat padding-box;
+  background: #0a1744 0% 0% no-repeat padding-box;
   height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
- 
 }
 .mainHome h2 {
   text-align: center;
@@ -18,48 +17,109 @@ background: #0A1744 0% 0% no-repeat padding-box;
 .mainGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  max-width: 80%;
+  width: 100%;
   background: var(--dark-blue-variation);
   margin-bottom: 50px;
-  
+  gap: 2px;
 }
 
 .gridLeft {
-display: flex;
-flex-direction: column;
-
+  display: none;
+}
+.gridRight {
+  display: none;
 }
 
-.gridRight {
+.gridLeftDesktop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.gridRightDesktop {
   display: grid;
-  grid-auto-rows: 180px;
+  grid-auto-rows: 200px;
   grid-template-columns: 1fr;
   grid-column: 2/2;
 }
 
-.imgBox{
-display: flex;
-justify-content: center;
-gap: 40px;
-
+.imgBox {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 80%;
 }
 
-@media(max-width: 1024px){
-.mainGrid {
-  width: 100%;
-  gap: 30px;
+.mobileSelect {
+  display: none;
 }
 
+@media (max-width: 1024px) {
+  .mainGrid {
+    width: 100%;
+    gap: 30px;
+  }
 }
 
+@media (max-width: 768px) {
+  .gridRightDesktop {
+    display: none !important;
+  }
 
-@media (max-width:768px){
-.mainHome{
-padding: 0 20px;
-}
-  
-.mainGrid{
-  width: 100%;
-}
+  .gridLeftDesktop {
+    display: none !important;
+  }
 
+  .gridRight {
+    display: grid;
+    grid-auto-rows: 200px;
+    grid-template-columns: 1fr;
+    grid-column: span 3;
+  }
+
+  .gridLeft {
+    width: 100%;
+    grid-column: span 4;
+    margin: 0 3.125rem;
+    display: block;
+  }
+
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+
+  .mainHome {
+    padding: 0 20px;
+  }
+
+  .mainHome h2 {
+    display: none;
+  }
+
+  .mobileSelect {
+    display: block;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+  }
+
+  .mobileSelect button {
+    width: 100%;
+    border: none;
+    background: none;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 0px;
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 4px solid #cecece;
+  }
+  .buttonSelected {
+    color: #72efdb !important;
+    border-color: #72efdb !important;
+  }
 }
