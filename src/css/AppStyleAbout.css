@@ -6,7 +6,7 @@
 /*Início da Estilização div Sobre o Projeto*/
 .divAboutProject{
     width: 100%;
-    height: 916px;
+    height: 1133px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,7 +24,7 @@
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
-    margin-top: 133px;
+    margin-top: 233px;
     margin-left: 140px;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .ilustrationAboutProject img{
-    margin-top: 182px;
+    margin-top: 272px;
     margin-left: 230px;
 }
 
