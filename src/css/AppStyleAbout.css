@@ -118,3 +118,66 @@
     margin-right: 30px;
 }
 /*Fnal da Estilização div Quem Somos*/
+
+/*Início da responsividade 412px*/
+@media only screen and (max-width: 412px){
+    .divAboutProject{
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        
+    }
+
+    .descriptionAboutProject{
+        width: 412px;
+    }
+
+    .descriptionAboutProject h1{
+        font-size: 33px;
+        margin-left: 26px;
+        margin-top: 127px;
+    }
+
+    .descriptionAboutProject p{
+        margin: 20px 26px 0 26px;
+        font-size: 15px;
+        line-height: 2;
+    }
+
+    .ilustrationAboutProject{
+        width: 347px;
+        height: 330px;
+    }
+
+    .ilustrationAboutProject img{
+        width: 320px;
+        margin-top: 57px;
+        margin-left: 39px;
+    }
+
+    .divWhoWeAre, .boxAboutWe{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .divWhoWeAre{
+        height:2250px;
+    }
+
+    .divWhoWeAre h2{
+        position: relative;
+        top: 50px;
+        font-size: 27px;
+        margin-left: 26px;
+    }
+
+    .boxAboutWe{
+        margin-left: 29px;
+        margin-top: 45px;
+    }
+
+    .profile{
+        margin-top:46px;
+    }
+}
+/*Final da responsividade 412px*/
