@@ -14,10 +14,10 @@ import iconUser from "../../assets/img/iconUserAlt.svg"
 export default function App () {
 
   const dados = [
-    {"id":1,"name":"Daniel Denardi","img":"https://avatars.githubusercontent.com/u/84968799?v=4","description":"M.e em Ciências da Linguagem, Eng. Elétrico e Psicólogo, aprimorando Desenvolvimento Web Full Stack, foco em React.", "linkGitHub":"https://github.com/dandenardi","linkMessage":"","linkLinkedin":"https://www.linkedin.com/in/danieldenardi/"},
-    {"id":2,"name":"Erick Rosa","img":"https://github.com/rosaerick.png","description":"Esp.em Tradução de Inglês, Ldo. em História, aprimorando Desenvolvimento Web, foco em Front End","linkGitHub":"https://github.com/RosaErick","linkMessage":"","linkLinkedin":"https://www.linkedin.com/in/erick-rosa-dev//"},
-    {"id":3,"name":"Luan Santos","img":"https://avatars.githubusercontent.com/u/39232355?v=4","description":"Tec. em Multimídia, Dev. Jr. pioneiro com Bots no Discord, aprimorando Desenvolvimento Web Full Stack.","linkGitHub":"https://github.com/luandunas", "linkMessage":"", "linkLinkedin": "https://www.linkedin.com/in/luandunas/"},
-    {"id":4,"name":"Samir Santos","img":"https://avatars.githubusercontent.com/u/88064533?v=4","description":"M.e em Ciências da Educação, Ldo. em Biologia, aprimorando Desenvolvimento Web Full Stack.","linkGitHub":"https://github.com/santossamir","linkMessage":"","linkLinkedin":"https://www.linkedin.com/in/samir-santos-88191519b/"}
+    {"id":1,"name":"Daniel Denardi","img":"https://avatars.githubusercontent.com/u/84968799?v=4","description":"M.e em Ciências da Linguagem, Eng. Elétrico e Psicólogo, aprimorando Desenvolvimento Web Full Stack, foco em React.", "linkGitHub":"https://github.com/dandenardi","linkMessage":"mailto:dan.denardi@gmail.com","linkLinkedin":"https://www.linkedin.com/in/danieldenardi/"},
+    {"id":2,"name":"Erick Rosa","img":"https://github.com/rosaerick.png","description":"Esp. em Tradução de Inglês, Ldo. em História, aprimorando Desenvolvimento Web, foco em Front End.","linkGitHub":"https://github.com/RosaErick","linkMessage":"mailto:erickpmotta@gmail.com","linkLinkedin":"https://www.linkedin.com/in/erick-rosa-dev//"},
+    {"id":3,"name":"Luan Santos","img":"https://avatars.githubusercontent.com/u/39232355?v=4","description":"Tec. em Multimídia, Dev. Jr. pioneiro com Bots no Discord, aprimorando Desenvolvimento Web Full Stack.","linkGitHub":"https://github.com/luandunas", "linkMessage":"mailto:luan@dunas.ga", "linkLinkedin": "https://www.linkedin.com/in/luandunas/"},
+    {"id":4,"name":"Samir Santos","img":"https://avatars.githubusercontent.com/u/88064533?v=4","description":"M.e em Ciências da Educação, Ldo. em Biologia, aprimorando Desenvolvimento Web Full Stack.","linkGitHub":"https://github.com/santossamir","linkMessage":"mailto:santossamir@hotmail.com","linkLinkedin":"https://www.linkedin.com/in/samir-santos-88191519b/"}
   ];
 
 
@@ -60,7 +60,7 @@ export default function App () {
                   </p>
                   <div className="ourIcons">
                     <a href={item.linkGitHub}><img src={IconGitHub} alt="Imagem icone Github"/></a>
-                    <a href={item.linkMessage}><img src={IconMessage} alt="Imagem icone E-mail"/></a>
+                    <a href="mailto:{item.linkMessage}"><img src={IconMessage} alt="Imagem icone E-mail"/></a>
                     <a href={item.linkLinkedin}><img src={IconLinkedin} alt="Imagem icone Linkedin"/></a>
                   </div>
                 </div>
