@@ -45,7 +45,7 @@ export default function App () {
               </p>
             </div>
             <div className="ilustrationAboutProject">
-                <img src={Ilustration}/>
+                <img src={Ilustration} alt="Imagem ilustrativa"/>
             </div>
           </div>
           <div className="divWhoWeAre">
@@ -53,15 +53,15 @@ export default function App () {
             <div className="boxAboutWe">
               {dados.map(item =>(
                 <div key={item.id} className="profile">
-                  <img className="imgProfile" src={item.img}/>
+                  <img className="imgProfile" src={item.img} alt="Imagem perfil"/>
                   <h4>{item.name}</h4>
                   <p>
                     {item.description} 
                   </p>
                   <div className="ourIcons">
-                    <a href={item.linkGitHub}><img src={IconGitHub}/></a>
-                    <a href={item.linkMessage}><img src={IconMessage}/></a>
-                    <a href={item.linkLinkedin}><img src={IconLinkedin}/></a>
+                    <a href={item.linkGitHub}><img src={IconGitHub} alt="Imagem icone Github"/></a>
+                    <a href={item.linkMessage}><img src={IconMessage} alt="Imagem icone E-mail"/></a>
+                    <a href={item.linkLinkedin}><img src={IconLinkedin} alt="Imagem icone Linkedin"/></a>
                   </div>
                 </div>
               ))}
