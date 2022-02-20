@@ -31,13 +31,13 @@
 .cardContentTitle h3 {
   color: var(--white);
   text-align: left;
-  font: normal normal medium 27px/30px Rubik;
+  font: normal normal medium 25px/30px Rubik;
   letter-spacing: 0px;
   opacity: 1;
 }
 
 .cardContentTitle p {
-  font: normal normal normal 20px/22px Rubik;
+  font: normal normal normal 18px/22px Rubik;
   letter-spacing: 0px;
   color: var(--white);
   opacity: 0.43;
@@ -47,7 +47,7 @@
   min-height: 80px;
   width: 100%;
   max-height: fit-content;
-  font: normal normal normal 19px/25px Rubik;
+  font: normal normal normal 17px/25px Rubik;
   color: #d9d9d9;
   letter-spacing: 0.23px;
   text-align: left;
@@ -63,7 +63,7 @@
 .cardContent span {
   color: var(--light-green);
   text-align: left;
-  font: medium medium medium 20px/22px Rubik;
+  font: medium medium medium 18px/22px Rubik;
   letter-spacing: 0px;
   color: #72efdb;
   opacity: 1;
@@ -77,24 +77,32 @@
     gap: 0;
   }
 
+  .cardContentTitle {
+    border: 2px;
+  }
+
   .cardContent {
     padding: 0;
+    justify-content: center;
+    border: 2px;
   }
 
   .tweetText {
-    font: normal normal normal 12px/13px Rubik;
+    font: normal normal normal 14px/12px Rubik;
     letter-spacing: 0.14px;
     margin-top: 10px;
+    min-height: 50px;
+    width: 80%;
   }
 
   .cardContentTitle h3,
   .cardContainer p {
-    font: normal normal normal 12px/13px Rubik;
+    font: normal normal normal 15px/14px Rubik;
     width: 100%;
   }
 
   .cardContent span {
-    font: normal normal normal 12px/13px Rubik;
+    font-size: 12px;
   }
 
   .cardImage img {

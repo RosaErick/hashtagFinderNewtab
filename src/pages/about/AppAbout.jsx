@@ -1,6 +1,4 @@
 import React from "react";
-import {useState, useEffect} from "react";
-import axios from "axios";
 import Ilustration from "../../assets/img/aboutIlustration.svg";
 import IconGitHub from "../../assets/img/iconGithub.svg";
 import IconLinkedin from "../../assets/img/iconAwesomeLinkedin.svg";
@@ -15,14 +13,14 @@ import iconUser from "../../assets/img/iconUserAlt.svg"
 
 export default function App () {
 
-  const [itens, setItens] = useState([]);
+  const dados = [
+    {"id": 1,"name":"Daniel Denardi","img":"https://avatars.githubusercontent.com/u/84968799?v=4","description":"M.e em Ciências da Linguagem, Eng. Elétrico e Psicólogo, aprimorando Desenvolvimento Web Full Stack, foco em React.", "linkGitHub":"https://github.com/dandenardi","linkMessage":"","linkLinkedin":"https://www.linkedin.com/in/danieldenardi/"},
+    {"id":2,"name":"Erick Rosa","img":"https://github.com/rosaerick.png","description":"Esp.em Tradução de Inglês, Ldo. em História, aprimorando Desenvolvimento Web, foco em Front End","linkGitHub":"https://github.com/RosaErick","linkMessage":"","linkLinkedin":"https://www.linkedin.com/in/erick-rosa-dev//"},
+    {"id":3,"name":"Luan Santos","img":"https://avatars.githubusercontent.com/u/39232355?v=4","description":"Tec. em Multimídia, Dev. Jr. pioneiro com Bots no Discord, aprimorando Desenvolvimento Web Full Stack.","linkGitHub":"https://github.com/luandunas", "linkMessage":"", "linkLinkedin": "https://www.linkedin.com/in/luandunas/"},
+    {"id":4,"name":"Samir Santos","img":"https://avatars.githubusercontent.com/u/88064533?v=4","description":"M.e em Ciências da Educação, Ldo. em Biologia, aprimorando Desenvolvimento Web Full Stack.","linkGitHub":"https://github.com/santossamir","linkMessage":"","linkLinkedin":"https://www.linkedin.com/in/samir-santos-88191519b/"}
+  ];
 
-  useEffect(()=>{
-		axios.get("https://apiprojectteam.samirteixeira.repl.co/")
-			.then((resposta)=>{
-				setItens(resposta.data)
-		    })
-	}, []);
+
   
   return(
       <div className="divContainer">
@@ -53,7 +51,7 @@ export default function App () {
           <div className="divWhoWeAre">
             <h2>Quem somos</h2>
             <div className="boxAboutWe">
-              {itens.map(item =>(
+              {dados.map(item =>(
                 <div key={item.id} className="profile">
                   <img className="imgProfile" src={item.img}/>
                   <h4>{item.name}</h4>

@@ -8,10 +8,12 @@ import logIcon from "../../assets/img/icon-user-alt.svg";
 import TweetCard from "../../components/TweetCard";
 import ImgCard from "../../components/ImgCard";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [imageActive, setActiveState] = useState("");
   const [colorMode, setColorState] = useState("");
+  const [animationMode, setanimationMode] = useState(0);
 
   const toogleHandle = () =>
     setActiveState(!imageActive) || setColorState(!colorMode);
@@ -37,8 +39,8 @@ const Home = () => {
         ]}
       />
       <Hero />
+
       <main className="mainHome">
-        <h2>Exibindo os 10 resultados mais recentes para #Natureza</h2>
         <div className="mobileSelect">
           <button
             onClick={toogleHandle}
@@ -53,164 +55,186 @@ const Home = () => {
             Imagens
           </button>
         </div>
-        <section className="mainGrid">
-          <section className="gridLeftDesktop">
-            <div className="imgBox">
-              <ImgCard twitterUser="test" />
-              <ImgCard twitterUser="test" />
-            </div>
-            <div className="imgBox">
-              <ImgCard twitterUser="test" />
-              <ImgCard twitterUser="test" />
-            </div>
-            <div className="imgBox">
-              <ImgCard twitterUser="test" />
-              <ImgCard twitterUser="test" />
-            </div>
-            <div className="imgBox">
-              <ImgCard twitterUser="test" />
-              <ImgCard twitterUser="test" />
-            </div>
-            <div className="imgBox">
-              <ImgCard twitterUser="test" />
-              <ImgCard twitterUser="test" />
-            </div>
-          </section>
-          <section className="gridRightDesktop">
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-            <TweetCard
-              userImage="https://github.com/torvalds.png"
-              userName="UserName"
-              tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-            />
-          </section>
 
-          {imageActive ? (
-            <>
-              <section className="gridLeft">
-                <div className="imgBox">
-                  <ImgCard twitterUser="test" />
-                  <ImgCard twitterUser="test" />
-                </div>
-                <div className="imgBox">
-                  <ImgCard twitterUser="test" />
-                  <ImgCard twitterUser="test" />
-                </div>
-                <div className="imgBox">
-                  <ImgCard twitterUser="test" />
-                  <ImgCard twitterUser="test" />
-                </div>
-                <div className="imgBox">
-                  <ImgCard twitterUser="test" />
-                  <ImgCard twitterUser="test" />
-                </div>
-                <div className="imgBox">
-                  <ImgCard twitterUser="test" />
-                  <ImgCard twitterUser="test" />
-                </div>
-              </section>
-            </>
-          ) : (
-            <>
-              <section className="gridRight">
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-                <TweetCard
-                  userImage="https://github.com/torvalds.png"
-                  userName="UserName"
-                  tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
-                />
-              </section>
-            </>
-          )}
-        </section>
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+        >
+          <h2>Exibindo os 10 resultados mais recentes para #Natureza</h2>
+          <section className="mainGrid">
+            <section className="gridLeftDesktop">
+              <div className="imgBox">
+                <ImgCard twitterUser="test" />
+                <ImgCard twitterUser="test" />
+              </div>
+              <div className="imgBox">
+                <ImgCard twitterUser="test" />
+                <ImgCard twitterUser="test" />
+              </div>
+              <div className="imgBox">
+                <ImgCard twitterUser="test" />
+                <ImgCard twitterUser="test" />
+              </div>
+              <div className="imgBox">
+                <ImgCard twitterUser="test" />
+                <ImgCard twitterUser="test" />
+              </div>
+              <div className="imgBox">
+                <ImgCard twitterUser="test" />
+                <ImgCard twitterUser="test" />
+              </div>
+            </section>
+            <section className="gridRightDesktop">
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+              <TweetCard
+                userImage="https://github.com/torvalds.png"
+                userName="UserName"
+                tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+              />
+            </section>
+
+            {imageActive ? (
+              <motion.div
+                initial={{ y: animationMode, opacity: 0 }}
+                animate={{ y: animationMode, opacity: 1 }}
+                onClick={() => setanimationMode(animationMode)}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+                <>
+                  <section className="gridLeft">
+                    <div className="imgBox">
+                      <ImgCard twitterUser="test" />
+                      <ImgCard twitterUser="test" />
+                    </div>
+                    <div className="imgBox">
+                      <ImgCard twitterUser="test" />
+                      <ImgCard twitterUser="test" />
+                    </div>
+                    <div className="imgBox">
+                      <ImgCard twitterUser="test" />
+                      <ImgCard twitterUser="test" />
+                    </div>
+                    <div className="imgBox">
+                      <ImgCard twitterUser="test" />
+                      <ImgCard twitterUser="test" />
+                    </div>
+                    <div className="imgBox">
+                      <ImgCard twitterUser="test" />
+                      <ImgCard twitterUser="test" />
+                    </div>
+                  </section>
+                </>
+              </motion.div>
+            ) : (
+              <>
+                <section className="gridRight">
+                  <motion.div
+                    initial={{ y: animationMode, opacity: 0 }}
+                    animate={{ y: animationMode, opacity: 1 }}
+                    onClick={() => setanimationMode(!animationMode)}
+                    transition={{ duration: 0.7, delay: 0.4 }}
+                  >
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                    <TweetCard
+                      userImage="https://github.com/torvalds.png"
+                      userName="UserName"
+                      tweetText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+                    />
+                  </motion.div>
+                </section>
+              </>
+            )}
+          </section>
+        </motion.div>
       </main>
 
       <Footer />

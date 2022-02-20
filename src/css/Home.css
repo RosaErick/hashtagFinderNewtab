@@ -140,4 +140,9 @@
   .mainGrid {
     gap: 30px;
   }
+
+  .imgBox {
+    width: 100%;
+    gap: 0;
+  }
 }
