@@ -140,14 +140,14 @@ input:focus {
 
 @media (max-width: 414px) {
   .heroHeader {
-    background: url(../assets/img/mobile-hero-bg.jpg) 100% no-repeat;
+    background: url(../assets/img/mobile-hero-bg.jpg);
   }
 
   .heroContainer h1 {
     width: 90%;
   }
-  
-  .heroContainer p{
+
+  .heroContainer p {
     width: 90%;
   }
 }

@@ -71,7 +71,10 @@
 
 @media (max-width: 768px) {
   .cardContainer {
-    max-width: 800px;
+    margin: 10px;
+    max-width: 100%;
+    padding: 8px;
+    gap: 0;
   }
 
   .cardContent {
@@ -79,6 +82,26 @@
   }
 
   .tweetText {
-    font: medium medium medium 16px/18px;
+    font: normal normal normal 12px/13px Rubik;
+    letter-spacing: 0.14px;
+    margin-top: 10px;
   }
+
+  .cardContentTitle h3,
+  .cardContainer p {
+    font: normal normal normal 12px/13px Rubik;
+    width: 100%;
+  }
+
+  .cardContent span {
+    font: normal normal normal 12px/13px Rubik;
+  }
+
+  .cardImage img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 414px) {
 }

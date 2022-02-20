@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 .mainHome h2 {
   text-align: center;
@@ -56,12 +57,17 @@
 
 @media (max-width: 1024px) {
   .mainGrid {
-    width: 100%;
     gap: 30px;
   }
 }
 
 @media (max-width: 768px) {
+  .mainGrid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .gridRightDesktop {
     display: none !important;
   }
@@ -71,17 +77,23 @@
   }
 
   .gridRight {
-    display: grid;
-    grid-auto-rows: 200px;
-    grid-template-columns: 1fr;
-    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    width: 100%;
+  }
+  .imgBox {
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .gridLeft {
     width: 100%;
-    grid-column: span 4;
-    margin: 0 3.125rem;
-    display: block;
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
   }
 
   .hide {
@@ -121,5 +133,11 @@
   .buttonSelected {
     color: #72efdb !important;
     border-color: #72efdb !important;
+  }
+}
+
+@media (max-width: 414px) {
+  .mainGrid {
+    gap: 30px;
   }
 }
