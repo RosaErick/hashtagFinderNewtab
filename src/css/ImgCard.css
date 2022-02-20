@@ -15,7 +15,7 @@
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   background: cover;
   background-position: center;
   padding: 20px;
