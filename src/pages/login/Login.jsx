@@ -20,20 +20,20 @@ function Login() {
           
           <div className="formContainer">
             
-            <form class="loginForm">
+            <form className="loginForm">
                 <h2>Login</h2>
-                <div class="formInput">
+                <div className="formInput">
                   <label htmlFor="username">Usuário</label>
                   <input type="text" name="username" id="username" placeholder=" " autocomplete="off" className="formInput" required />
                 </div>
-                <div class="formInput">
+                <div className="formInput">
                   <label htmlFor="password">Senha</label>
                   <input type="password" name="password" id="password" placeholder=" " autocomplete="off" className="formInput" required />
                   
                 </div>
               
-                <div class="navMenu">
-                  <button class="submitBtn">
+                <div className="navMenu">
+                  <button className="submitBtn">
                     {" "}
                     ACESSAR
                   </button>
