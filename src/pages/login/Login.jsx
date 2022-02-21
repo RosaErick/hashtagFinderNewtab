@@ -23,7 +23,7 @@ function Login() {
           
           <div className="formContainer">
             
-            <form className="loginForm">
+            <form className="loginForm" action="/list">
                 <h2>Login</h2>
                 <div className="formInput">
                   <label htmlFor="username">Usuário</label>
