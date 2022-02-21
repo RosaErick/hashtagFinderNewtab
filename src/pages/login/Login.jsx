@@ -12,7 +12,10 @@ function Login() {
               "icon": iconHome, 
               "route": "/",
               "backgroundColor": "#72EFDB", 
-              "textColor": "#0A1744"},
+            "textColor": "#0A1744",
+            "minWidth": "180px"
+          },
+          
               
             ]}/>
           <main className="mainLogin">

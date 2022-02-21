@@ -23,6 +23,7 @@
 
 .heroContainer h1 {
   font-size: 82px;
+  margin-top: 15px;
 }
 
 .heroContainer p {
@@ -145,6 +146,7 @@ input:focus {
 
   .heroContainer h1 {
     width: 90%;
+    margin-top: 10px;
   }
 
   .heroContainer p {

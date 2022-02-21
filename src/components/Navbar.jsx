@@ -24,6 +24,7 @@ export default function Navbar({buttons}) {
               let buttonColor = {
                 "backgroundColor": button.backgroundColor,
                 "color": button.textColor,
+                "minWidth": button.minWidth,
               }
 
                 return (

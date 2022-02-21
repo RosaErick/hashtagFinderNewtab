@@ -6,56 +6,62 @@
   z-index: 2;
   opacity: 1;
   backdrop-filter: blur(12px);
+  top: 0;
+  min-height: 82px;
 }
 
 .navHeader {
   top: 0px;
   left: 0px;
-  height: 100px;
+  width: 100vw;
+  height: 6vw;
+  min-height: 82px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: rgb(10, 23, 68, 0.75);
-}
-
-.navTitle {
-  margin-left: 50px;
+  padding: 0 3.8vw;
 }
 
 .navTitle h2 {
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 400;
   opacity: 1;
   color: #ffffff;
   letter-spacing: 0px;
+  cursor: pointer;
 }
 
 .navTitle span {
-  font: normal normal bold 35px/27px Rubik;
+  font: normal normal bold 26px/27px Rubik;
 }
 
 .navMenu {
-  max-width: 100%;
-  max-height: 100%;
-  margin-right: 50px;
+  width: 18vw;
   display: flex;
-  flex-direction: space-between;
+  justify-content: space-between;
+  min-width: auto;
 }
 
 .aboutBtn {
   background-color: #72efdb;
   color: #0b1741;
-  margin-right: 30px;
 }
 
 .navMenu button {
   border-radius: 25px;
-  font-size: 17px;
-  padding: 13px 30px;
+  font-size: 0.8vw;
   font-weight: bold;
   border: none;
   text-transform: uppercase;
-  letter-spacing: 2.55px;
+  letter-spacing: 0.1594rem;
+  width: 8.5vw;
+  height: 2.5vw;
+  min-width: 86px;
+  min-height: 30px;
+  cursor: pointer;
+  transition: background-color 0.6s ease-out;
+  margin-right: 2vw;
 }
 
 .loginBtn {
@@ -64,7 +70,11 @@
 }
 
 .navMenu button > img {
-  padding-right: 10px;
+  position: relative;
+  top: 1px;
+  height: 0.75vw;
+  min-height: 12px;
+  margin-right: 0.5em;
 }
 
 .navMenu a {
@@ -75,26 +85,16 @@
   height: 12px;
 }
 
-@media (max-width: 768px) {
-  .navTitle {
-    margin-left: 15px;
-  }
-
-  .navTitle h2 {
-    font-size: 30px;
-    font: normal normal normal 19px/14px Rubik;
-  }
-
-  .navTitle span {
-    font: normal normal bold 19px/14px Rubik;
-  }
+@media (max-width: 1440px) {
   .navMenu {
-    margin-right: 0;
+    min-width: 200px;
+    width: 20vw;
   }
 
   .navMenu button {
-    font: normal normal bold 10px/7px Rubik;
-    padding: 10px 25px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 10px;
     margin-right: 15px;
     text-align: center;
     display: flex;
@@ -105,17 +105,37 @@
   }
 }
 
-@media (max-width: 414px) {
-  .navTitle {
-    margin: 0 0 0 10px;
+@media (max-width: 768px) {
+  .navTitle h2 {
+    font-size: 30px;
+    font: normal normal normal 19px/14px Rubik;
+  }
+
+  .navTitle span {
+    font: normal normal bold 19px/14px Rubik;
+  }
+
+  .navMenu {
+    margin-right: 0;
+  }
+  .navMenu {
+    margin-left: 2vw;
+    min-width: 200px;
   }
 
   .navMenu button {
     font: normal normal bold 10px/7px Rubik;
-    padding: 10px 10px;
     display: flex;
     letter-spacing: 1.5px;
     opacity: 1;
-    margin: 0 10px 0 0;
+    margin: 0 5px 0 0;
+    min-width: 100px;
   }
+}
+@media (max-width: 414px) {
+  .navTitle {
+    margin: 0 10px 0 0px;
+  }
+
+  
 }
