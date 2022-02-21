@@ -1,7 +1,7 @@
 
 .mainLogin{
     width: 100%;
-    height: 100vh;
+    height: 170vh;
     background:var(--dark-blue-variation);
     background-image: url('../assets/img/hero-bg.jpg');
     background-position: 40%;
@@ -13,21 +13,23 @@
 
 .formContainer{
     
-    margin-top: 12%;
-    height: 80px;
+    margin-top: 10%;
+    height: 130vh;
     width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background-color: #18326B;
-    opacity: 70%;
-    
+    opacity: 80%;
+    border-radius: 10px;
+    z-index: 1;
+  
 }
 
 
 .formContainer h2{
-    margin-top: 10%;
+    margin-top: 20%;
     margin-bottom: 20%;
     color: #72EFDB;
     background-color:#18326B;
@@ -37,15 +39,16 @@
   
 .loginForm {
 
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 40px;
     color: #E9E9F0;
     background: #18326B;
     opacity: 100%;
     border-radius: 10px;
+    z-index: 5;
+    
 }
     
 .formInput {
@@ -61,64 +64,103 @@
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
-}
-  
+    margin-bottom: 5%;
 
-.inputContainer{
-    width: 100%;
-    
 }
+
+.formInput h2{
+    font-size: large;
+}
+ 
 
 .textInput{
     width: 90%;
-    opacity: 100%;
     border-bottom: #E9E9F0;
+    
+}
+
+.formInput{
+    color: #E9E9F0;
 }
 
 .submitBtn {
     background-color: #72efdb;
     color: #0b1741;
     margin-top: 20%;
-    margin-left: 20%;
+}
+
+.navBtn{
+    margin-left: 50%;
 }
 
 @media screen and (max-width: 414px) {
     
     .mainLogin{
 
-        height: 70vh;
+        height: 120vh;
+        background-position: 60% 30%;
     }
+
 
     .formContainer{
     
-        margin-top: 30%;
+        margin-top: 35%;
         width: 60%;
-        height: 60vh;
         
     }
 
-    .submitBtn {
 
+    .loginForm{
+        margin-top: 0%;
+        margin-bottom: 0%;
+    }
+
+    .formInput{
+        margin-bottom: 10%;
+    }
+
+
+    .navBtn{
         margin-top: 20%;
-        margin-left: 0%;
+        margin-left: 50%;
+
     }
     
+    .submitBtn{
+        width: 100%;
+    }
 } 
 
-@media screen and (min-width: 414px) and (max-width: 768px) {
+@media screen and (min-width: 415px) and (max-width: 768px) {
     
     .mainLogin{
 
-        height: 100vh;
+        height: 110vh;
+    }
+
+    .loginForm{
+       
+        margin-top: 0%;
+        margin-bottom: 0%;
     }
 
     .formContainer{
-    
-        margin-top: 15%;
+
+        margin-top: 20%;
         width: 50%;
-        height: 50vh;
-        
+
     }
 
+
+    .formInput{
+        margin-bottom: 10%;
+        margin-top: 0%;
+    }
+
+    .navBtn{
+        margin-top: 20%;
+        margin-left: 50%;
+        
+    }
     
 }

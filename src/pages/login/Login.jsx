@@ -15,10 +15,10 @@ function Login() {
             "textColor": "#0A1744",
              "margin":"0 0 0 80px",
           },
-          
-              
-            ]}/>
-          <main className="mainLogin">
+                
+        ]}/>
+        
+        <main className="mainLogin">
             
           
           <div className="formContainer">
@@ -35,12 +35,15 @@ function Login() {
                   
                 </div>
               
-                <div className="navMenu">
-                  <button className="submitBtn">
-                    {" "}
-                    ACESSAR
-                  </button>
+                <div className="navBtn">
+                  <div className="navMenu">
+                      <button className="submitBtn">
+                        {" "}
+                        ACESSAR
+                      </button>
+                  </div>
                 </div>
+              
             </form>
           </div>
 
