@@ -13,7 +13,7 @@ function Login() {
               "route": "/",
               "backgroundColor": "#72EFDB", 
             "textColor": "#0A1744",
-            "minWidth": "180px"
+             "margin":"0 0 0 80px",
           },
           
               

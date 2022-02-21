@@ -25,6 +25,7 @@ export default function Navbar({buttons}) {
                 "backgroundColor": button.backgroundColor,
                 "color": button.textColor,
                 "minWidth": button.minWidth,
+                "margin":button.margin,
               }
 
                 return (
@@ -42,21 +43,4 @@ export default function Navbar({buttons}) {
       </div>
     </>
   )
-    // <>
-    //   <div className="navWrapper">
-    //     <nav className="navHeader">
-    //       <div className="navTitle">
-    //         <Link to="/">
-    //           {" "}
-    //           <h2>
-    //             hashtag<span>finder</span>
-    //           </h2>
-    //         </Link>
-    //       </div>
-    //       <div className="navMenu">
-
-    //       </div>
-    //     </nav>
-    //   </div>
-    // </>
 }
