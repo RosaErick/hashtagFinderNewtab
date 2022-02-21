@@ -1,14 +1,148 @@
-
-
-.main-home{
-    width: 100%;
-    background:var(--dark-blue-variation);
-    height: 100vh;
-
+.mainHome {
+  background: #0a1744 0% 0% no-repeat padding-box;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-.main-home h2{
-text-align: center;
-color:var(--white);
-font-size: 32px;
-padding: 30px 0;
+.mainHome h2 {
+  text-align: center;
+  color: var(--white);
+  font-size: 32px;
+  padding: 30px 0;
+  margin-bottom: 50px;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  background: var(--dark-blue-variation);
+  margin-bottom: 50px;
+  gap: 2px;
+}
+
+.gridLeft {
+  display: none;
+}
+.gridRight {
+  display: none;
+}
+
+.gridLeftDesktop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.gridRightDesktop {
+  display: grid;
+  grid-auto-rows: 200px;
+  grid-template-columns: 1fr;
+  grid-column: 2/2;
+}
+
+.imgBox {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 80%;
+}
+
+.mobileSelect {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainGrid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gridRightDesktop {
+    display: none !important;
+  }
+
+  .gridLeftDesktop {
+    display: none !important;
+  }
+
+  .gridRight {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    width: 100%;
+  }
+  .imgBox {
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .gridLeft {
+    width: 100%;
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+
+  .mainHome {
+    padding: 0 20px;
+  }
+
+  .mainHome h2 {
+    display: none;
+  }
+
+  .mobileSelect {
+    display: block;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+  }
+
+  .mobileSelect button {
+    width: 100%;
+    border: none;
+    background: none;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 0px;
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 0.5px solid #cececece;
+  }
+  .buttonSelected {
+    color: #72efdb !important;
+    border-bottom: 3px solid #72efdb !important;
+  }
+}
+
+@media (max-width: 414px) {
+  .mainGrid {
+    gap: 30px;
+  }
+
+  .imgBox {
+    width: 100%;
+    gap: 0;
+  }
 }

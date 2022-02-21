@@ -8,7 +8,6 @@
   color: #fff;
   background-size: cover;
   justify-content: center;
-  align-items: flex-start;
 }
 
 .heroContainer {
@@ -19,10 +18,12 @@
   align-items: center;
   margin: 30px 100px 30px 100px;
   gap: 17px;
+  min-height: 50px;
 }
 
 .heroContainer h1 {
   font-size: 82px;
+margin-top: 15px;
 }
 
 .heroContainer p {
@@ -72,15 +73,20 @@ input:focus {
   position: absolute;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1440px) {
+  .heroHeader {
+    align-items: center;
+  }
+
   .heroContainer {
-    width: 80%;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
   }
 
   .heroContainer h1 {
     font-size: 50px;
-    margin-top: 20px;
-    margin-right: 70px;
   }
 
   .heroContainer p {
@@ -88,13 +94,7 @@ input:focus {
   }
 }
 
-@media (max-width: 414px) {
-  .heroHeader {
-    background: url(../assets/img/mobile-hero-bg.jpg) 50% no-repeat;
-  }
-}
-
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .heroHeader {
     align-items: center;
     justify-content: center;
@@ -113,18 +113,21 @@ input:focus {
 
   .heroContainer {
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
     align-items: center;
+    justify-content: center;
   }
 
   .heroContainer h1 {
     font: normal normal bold 36px/39px Rubik;
-    margin: 0 30px;
-    text-align: left;
+
+    text-align: center;
+    width: 100%;
   }
   .heroContainer p {
     font: normal normal normal 16px/22px Rubik;
-    margin: 0 30px;
+    text-align: center;
+    width: 100%;
   }
 
   .heroSearchBar {
@@ -133,5 +136,20 @@ input:focus {
 
   .heroSearchBar input {
     padding: 20px 0;
+  }
+}
+
+@media (max-width: 414px) {
+  .heroHeader {
+    background: url(../assets/img/mobile-hero-bg.jpg);
+  }
+
+  .heroContainer h1 {
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  .heroContainer p {
+    width: 90%;
   }
 }

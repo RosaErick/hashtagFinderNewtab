@@ -12,7 +12,10 @@ function Login() {
               "icon": iconHome, 
               "route": "/",
               "backgroundColor": "#72EFDB", 
-              "textColor": "#0A1744"},
+            "textColor": "#0A1744",
+             "margin":"0 0 0 80px",
+          },
+          
               
             ]}/>
           <main className="mainLogin">
@@ -24,11 +27,11 @@ function Login() {
                 <h2>Login</h2>
                 <div className="formInput">
                   <label htmlFor="username">Usuário</label>
-                  <input type="text" name="username" id="username" placeholder=" " autocomplete="off" className="formInput" required />
+                  <input type="text" name="username" id="username" placeholder=" " autoComplete="off" className="formInput" required />
                 </div>
                 <div className="formInput">
                   <label htmlFor="password">Senha</label>
-                  <input type="password" name="password" id="password" placeholder=" " autocomplete="off" className="formInput" required />
+                  <input type="password" name="password" id="password" placeholder=" " autoComplete="off" className="formInput" required />
                   
                 </div>
               

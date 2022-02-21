@@ -1,14 +1,26 @@
 .footerDiv {
-    background-color: #1e3e7b;
-    height: 200px;
-    width: 100%;
-    color: #1e3e7b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #1e3e7b;
+  height: 200px;
+  width: 100%;
+  color: #1e3e7b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footerDiv p {
-    color: #fff;
-    font-size: 25px;
+  color: #fff;
+  font-size: 25px;
+}
+
+@media (max-width: 768px) {
+  .footerDiv p {
+    font: normal normal normal 10px/6px Rubik;
+    letter-spacing: 0px;
+    color: #ffffff;
+  }
+
+  .footerDiv {
+    height: 100px;
+  }
 }
