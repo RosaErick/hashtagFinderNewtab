@@ -39,7 +39,7 @@ export default function Hero() {
 
   useEffect(() => {
     const APIPOST =
-      "https://cors.bridged.cc/https://airtable.com/app6wQWfM6eJngkD4/api/docs#curl/table:buscas:create";
+      "airtable.com/app6wQWfM6eJngkD4/api/docs#curl/table:buscas:create";
     if (searchValue) {
       const requestOptions = {
         method: "POST",
@@ -48,7 +48,7 @@ export default function Hero() {
       };
       fetch(APIPOST, requestOptions)
         .then((response) => response.json())
-        .then((data) => setpostSearch(data.id) && setSearchResponse(""));
+        .then((data) => setpostSearch(data) && setSearchResponse(""));
     }
   });
 
