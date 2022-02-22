@@ -24,7 +24,7 @@
 }
 
 .navTitle h2 {
-  font-size: 25px;
+  font-size: 27px;
   font-weight: 400;
   opacity: 1;
   color: #ffffff;
@@ -33,7 +33,7 @@
 }
 
 .navTitle span {
-  font: normal normal bold 26px/27px Rubik;
+  font: normal normal bold 28px/29px Rubik;
 }
 
 .navMenu {
@@ -41,6 +41,7 @@
   display: flex;
   justify-content: space-between;
   min-width: auto;
+  
 }
 
 .aboutBtn {
@@ -61,7 +62,7 @@
   min-height: 30px;
   cursor: pointer;
   transition: background-color 0.6s ease-out;
-  margin-right: 2vw;
+  
 }
 
 .loginBtn {

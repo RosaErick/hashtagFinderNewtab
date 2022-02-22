@@ -23,7 +23,7 @@
 
 .heroContainer h1 {
   font-size: 82px;
-margin-top: 15px;
+  margin-top: 15px;
 }
 
 .heroContainer p {
@@ -39,7 +39,7 @@ margin-top: 15px;
   opacity: 1;
   border: none;
   margin-top: 20px;
-  width: 800px;
+  width: 50vw;
   justify-content: baseline;
   gap: 10px;
 }
@@ -87,10 +87,12 @@ input:focus {
 
   .heroContainer h1 {
     font-size: 50px;
+    margin: 0 2vw;
   }
 
   .heroContainer p {
     font-size: 20px;
+    margin: 0 2vw;
   }
 }
 
@@ -113,21 +115,23 @@ input:focus {
 
   .heroContainer {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 20vw auto;
     align-items: center;
     justify-content: center;
   }
 
   .heroContainer h1 {
     font: normal normal bold 36px/39px Rubik;
-
-    text-align: center;
+    padding: 0 10vw;
+    text-align: left;
     width: 100%;
+    margin-top: 20px;
   }
   .heroContainer p {
     font: normal normal normal 16px/22px Rubik;
-    text-align: center;
+    text-align: left;
     width: 100%;
+    padding: 0 10vw;
   }
 
   .heroSearchBar {
@@ -144,12 +148,32 @@ input:focus {
     background: url(../assets/img/mobile-hero-bg.jpg);
   }
 
+  .gradient-bg {
+    height: 100px;
+  }
+
+  .heroSearchBar {
+    margin-bottom: 0vw;
+    padding: 0;
+    height: 15vw;
+    width: 100vw;
+  }
+
+  .heroContainer {
+    margin: 0 10vw 5vw 10vw;
+    padding: 0 4.8vw;
+    min-height: 0;
+  }
+
   .heroContainer h1 {
-    width: 90%;
-    margin-top: 10px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   .heroContainer p {
-    width: 90%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
   }
 }
