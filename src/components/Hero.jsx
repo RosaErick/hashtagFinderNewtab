@@ -9,14 +9,14 @@ export default function Hero() {
   const [postSearch, setpostSearch] = useState(null);
 
   useEffect(() => {
-    const url =
-      "https://cors.bridged.cc/https://api.twitter.com/2/tweets/search/recent";
+    const url = "https://api.twitter.com/2/tweets/search/recent";
     const token =
       "AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX";
 
     if (searchValue) {
       const fetchData = async () => {
         const requestOptions = {
+          credentials: "include",
           method: "GET",
           headers: {
             UserAgent: "v2RecentSearchJS",
