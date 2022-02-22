@@ -3,15 +3,43 @@ import "../css/hero.css";
 import IconSearch from "../assets/img/icon-search.svg";
 import { useState, useEffect } from "react";
 
-const APIPOST =
-  "https://airtable.com/app6wQWfM6eJngkD4/api/docs#curl/table:buscas:create";
-
 export default function Hero() {
   const [searchValue, setSearchValue] = useState("");
   const [searchResponse, setSearchResponse] = useState("");
   const [postSearch, setpostSearch] = useState(null);
 
   useEffect(() => {
+    const url =
+      "https://cors.bridged.cc/https://api.twitter.com/2/tweets/search/recent";
+    const token =
+      "AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX";
+
+    if (searchValue) {
+      const fetchData = async () => {
+        const requestOptions = {
+          method: "GET",
+          headers: {
+            UserAgent: "v2RecentSearchJS",
+            authorization: `Bearer ${token}`,
+          },
+        };
+
+        try {
+          const response = await fetch(url, requestOptions);
+          const json = await response.json();
+          console.log(json);
+        } catch (error) {
+          console.log("error", error);
+        }
+      };
+
+      fetchData();
+    }
+  });
+
+  useEffect(() => {
+    const APIPOST =
+      "https://cors.bridged.cc/https://airtable.com/app6wQWfM6eJngkD4/api/docs#curl/table:buscas:create";
     if (searchValue) {
       const requestOptions = {
         method: "POST",
