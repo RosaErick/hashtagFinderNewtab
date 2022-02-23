@@ -9,19 +9,19 @@ export default function Hero() {
   const [postSearch, setpostSearch] = useState(null);
 
   useEffect(() => {
-    const url = "https://api.twitter.com/2/tweets/search/recent";
+    const url = `https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=${searchValue}%20has:hashtags%20-is:retweet%20-is:quote%20has:images&max_results=10&expansions=author_id,attachments.media_keys&user.fields=id,name,username,profile_image_url,url&media.fields=type,url,width,height&tweet.fields=source`;
     const token =
       "AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX";
 
     if (searchValue) {
       const fetchData = async () => {
+        const myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${token}`);
+
         const requestOptions = {
-          credentials: "include",
           method: "GET",
-          headers: {
-            UserAgent: "v2RecentSearchJS",
-            authorization: `Bearer ${token}`,
-          },
+          headers: myHeaders,
+          redirect: "follow",
         };
 
         try {
@@ -38,17 +38,35 @@ export default function Hero() {
   });
 
   useEffect(() => {
-    const APIPOST =
-      "airtable.com/app6wQWfM6eJngkD4/api/docs#curl/table:buscas:create";
+    const APIPOST = "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas";
     if (searchValue) {
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ hashtag: searchValue }),
+      const postData = async () => {
+        const requestOptions = {
+          method: "POST",
+          headers: {
+            authorization: "Bearer key2CwkHb0CKumjuM",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            records: [
+              {
+                fields: {
+                  Squad: "150222",
+                  Hashtag: searchValue,
+                  Data: "22/02/2021",
+                  Hora: "17:00",
+                },
+              },
+            ],
+          }),
+        };
+        fetch(APIPOST, requestOptions)
+          .then((response) => response.json())
+          .then((data) => setpostSearch(data) || setSearchValue(""));
+
+        console.log(searchResponse);
       };
-      fetch(APIPOST, requestOptions)
-        .then((response) => response.json())
-        .then((data) => setpostSearch(data) && setSearchResponse(""));
+      postData();
     }
   });
 
