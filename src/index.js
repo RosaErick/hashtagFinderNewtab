@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AuthContext from "../src/contexts/auth";
 
 //css imports
 import "./css/Global.css";
@@ -14,16 +15,22 @@ import List from "./pages/list/List";
 import About from "./pages/about/AppAbout";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/list" element={<List />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
+  
+    <React.StrictMode>
+      <AuthContext.Provider value={{signed: true}}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/list" element={<List />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </BrowserRouter>
+  
+      </AuthContext.Provider>
+     </React.StrictMode>
+  
+  ,
   document.getElementById("root")
 );
