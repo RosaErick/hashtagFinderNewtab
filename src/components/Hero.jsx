@@ -2,41 +2,61 @@ import React from "react";
 import "../css/hero.css";
 import IconSearch from "../assets/img/icon-search.svg";
 import { useState, useEffect } from "react";
+import { getTweets } from "../api/getTweets";
 
 export default function Hero() {
   const [searchValue, setSearchValue] = useState("");
   const [searchResponse, setSearchResponse] = useState("");
   const [postSearch, setpostSearch] = useState(null);
 
+
+
+  const asyncCall = async () => {
+
+    const tweet = await getTweets(searchValue);
+    console.log(tweet);
+  
+
+  }
+
   useEffect(() => {
-    const url = `https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=${searchValue}%20has:hashtags%20-is:retweet%20-is:quote%20has:images&max_results=10&expansions=author_id,attachments.media_keys&user.fields=id,name,username,profile_image_url,url&media.fields=type,url,width,height&tweet.fields=source`;
-    const token =
-      "AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX";
-
+    
     if (searchValue) {
-      const fetchData = async () => {
-        const myHeaders = new Headers();
-        myHeaders.append("Authorization", `Bearer ${token}`);
+      asyncCall();
+}
 
-        const requestOptions = {
-          method: "GET",
-          headers: myHeaders,
-          redirect: "follow",
-        };
 
-        try {
-          const response = await fetch(url, requestOptions);
-          const json = await response.json();
-          console.log(json);
-        } catch (error) {
-          console.log("error", error);
-        }
-      };
+  })
 
-      fetchData();
-    }
-  });
-
+  //useEffect(() => {
+  //  const url = `https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=${searchValue}%20has:hashtags%20-is:retweet%20-is:quote%20has:images&max_results=10&expansions=author_id,attachments.media_keys&user.fields=id,name,username,profile_image_url,url&media.fields=type,url,width,height&tweet.fields=source`;
+  //  const token =
+  //    "AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX";
+//
+  //  if (searchValue) {
+  //    const fetchData = async () => {
+  //      const myHeaders = new Headers();
+  //      myHeaders.append("Authorization", `Bearer ${token}`);
+//
+  //      const requestOptions = {
+  //        method: "GET",
+  //        headers: myHeaders,
+  //        redirect: "follow",
+  //      };
+//
+  //      try {
+  //        const response = await fetch(url, requestOptions);
+  //        const json = await response.json();
+  //        console.log(json);
+  //      } catch (error) {
+  //        console.log("error", error);
+  //      }
+  //    };
+//
+  //    fetchData();
+  //  }
+  //});
+//
   useEffect(() => {
     const APIPOST = "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas";
     if (searchValue) {
