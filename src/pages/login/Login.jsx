@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useContext } from "react";
+import AuthContext from '../../contexts/auth';
 
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -11,8 +12,10 @@ import '../../css/login.css';
 import { useNavigate } from "react-router-dom";
 
 
-function Login() {
+function Login() { 
   
+  const context = useContext(AuthContext);
+
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState('');
   const [error, setError] = useState(false);
@@ -21,12 +24,15 @@ function Login() {
   const [userErr, setUserErr] = useState('');
   const [passErr, setPassErr] = useState('');
 
+  console.log(context);
+
   let navigate = useNavigate();
   
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
-    console.log();
+    
+    //it is needed to perform a check if the credentials match the ones in database to redirect
     navigate("/list");
     //redirect to list page, after login is successful
   }
@@ -123,7 +129,7 @@ function Login() {
                 type="email"
                 id="emailField"
                 className="formInput"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}$"
                 value={userInput}
                 onBlur={handleUserBlur}
                 onFocus={handleUserFocus}
