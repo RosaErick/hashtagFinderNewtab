@@ -18,9 +18,8 @@ const getTweets = async (searchValue) => {
 
   const response = await fetch(url, requestOptions);
   const body = await response.json();
-  const tweets = [];
 
-  console.log(tweets);
+  console.log(body);
   return body;
 };
 

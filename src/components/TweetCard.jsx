@@ -1,8 +1,8 @@
 import React from "react";
 import "./../css/TweetCard.css";
-import { Link } from "react-router-dom";
 
-const tweetCard = ({ userImage, userName, tweetText, user }) => {
+
+const tweetCard = ({ userImage, userName, tweetText, user, URL}) => {
   return (
     <div className="cardContainer">
       <div className="cardImage">
@@ -17,9 +17,9 @@ const tweetCard = ({ userImage, userName, tweetText, user }) => {
         <div>
           <p className="tweetText">{tweetText}</p>
         </div>
-        <Link to="/">
+        <a href={`https://twitter.com/search?q=${URL}&src=typed_query`} alt="">
           <span>ver mais no Twitter</span>
-        </Link>
+        </a>
       </div>
     </div>
   );

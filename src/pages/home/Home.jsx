@@ -19,8 +19,7 @@ const Home = () => {
   const [animationMode, setanimationMode] = useState(0);
   const [searchValue, setSearchValue] = useState("");
   const [searchResponse, setSearchResponse] = useState("");
-  const [postSearch, setpostSearch] = useState(null);
-  const [tweetsData, setTweetsData] = useState([]);
+  const [tweetsData, setTweetsData] = useState({});
   const [titleTag, setTitleTag] = useState();
   const toogleHandle = () =>
     setActiveState(!imageActive) || setColorState(!colorMode);
@@ -28,20 +27,33 @@ const Home = () => {
   useEffect(() => {
     if (searchValue) {
       const asyncCall = async () => {
-        const post = await postData(searchValue);
+      await postData(searchValue);
+        const tweets = await getTweets(searchValue);
+        setTweetsData(tweets);
 
-        const tweet = await getTweets(searchValue);
-
-        setTweetsData([tweet]);
-        setpostSearch(post);
         setTitleTag(searchValue);
-        console.log(postSearch);
-        console.log(tweet);
-        console.log(tweetsData);
+        setSearchValue("");
+        setSearchResponse('');
       };
       asyncCall();
     }
   });
+
+  // function handleTweets(tweets) {
+  //
+  //   //console.log(tweets)
+  //   if (tweets) {
+  //     for (let i in tweets[0].data) {
+  //
+  //       //console.log(tweets[0].data[i].text)
+  //       //console.log(tweets[0].includes.users[i].username)
+  //
+  //     }
+  //
+  //   }
+  //
+  //
+  // }
 
   function handleValue(e) {
     if (e.keyCode === 13) {
@@ -58,7 +70,6 @@ const Home = () => {
       setSearchResponse("");
       setSearchValue("");
       setTitleTag("");
-
     }
   }
 
@@ -134,53 +145,41 @@ const Home = () => {
         >
           <h2>Exibindo os 10 resultados mais recentes para #{titleTag}</h2>
           <section className="mainGrid">
+        
             <section className="gridLeftDesktop">
-              <div className="imgBox">
-                <ImgCard twitterUser="test" />
-                <ImgCard twitterUser="test" />
-              </div>
-              <div className="imgBox">
-                <ImgCard twitterUser="test" />
-                <ImgCard twitterUser="test" />
-              </div>
-              <div className="imgBox">
-                <ImgCard twitterUser="test" />
-                <ImgCard twitterUser="test" />
-              </div>
-              <div className="imgBox">
-                <ImgCard twitterUser="test" />
-                <ImgCard twitterUser="test" />
-              </div>
-              <div className="imgBox">
-                <ImgCard twitterUser="test" />
-                <ImgCard twitterUser="test" />
+                    <div className="imgBox">
+              {tweetsData.includes
+                ? tweetsData.includes.users.map((item, index) => {
+                  
+                    return (
+                      <>
+                  
+                          <ImgCard
+                            twitterUserName={item.user}
+                            tweetImage={tweetsData.includes.media[index].url}
+                          />
+                  
+                      </>
+                    );
+                  })
+                : null}
               </div>
             </section>
             <section className="gridRightDesktop">
-              {searchValue
-                ? Object(tweetsData).map((item, index) => {
-                    console.log(item);
-                    console.log(item.data);
-                    console.log(tweetsData);
-                    console.log(item.text);
-                    const tweets = [...item.data, ...item.includes.users];
+              {tweetsData.data
+                ? tweetsData.includes.users.map((item, index) => {
+                    console.log(item, index);
 
-                    console.log(tweets);
-                    return tweets.map((t) => {
-                      console.log(t.username);
-
-                      return (
-                        <>
-                          <TweetCard
-                            userImage={t.profile_image_url}
-                            tweetText={t.text}
-                            user={t.name}
-                            key={t.id}
-                            userName={t.username}
-                          />
-                        </>
-                      );
-                    });
+                    return (
+                      <>
+                        <TweetCard
+                          tweetText={tweetsData.data[index].text}
+                          userName={item.username}
+                          userImage={item.profile_image_url
+                          }
+                        />
+                      </>
+                    );
                   })
                 : null}
             </section>
@@ -194,26 +193,24 @@ const Home = () => {
               >
                 <>
                   <section className="gridLeft">
-                    <div className="imgBox">
-                      <ImgCard twitterUser="test" />
-                      <ImgCard twitterUser="test" />
-                    </div>
-                    <div className="imgBox">
-                      <ImgCard twitterUser="test" />
-                      <ImgCard twitterUser="test" />
-                    </div>
-                    <div className="imgBox">
-                      <ImgCard twitterUser="test" />
-                      <ImgCard twitterUser="test" />
-                    </div>
-                    <div className="imgBox">
-                      <ImgCard twitterUser="test" />
-                      <ImgCard twitterUser="test" />
-                    </div>
-                    <div className="imgBox">
-                      <ImgCard twitterUser="test" />
-                      <ImgCard twitterUser="test" />
-                    </div>
+                 
+                      {tweetsData.includes
+                      ? tweetsData.includes.users.map((item, index) => {
+                
+                    return (
+                      <>
+                        <div className="imgBox">
+                          <ImgCard
+                            twitterUserName={item.user}
+                            tweetImage={tweetsData.includes.media[index].url}
+                          />
+                        </div>
+                      </>
+                    );
+                  })
+                : null}
+                   
+                   
                   </section>
                 </>
               </motion.div>
@@ -226,28 +223,44 @@ const Home = () => {
                     onClick={() => setanimationMode(!animationMode)}
                     transition={{ duration: 0.7, delay: 0.4 }}
                   >
-                    {searchValue
-                      ? Object(tweetsData).map((item, index) => {
-                          console.log(item.data[index].id);
-                          const tweets = [...item.includes.users, ...item.data];
+                    {/*tweetsData.data
+                      ? tweetsData.data.map((item, index) => {
+                          console.log(item, index);
 
-                          console.log(tweets);
-                          return tweets.map((t) => {
-                            console.log(tweets);
-
-                            return (
-                              <>
-                                <TweetCard
-                                  tweetText={t.text}
-                                  user={t.name}
-                                  key={t.id}
-                                  userName={t.username}
-                                />
-                              </>
-                            );
-                          });
+                          return (
+                            <>
+                              <TweetCard
+                                tweetText={item.text}
+                                userName={
+                                  tweetsData.includes.users[index].username
+                                }
+                                userImage={
+                                  tweetsData.includes.users[index]
+                                    .profile_image_url
+                                }
+                                
+                              />
+                            </>
+                          );
                         })
-                      : null}
+                      : null*/}
+
+                 {tweetsData.data
+                ? tweetsData.includes.users.map((item, index) => {
+                    console.log(item, index);
+
+                    return (
+                      <>
+                        <TweetCard
+                          tweetText={tweetsData.data[index].text}
+                          userName={item.username}
+                          userImage={item.profile_image_url
+                          }
+                        />
+                      </>
+                    );
+                  })
+                : null}
                   </motion.div>
                 </section>
               </>

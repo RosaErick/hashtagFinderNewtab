@@ -1,18 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import ".././css/ImgCard.css";
 
-const test = {
-  backgroundColor: "#fff",
-};
-
-const ImgCard = ({ twitterUser }) => {
+const ImgCard = ({ twitterUserName, tweetImage }) => {
   return (
-    <div className="imgContainer" style={test}>
-      <Link to="./">
+    <div className="imgContainer">
+       <a href="twitter.com" style={{"background-image": tweetImage}}>
+      <figure>
+     
+        <img src={tweetImage} alt="" />
         <p>Postado por: </p>
-        <h3>@{twitterUser}</h3>
-      </Link>
+        <h3>@{twitterUserName}</h3>
+      
+        </figure>
+          </a>
     </div>
   );
 };
