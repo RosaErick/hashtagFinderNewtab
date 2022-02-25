@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter  } from "react-router-dom";
-import  AuthProvider from '../../hastagFinderNewtab/src/contexts/auth'; 
+import  AuthProvider from '../src/contexts/auth.jsx'; 
 import DefaultRoutes from "./routes/Index";
 
 //css imports

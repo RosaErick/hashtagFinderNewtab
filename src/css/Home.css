@@ -58,6 +58,22 @@
   display: none;
 }
 
+.buttonBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 80vw;
+  margin-bottom: 50px;
+}
+.moreRequestButton {
+  width: 6vw;
+  height: 2vw;
+  background: none;
+  border: none;
+  color: var(--light-green);
+  font-weight: bold;
+}
+
 @media (max-width: 1440px) {
 }
 

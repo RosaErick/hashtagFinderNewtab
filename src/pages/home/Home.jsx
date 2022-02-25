@@ -11,7 +11,7 @@ import IconSearch from "../../assets/img/icon-search.svg";
 import { useState, useEffect } from "react";
 import { getTweets } from "../../api/getTweets";
 import { motion } from "framer-motion";
-import { postData } from "../../api/PostAirtable";
+import { postData } from "../../api/AirtablePOST";
 
 const Home = () => {
   const [imageActive, setActiveState] = useState("");
@@ -21,6 +21,8 @@ const Home = () => {
   const [searchResponse, setSearchResponse] = useState("");
   const [tweetsData, setTweetsData] = useState({});
   const [titleTag, setTitleTag] = useState();
+  const [moreRequest, setMoreRequest] = useState(10);
+
   const toogleHandle = () =>
     setActiveState(!imageActive) || setColorState(!colorMode);
 
@@ -28,7 +30,7 @@ const Home = () => {
     if (searchValue) {
       const asyncCall = async () => {
         await postData(searchValue);
-        const tweets = await getTweets(searchValue);
+        const tweets = await getTweets(searchValue, moreRequest);
         setTweetsData(tweets);
         setSearchResponse("");
         setTitleTag(searchValue);
@@ -42,22 +44,6 @@ const Home = () => {
   const asynCallsub = async () => {
     !tweetsData.data ? setSearchResponse("not found") : setSearchResponse("");
   };
-
-  // function handleTweets(tweets) {
-  //
-  //   //console.log(tweets)
-  //   if (tweets) {
-  //     for (let i in tweets[0].data) {
-  //
-  //       //console.log(tweets[0].data[i].text)
-  //       //console.log(tweets[0].includes.users[i].username)
-  //
-  //     }
-  //
-  //   }
-  //
-  //
-  // }
 
   function handleValue(e) {
     if (e.keyCode === 13) {
@@ -110,6 +96,7 @@ const Home = () => {
         <div className="heroSearchBar">
           <img src={IconSearch} alt="" />{" "}
           <input
+            id="input"
             type="search"
             onKeyDown={handleValue}
             placeholder="Buscar..."
@@ -222,28 +209,6 @@ const Home = () => {
                     onClick={() => setanimationMode(!animationMode)}
                     transition={{ duration: 0.7, delay: 0.4 }}
                   >
-                    {/*tweetsData.data
-                      ? tweetsData.data.map((item, index) => {
-                          console.log(item, index);
-
-                          return (
-                            <>
-                              <TweetCard
-                                tweetText={item.text}
-                                userName={
-                                  tweetsData.includes.users[index].username
-                                }
-                                userImage={
-                                  tweetsData.includes.users[index]
-                                    .profile_image_url
-                                }
-                                
-                              />
-                            </>
-                          );
-                        })
-                      : null*/}
-
                     {tweetsData.data
                       ? tweetsData.includes.users.map((item, index) => {
                           console.log(item, index);
@@ -265,6 +230,24 @@ const Home = () => {
               </>
             )}
           </section>
+          {tweetsData.data ? (
+            <>
+              <div className="buttonBox">
+              <button
+                className="moreRequestButton"
+                onClick={(e) => {
+                  setMoreRequest(moreRequest + 10);
+                  const neweSearchReq = document.getElementById("input").value;
+                  setSearchValue(neweSearchReq);
+                  console.log(e);
+                  console.log(moreRequest);
+                }}
+              >
+                Ver mais tweets...
+              </button>
+              </div>
+            </>
+          ) : null}
         </motion.div>
       </main>
 
