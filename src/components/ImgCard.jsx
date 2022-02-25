@@ -2,21 +2,22 @@ import React from "react";
 
 import ".././css/ImgCard.css";
 
-const ImgCard = ({ twitterUserName, tweetImage }) => {
+const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
   return (
     <div className="imgContainer">
-     
-      <figure>
-     
+      <a
+        href={`https://twitter.com/${twitterUserName}/status/${tweetId}`}
+        target="_blank"
+        rel="noreferrer"
+        alt=""
+      >
         <img src={tweetImage} alt="" />
         <div className="subTitle">
-        <p>Postado por: </p>
+          <p>Postado por: </p>
           <h3>@{twitterUserName}</h3>
-        
-          </div>
-      <div className="boxshadow"></div>
-        </figure>
-           
+        </div>
+        <div className="boxshadow"></div>
+      </a>
     </div>
   );
 };

@@ -13,7 +13,7 @@
   border-radius: 1.25rem;
 }
 
-.imgContainer figure {
+.imgContainer a {
   width: 100%;
   height: 100%;
 

@@ -30,14 +30,18 @@ const Home = () => {
         await postData(searchValue);
         const tweets = await getTweets(searchValue);
         setTweetsData(tweets);
-
+        setSearchResponse("");
         setTitleTag(searchValue);
         setSearchValue("");
-        setSearchResponse("");
+        asynCallsub();
       };
       asyncCall();
     }
   });
+
+  const asynCallsub = async () => {
+    !tweetsData.data ? setSearchResponse("not found") : setSearchResponse("");
+  };
 
   // function handleTweets(tweets) {
   //
@@ -154,6 +158,7 @@ const Home = () => {
                           <ImgCard
                             twitterUserName={item.username}
                             tweetImage={tweetsData.includes.media[index].url}
+                            tweetId={tweetsData.data[index].id}
                           />
                         </>
                       );
@@ -171,7 +176,9 @@ const Home = () => {
                         <TweetCard
                           tweetText={tweetsData.data[index].text}
                           userName={item.username}
+                          user={item.name}
                           userImage={item.profile_image_url}
+                          tweetId={tweetsData.data[index].id}
                         />
                       </>
                     );
@@ -197,6 +204,7 @@ const Home = () => {
                                 tweetImage={
                                   tweetsData.includes.media[index].url
                                 }
+                                tweetId={tweetsData.data[index].id}
                               />
                             </>
                           );
@@ -246,6 +254,7 @@ const Home = () => {
                                 tweetText={tweetsData.data[index].text}
                                 userName={item.username}
                                 userImage={item.profile_image_url}
+                                tweetId={tweetsData.data[index].id}
                               />
                             </>
                           );
