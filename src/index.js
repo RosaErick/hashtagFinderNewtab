@@ -1,35 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AuthContext from "../src/contexts/auth";
+import { BrowserRouter  } from "react-router-dom";
+import  AuthProvider from '../../hastagFinderNewtab/src/contexts/auth'; 
+import DefaultRoutes from "./routes/Index";
 
 //css imports
 import "./css/Global.css";
 import "./css/index.css";
 
 //pages and imports
-import NotFound from "./components/NotFound";
-import Login from "./pages/login/Login";
-import Home from "./pages/home/Home";
-import List from "./pages/list/List";
-import About from "./pages/about/AppAbout";
+
 
 ReactDOM.render(
   
+    
+  <AuthProvider>
     <React.StrictMode>
-      <AuthContext.Provider value={{signed: true}}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/list" element={<List />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
+      <BrowserRouter>
+          <DefaultRoutes />
         </BrowserRouter>
-  
-      </AuthContext.Provider>
-     </React.StrictMode>
+      </React.StrictMode>     
+  </AuthProvider>
+      
   
   ,
   document.getElementById("root")

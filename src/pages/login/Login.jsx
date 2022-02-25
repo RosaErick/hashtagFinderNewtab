@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() { 
   
-  const context = useContext(AuthContext);
+  //const { signed, loading } = useContext(AuthContext);
 
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState('');
@@ -23,8 +23,6 @@ function Login() {
   const [showPassErrorText, setShowPassErrorText] = useState(false);
   const [userErr, setUserErr] = useState('');
   const [passErr, setPassErr] = useState('');
-
-  console.log(context);
 
   let navigate = useNavigate();
   
