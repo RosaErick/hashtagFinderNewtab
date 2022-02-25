@@ -5,42 +5,48 @@
   border-radius: 1.25rem;
   height: 12.5rem;
   width: 12.5rem;
-  margin-bottom: 1.875rem;
 }
 
-.imgContainer img{
-  width: 100%
+.imgContainer img {
+  height: 100%;
+  width: 100%;
+  border-radius: 1.25rem;
 }
 
-.imgContainer figure{
+.imgContainer figure {
   width: 100%;
   height: 100%;
-  border-radius: 1.25rem;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: cover;
-  background-position: center;
-  padding: 1.25rem;
   color: #fff;
   opacity: 1;
-  box-shadow: inset 0 -6.25rem 1.25rem -3.125rem rgba(0, 0, 0, 0.651);
-
+  position: relative;
 }
-.imgContainer a {
-  width: 100%;
-  height: 100%;
-  border-radius: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: cover;
-  background-position: center;
-  padding: 1.25rem;
-  color: #fff;
-  opacity: 1;
-  box-shadow: inset 0 -6.25rem 1.25rem -3.125rem rgba(0, 0, 0, 0.651);
 
+.boxshadow {
+  box-shadow: inset 0 -90px 20px -60px rgba(0, 0, 0, 0.651);
+  width: 100%;
+  z-index: 0;
+  height: 50px;
+  display: fixed;
+  z-index: 0;
+  border-radius: 1.25rem;
+  bottom: 0;
+  position: absolute;
+}
+
+.imgContainer .subTitle {
+  position: absolute;
+  bottom: 0;
+  margin: 0.3vw 0.8vw;
+  width: 80%;
+  z-index: 1;
+}
+
+.subTitle h3 {
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
@@ -48,6 +54,9 @@
     width: 40vw;
     height: 42vw;
     margin: 15px 10px;
+  }
+  .imgContainer .subTitle {
+    margin: 1vw 2vw;
   }
 }
 

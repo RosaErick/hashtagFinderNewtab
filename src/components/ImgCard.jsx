@@ -5,15 +5,18 @@ import ".././css/ImgCard.css";
 const ImgCard = ({ twitterUserName, tweetImage }) => {
   return (
     <div className="imgContainer">
-       <a href="twitter.com" style={{"background-image": tweetImage}}>
+     
       <figure>
      
         <img src={tweetImage} alt="" />
+        <div className="subTitle">
         <p>Postado por: </p>
-        <h3>@{twitterUserName}</h3>
-      
+          <h3>@{twitterUserName}</h3>
+        
+          </div>
+      <div className="boxshadow"></div>
         </figure>
-          </a>
+           
     </div>
   );
 };
