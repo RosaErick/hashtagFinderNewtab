@@ -21,7 +21,7 @@ const Home = () => {
   const [searchResponse, setSearchResponse] = useState("");
   const [tweetsData, setTweetsData] = useState({});
   const [titleTag, setTitleTag] = useState();
-  const [moreRequest, setMoreRequest] = useState(10);
+  const [moreRequest, setMoreRequest] = useState(11);
 
   const toogleHandle = () =>
     setActiveState(!imageActive) || setColorState(!colorMode);
@@ -42,7 +42,9 @@ const Home = () => {
   });
 
   const asynCallsub = async () => {
-    !tweetsData.data ? setSearchResponse("not found") : setSearchResponse("");
+    !tweetsData.data
+      ? setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭")
+      : setSearchResponse("");
   };
 
   function handleValue(e) {
@@ -51,7 +53,7 @@ const Home = () => {
       setSearchResponse("Aguarde a busca...");
 
       if (e.target.value === "") {
-        setSearchResponse("É necessario digitar algo no campo de buscas..");
+        setSearchResponse("É necessário digitar algo no campo de buscas...");
         setSearchValue("");
       }
     }
@@ -60,6 +62,13 @@ const Home = () => {
       setSearchResponse("");
       setSearchValue("");
       setTitleTag("");
+    }
+
+    if (e.target.value.length >= 20) {
+      setSearchResponse("Limite de caracteres atingido 🚨.");
+    }
+    if (e.target.value.length >= 22) {
+      e.preventDefault();
     }
   }
 
@@ -94,7 +103,25 @@ const Home = () => {
         </div>
 
         <div className="heroSearchBar">
-          <img src={IconSearch} alt="" />{" "}
+          <img
+            src={IconSearch}
+            onClick={() => {
+              setSearchValue(
+                document
+                  .getElementById("input")
+                  .value.replace(/[^a-zA-Z0-9_]/g, "")
+              );
+              setSearchResponse("Aguarde a busca...");
+
+              if (!document.getElementById("input").value.length) {
+                setSearchResponse(
+                  "É necessario digitar algo no campo de buscas.."
+                );
+                setSearchValue("");
+              }
+            }}
+            alt=""
+          />{" "}
           <input
             id="input"
             type="search"
@@ -230,13 +257,14 @@ const Home = () => {
               </>
             )}
           </section>
-          {tweetsData.data ? (
-            <>
-              <div className="buttonBox">
+        </motion.div>
+        {tweetsData.data ? (
+          <>
+            <div className="buttonBox">
               <button
                 className="moreRequestButton"
                 onClick={(e) => {
-                  setMoreRequest(moreRequest + 10);
+                  setMoreRequest(moreRequest + 11);
                   const neweSearchReq = document.getElementById("input").value;
                   setSearchValue(neweSearchReq);
                   console.log(e);
@@ -245,10 +273,9 @@ const Home = () => {
               >
                 Ver mais tweets...
               </button>
-              </div>
-            </>
-          ) : null}
-        </motion.div>
+            </div>
+          </>
+        ) : null}
       </main>
 
       <Footer />

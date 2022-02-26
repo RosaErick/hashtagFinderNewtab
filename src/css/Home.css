@@ -10,9 +10,9 @@
 .mainHome h2 {
   text-align: center;
   color: var(--white);
-  font-size: 2rem;
-  padding: 1.875rem 0;
-  margin-bottom: 3.125rem;
+  font-size: 32px;
+  padding: 30px 0;
+  margin-bottom: 50px;
 }
 
 .mainGrid {
@@ -20,7 +20,7 @@
   justify-content: center;
   width: 100vw;
   background: #0a1744 0% 0% no-repeat padding-box;
-  margin-bottom: 3.125rem;
+  margin-bottom: 50px;
   gap: 4vw;
 }
 
@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 1.5625rem;
   align-items: center;
   justify-content: flex-end;
 }
@@ -60,30 +60,40 @@
 
 .buttonBox {
   display: flex;
-  align-items: center;
+  align-self: flex-end;
+  justify-self: center;
+  align-items: flex-start;
   justify-content: flex-end;
-  width: 80vw;
-  margin-bottom: 50px;
+  width: 20vw;
+  margin-right: 5vw;
+  margin-bottom: 2vw;
 }
+
 .moreRequestButton {
-  width: 6vw;
-  height: 2vw;
+  align-self: flex-end;
+  width: 100%;
   background: none;
   border: none;
   color: var(--light-green);
   font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-@media (max-width: 1440px) {
+.searchResponse {
+  text-align: center;
+  margin-top: 2vw;
+  font-weight: bold;
+  font-size: 1.125rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .mainGrid {
-    gap: 30px;
+    gap: 1.875rem;
   }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
   .mainGrid {
     display: flex;
     align-items: center;
@@ -106,7 +116,7 @@
   }
   .imgBox {
     justify-content: center;
-    gap: 0.625rem;
+    gap: 10px;
 
     margin: 0 auto;
   }
@@ -128,7 +138,7 @@
   }
 
   .mainHome {
-    padding: 0 1.25rem;
+    padding: 0 20px;
   }
 
   .mainHome h2 {
@@ -137,7 +147,7 @@
 
   .mobileSelect {
     display: block;
-    margin-bottom: 3.125rem;
+    margin-bottom: 50px;
     width: 100vw;
     display: flex;
   }
@@ -146,23 +156,29 @@
     width: 100%;
     border: none;
     background: none;
-    padding-bottom: 0.625rem;
+    padding-bottom: 10px;
     text-align: center;
-    font-size: 1.25rem;
-    letter-spacing: 0rem;
+    font-size: 20px;
+    letter-spacing: 0px;
     cursor: pointer;
     color: #fff;
-    border-bottom: 0.0313rem solid #cececece;
+    border-bottom: 0.5008px solid #cececece;
   }
   .buttonSelected {
     color: #72efdb !important;
-    border-bottom: 0.1875rem solid #72efdb !important;
+    border-bottom: 3px solid #72efdb !important;
+  }
+
+  .buttonBox {
+    width: 30vw;
+    margin-right: 1vw;
+    margin-bottom: 6vw;
   }
 }
 
-@media (max-width: 25.875rem) {
+@media (max-width: 414px) {
   .mainGrid {
-    gap: 1.875rem;
+    gap: 30px;
     padding: 4vw;
   }
 
@@ -173,5 +189,10 @@
   .imgBox {
     width: 100%;
     gap: 0;
+  }
+
+  .buttonBox {
+    width: 35vw;
+    margin-right: 2vw;
   }
 }
