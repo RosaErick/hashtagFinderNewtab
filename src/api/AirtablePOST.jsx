@@ -9,6 +9,7 @@ const postData = async (postText) => {
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
+
   const requestOptions = {
     method: "POST",
     headers: {
@@ -21,7 +22,7 @@ const postData = async (postText) => {
           fields: {
             Squad: "150222",
             Hashtag: postText,
-            Data: `${day}/${month}/${year}`,
+            Data: `${day}/${month + 1}/${year}`,
             Hora: `${hour}:${min}:${seconds}`,
           },
         },

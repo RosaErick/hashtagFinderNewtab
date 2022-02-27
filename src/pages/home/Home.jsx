@@ -21,7 +21,8 @@ const Home = () => {
   const [searchResponse, setSearchResponse] = useState("");
   const [tweetsData, setTweetsData] = useState({});
   const [titleTag, setTitleTag] = useState();
-  const [moreRequest, setMoreRequest] = useState(11);
+  const [moreRequest, setMoreRequest] = useState(10);
+  const [resultsNumber, setResultsNumber] = useState(0);
 
   const toogleHandle = () =>
     setActiveState(!imageActive) || setColorState(!colorMode);
@@ -36,6 +37,7 @@ const Home = () => {
         setTitleTag(searchValue);
         setSearchValue("");
         asynCallsub();
+        setMoreRequest(10);
       };
       asyncCall();
     }
@@ -51,7 +53,7 @@ const Home = () => {
     if (e.keyCode === 13) {
       setSearchValue(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""));
       setSearchResponse("Aguarde a busca...");
-
+      setResultsNumber(10);
       if (e.target.value === "") {
         setSearchResponse("É necessário digitar algo no campo de buscas...");
         setSearchValue("");
@@ -62,6 +64,7 @@ const Home = () => {
       setSearchResponse("");
       setSearchValue("");
       setTitleTag("");
+      setResultsNumber(0);
     }
 
     if (e.target.value.length >= 20) {
@@ -161,7 +164,10 @@ const Home = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <h2>Exibindo os 10 resultados mais recentes para #{titleTag}</h2>
+          <h2>
+            Exibindo os {resultsNumber > 0 ? resultsNumber : null} resultados
+            mais recentes para #{titleTag}
+          </h2>
           <section className="mainGrid">
             <section className="gridLeftDesktop">
               <div className="imgBox">
@@ -264,9 +270,10 @@ const Home = () => {
               <button
                 className="moreRequestButton"
                 onClick={(e) => {
-                  setMoreRequest(moreRequest + 11);
+                  setMoreRequest(moreRequest + 10);
                   const neweSearchReq = document.getElementById("input").value;
                   setSearchValue(neweSearchReq);
+                  setResultsNumber(resultsNumber + 10);
                   console.log(e);
                   console.log(moreRequest);
                 }}
