@@ -13,6 +13,7 @@ import { getTweets } from "../../api/getTweets";
 import { motion } from "framer-motion";
 import { postData } from "../../api/AirtablePOST";
 import { FaArrowCircleUp } from "react-icons/fa";
+import { getTweetImgs } from "../../api/getTweetImages";
 
 const Home = () => {
   const [imageActive, setActiveState] = useState("");
@@ -21,8 +22,9 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResponse, setSearchResponse] = useState("");
   const [tweetsData, setTweetsData] = useState({});
+  const [tweetImages, setTweetImages] = useState({});
   const [titleTag, setTitleTag] = useState();
-  const [moreRequest, setMoreRequest] = useState(0);
+  const [moreRequest, setMoreRequest] = useState(10);
   const [resultsNumber, setResultsNumber] = useState(0);
   const [showScroll, setShowScroll] = useState(false);
 
@@ -33,12 +35,15 @@ const Home = () => {
     if (searchValue) {
       const asyncCall = async () => {
         const tweets = await getTweets(searchValue, moreRequest);
+        const tweetImgs = await getTweetImgs(searchValue, moreRequest);
+
         setTweetsData(tweets);
+        setTweetImages(tweetImgs);
         setSearchResponse("");
         setTitleTag(searchValue);
-        asynCallsub();
-
         setMoreRequest(moreRequest + 10);
+
+        asynCallsub();
       };
       asyncCall();
       return () => {
@@ -92,14 +97,16 @@ const Home = () => {
       const asyncPost = async () => {
         await postData(e.target.value);
       };
-      asyncPost();
 
       setSearchValue(
         e.target.value.replace(/[^a-zA-Z0-9_]/g, "").replace(" ", "")
       );
+
       setSearchResponse("Aguarde a busca...");
       setResultsNumber(10);
       setMoreRequest(10);
+
+      asyncPost();
 
       if (e.target.value === "") {
         setSearchResponse("É necessário digitar algo no campo de buscas...");
@@ -160,6 +167,7 @@ const Home = () => {
           <img
             src={IconSearch}
             onClick={() => {
+              setMoreRequest(10);
               setSearchValue(
                 document
                   .getElementById("input")
@@ -170,8 +178,9 @@ const Home = () => {
 
               if (!document.getElementById("input").value.length) {
                 setSearchResponse(
-                  "É necessario digitar algo no campo de buscas.."
+                  "É necessario digitar algo no campo de buscas..."
                 );
+
                 setSearchValue("");
               }
             }}
@@ -224,14 +233,15 @@ const Home = () => {
           <section className="mainGrid">
             <section className="gridLeftDesktop">
               <div className="imgBox">
-                {tweetsData.includes
-                  ? tweetsData.includes.users.map((item, index) => {
+                {tweetImages.includes
+                  ? tweetImages.includes.users.map((item, index) => {
                       return (
                         <>
                           <ImgCard
                             twitterUserName={item.username}
-                            tweetImage={tweetsData.includes.media[index].url}
-                            tweetId={tweetsData.data[index].id}
+                            tweetImage={tweetImages.includes.media[index].url}
+                            tweetId={tweetImages.data[index].id}
+                            key={index}
                           />
                         </>
                       );
@@ -251,6 +261,7 @@ const Home = () => {
                           user={item.name}
                           userImage={item.profile_image_url}
                           tweetId={tweetsData.data[index].id}
+                          key={index}
                         />
                       </>
                     );
@@ -267,16 +278,17 @@ const Home = () => {
               >
                 <>
                   <section className="gridLeft">
-                    {tweetsData.includes
-                      ? tweetsData.includes.users.map((item, index) => {
+                    {tweetImages.includes
+                      ? tweetImages.includes.users.map((item, index) => {
                           return (
                             <>
                               <ImgCard
                                 twitterUserName={item.username}
                                 tweetImage={
-                                  tweetsData.includes.media[index].url
+                                  tweetImages.includes.media[index].url
                                 }
-                                tweetId={tweetsData.data[index].id}
+                                tweetId={tweetImages.data[index].id}
+                                key={index}
                               />
                             </>
                           );
@@ -303,6 +315,7 @@ const Home = () => {
                                 userName={item.username}
                                 userImage={item.profile_image_url}
                                 tweetId={tweetsData.data[index].id}
+                                key={index}
                               />
                             </>
                           );

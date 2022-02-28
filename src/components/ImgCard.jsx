@@ -44,6 +44,9 @@ const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
           <img src={tweetImage} alt="" />{" "}
           <button
             onClick={() => {
+              // window.scrollTo({ top: 'none', width: "80vw",
+              //right: "5vw",
+              // left: "5vw", behavior: "smooth" });
               setModal(!modal);
             }}
           >
