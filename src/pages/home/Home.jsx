@@ -37,16 +37,20 @@ const Home = () => {
         setSearchResponse("");
         setTitleTag(searchValue);
         asynCallsub();
-        setSearchValue("");
 
         setMoreRequest(moreRequest + 10);
       };
       asyncCall();
+      return () => {
+        setSearchValue("");
+      };
     }
   });
 
-  const postCall = async () => {
-    await postData(searchValue);
+  const asynCallsub = async () => {
+    !tweetsData.data
+      ? setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭")
+      : setSearchResponse("");
   };
 
   const handleScroll = () => {
@@ -60,6 +64,7 @@ const Home = () => {
       }
     }
   };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, {
       passive: true,
@@ -82,19 +87,20 @@ const Home = () => {
 
   window.addEventListener("scroll", checkScrollTop);
 
-  const asynCallsub = async () => {
-    !tweetsData.data
-      ? setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭")
-      : setSearchResponse("");
-  };
-
   function handleValue(e) {
     if (e.keyCode === 13) {
-      setSearchValue(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""));
+      const asyncPost = async () => {
+        await postData(e.target.value);
+      };
+      asyncPost();
+
+      setSearchValue(
+        e.target.value.replace(/[^a-zA-Z0-9_]/g, "").replace(" ", "")
+      );
       setSearchResponse("Aguarde a busca...");
       setResultsNumber(10);
-      postCall();
       setMoreRequest(10);
+
       if (e.target.value === "") {
         setSearchResponse("É necessário digitar algo no campo de buscas...");
         setSearchValue("");

@@ -16,7 +16,7 @@ const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
         transition={{ duration: 0.7, delay: 0.4 }}
       >
         <div className={modal ? "imgContainer hide" : "imgContainer show"}>
-          <a href="# ">
+          <section>
             <img
               src={tweetImage}
               alt=""
@@ -37,7 +37,7 @@ const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
               </a>
             </div>
             <div className="boxshadow"></div>
-          </a>
+          </section>
         </div>
 
         <div className={modal ? "modalContainer show" : "modalContainer hide"}>
