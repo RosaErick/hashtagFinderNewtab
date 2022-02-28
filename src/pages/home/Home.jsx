@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 import { getTweets } from "../../api/getTweets";
 import { motion } from "framer-motion";
 import { postData } from "../../api/AirtablePOST";
+import { FaArrowCircleUp } from "react-icons/fa";
 
 const Home = () => {
   const [imageActive, setActiveState] = useState("");
@@ -21,8 +22,9 @@ const Home = () => {
   const [searchResponse, setSearchResponse] = useState("");
   const [tweetsData, setTweetsData] = useState({});
   const [titleTag, setTitleTag] = useState();
-  const [moreRequest, setMoreRequest] = useState(10);
+  const [moreRequest, setMoreRequest] = useState(0);
   const [resultsNumber, setResultsNumber] = useState(0);
+  const [showScroll, setShowScroll] = useState(false);
 
   const toogleHandle = () =>
     setActiveState(!imageActive) || setColorState(!colorMode);
@@ -30,18 +32,55 @@ const Home = () => {
   useEffect(() => {
     if (searchValue) {
       const asyncCall = async () => {
-        await postData(searchValue);
         const tweets = await getTweets(searchValue, moreRequest);
         setTweetsData(tweets);
         setSearchResponse("");
         setTitleTag(searchValue);
-        setSearchValue("");
         asynCallsub();
-        setMoreRequest(10);
+        setSearchValue("");
+
+        setMoreRequest(moreRequest + 10);
       };
       asyncCall();
     }
   });
+
+  const postCall = async () => {
+    await postData(searchValue);
+  };
+
+  const handleScroll = () => {
+    const bottom =
+      Math.ceil(window.innerHeight + window.scrollY) >=
+      document.documentElement.scrollHeight;
+
+    if (tweetsData) {
+      if (bottom) {
+        setTimeout(fetchMoreData(), 150);
+      }
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 400) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 400) {
+      setShowScroll(false);
+    }
+  };
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  window.addEventListener("scroll", checkScrollTop);
 
   const asynCallsub = async () => {
     !tweetsData.data
@@ -54,6 +93,8 @@ const Home = () => {
       setSearchValue(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""));
       setSearchResponse("Aguarde a busca...");
       setResultsNumber(10);
+      postCall();
+      setMoreRequest(10);
       if (e.target.value === "") {
         setSearchResponse("É necessário digitar algo no campo de buscas...");
         setSearchValue("");
@@ -70,9 +111,13 @@ const Home = () => {
     if (e.target.value.length >= 20) {
       setSearchResponse("Limite de caracteres atingido 🚨.");
     }
-    if (e.target.value.length >= 22) {
-      e.preventDefault();
-    }
+  }
+  function fetchMoreData() {
+    const newSearchReq = document.getElementById("input").value;
+    setSearchValue(newSearchReq);
+    setResultsNumber(resultsNumber + 5);
+
+    console.log(moreRequest);
   }
 
   return (
@@ -113,6 +158,7 @@ const Home = () => {
                 document
                   .getElementById("input")
                   .value.replace(/[^a-zA-Z0-9_]/g, "")
+                  .replace(" ", "")
               );
               setSearchResponse("Aguarde a busca...");
 
@@ -130,6 +176,7 @@ const Home = () => {
             type="search"
             onKeyDown={handleValue}
             placeholder="Buscar..."
+            maxLength={20}
           />
         </div>
         {searchResponse ? (
@@ -165,7 +212,7 @@ const Home = () => {
           transition={{ duration: 0.7, delay: 0.4 }}
         >
           <h2>
-            Exibindo os {resultsNumber > 0 ? resultsNumber : null} resultados
+            Exibindo os {moreRequest > 0 ? moreRequest - 10 : null} resultados
             mais recentes para #{titleTag}
           </h2>
           <section className="mainGrid">
@@ -186,11 +233,10 @@ const Home = () => {
                   : null}
               </div>
             </section>
+
             <section className="gridRightDesktop">
               {tweetsData.data
                 ? tweetsData.includes.users.map((item, index) => {
-                    console.log(item, index);
-
                     return (
                       <>
                         <TweetCard
@@ -244,8 +290,6 @@ const Home = () => {
                   >
                     {tweetsData.data
                       ? tweetsData.includes.users.map((item, index) => {
-                          console.log(item, index);
-
                           return (
                             <>
                               <TweetCard
@@ -266,25 +310,19 @@ const Home = () => {
         </motion.div>
         {tweetsData.data ? (
           <>
-            <div className="buttonBox">
+            <div className=" buttonBox">
               <button
-                className="moreRequestButton"
-                onClick={(e) => {
-                  setMoreRequest(moreRequest + 10);
-                  const neweSearchReq = document.getElementById("input").value;
-                  setSearchValue(neweSearchReq);
-                  setResultsNumber(resultsNumber + 10);
-                  console.log(e);
-                  console.log(moreRequest);
-                }}
+                className=" moreRequestButton scrollTop"
+                onClick={scrollTop}
+                style={{ height: 40, display: showScroll ? "flex" : "none" }}
               >
-                Ver mais tweets...
+                Voltar ao topo?
+                <FaArrowCircleUp />
               </button>
             </div>
           </>
         ) : null}
       </main>
-
       <Footer />
     </>
   );

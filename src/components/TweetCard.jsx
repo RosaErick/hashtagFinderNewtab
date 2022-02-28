@@ -15,8 +15,16 @@ const tweetCard = ({ userImage, userName, tweetText, user, tweetId }) => {
         </div>
         <div className="cardContent">
           <div className="cardContentTitle">
-            <h3>{userName}</h3>
-            <p>@{user}</p>
+            <h3>{user}</h3>
+            <a
+              href={`https://twitter.com/${userName}`}
+              target="_blank"
+              rel="noreferrer"
+              alt=""
+            >
+              {" "}
+              <p>@{userName}</p>
+            </a>
           </div>
           <div>
             <p className="tweetText">{tweetText}</p>
@@ -27,7 +35,7 @@ const tweetCard = ({ userImage, userName, tweetText, user, tweetId }) => {
             rel="noreferrer"
             alt=""
           >
-            <span>ver mais no Twitter</span>
+            <span>ver mais no twitter</span>
           </a>
         </div>
       </div>

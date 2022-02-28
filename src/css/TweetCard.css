@@ -2,10 +2,10 @@
   display: flex;
   max-width: 40vw;
   background: #1e3e7b17 0% 0% no-repeat padding-box;
-  border: .0625rem solid #ffffff24;
-  border-radius: .9375rem;
+  border: 0.0625rem solid #ffffff24;
+  border-radius: 0.9375rem;
   padding: 1.5625rem;
-  gap: .9375rem;
+  gap: 0.9375rem;
   margin-bottom: 1.25rem;
   min-width: none;
 }
@@ -17,13 +17,13 @@
   width: 100%;
   justify-content: space-around;
   max-height: fit-content;
-  margin: .3125rem;
+  margin: 0.3125rem;
 }
 
 .cardContentTitle {
   display: flex;
   justify-content: space-between;
-  gap: .625rem;
+  gap: 0.625rem;
 }
 
 .cardContentTitle h3 {
@@ -41,13 +41,19 @@
   opacity: 0.43;
 }
 
+.cardContentTitle p:hover {
+  color: var(--light-green);
+  opacity: 1;
+  font-weight: bold;
+}
+
 .tweetText {
   min-height: 5rem;
   width: 100%;
   max-height: fit-content;
   font: normal normal normal 1.0625rem/1.5625rem Rubik;
   color: #d9d9d9;
-  letter-spacing: .0144rem;
+  letter-spacing: 0.0144rem;
   text-align: left;
   opacity: 1;
 }
@@ -59,50 +65,54 @@
 }
 
 .cardContent span {
-  color: var(--light-green);
   text-align: left;
-  font: medium medium medium 1.125rem/1.375rem Rubik;
+  font-size: 1.26rem;
   letter-spacing: 0rem;
   color: #72efdb;
   opacity: 1;
+  margin-top: 2vw;
+}
+
+.cardContent span:hover {
+  font-weight: bold;
 }
 
 @media (max-width: 48rem) {
   .cardContainer {
-    margin: .625rem 5vw 5vw 5vw;
+    margin: 0.625rem 5vw 5vw 5vw;
     max-width: 100%;
     gap: 0;
-    border-radius: .3125rem;
+    border-radius: 0.3125rem;
   }
 
   .cardContentTitle {
-    border: .125rem;
+    border: 0.125rem;
   }
 
   .cardContent {
     padding: 0;
     justify-content: center;
-    border: .125rem;
-    gap: .5rem;
+    border: 0.125rem;
+    gap: 0.5rem;
   }
 
   .tweetText {
-    font: normal normal normal .875rem/.75rem Rubik;
-    letter-spacing: .0125rem;
-    margin-top: .625rem;
+    font: normal normal normal 0.875rem/.75rem Rubik;
+    letter-spacing: 0.0125rem;
+    margin-top: 0.625rem;
     min-height: 3.125rem;
     width: 100%;
   }
 
   .cardContentTitle h3,
   .cardContainer p {
-    font: normal normal normal 1.125rem/.875rem Rubik;
+    font: normal normal normal 1.125rem/0.875rem Rubik;
     width: 90%;
     line-height: 1;
   }
 
   .cardContent span {
-    font-size: .875rem;
+    font-size: 0.875rem;
   }
 
   .cardImage img {
@@ -114,9 +124,9 @@
 
 @media (max-width: 25.875rem) {
   .cardContainer {
-    border: .0625rem solid #ffffff24;
-    border-radius: .3125rem;
+    border: 0.0625rem solid #ffffff24;
+    border-radius: 0.3125rem;
     margin: 0 0 5vw 0;
-    padding: .9375rem;
+    padding: 0.9375rem;
   }
 }

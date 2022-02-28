@@ -28,6 +28,7 @@
 }
 
 .modalContainer img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -132,6 +133,13 @@ span {
   .imgContainer .subTitle {
     margin: 1vw 2vw;
   }
+
+  .modalContainer {
+    width: 80vw;
+    right: 5vw;
+    left: 5vw;
+    top: none;
+  }
 }
 
 @media (max-width: 414px) {
@@ -141,5 +149,13 @@ span {
 
   .imgContainer h3 {
     font-size: 10px;
+  }
+
+  .modalContainer {
+    max-height: 460px;
+    left: 10vw;
+    right: 10vw;
+    bottom: 100vw;
+    top: 250vw;
   }
 }
