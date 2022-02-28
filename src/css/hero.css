@@ -45,7 +45,8 @@
 }
 
 .heroSearchBar img {
-  padding-left: 1.25rem;
+  padding-left: 25px;
+  padding-right: 10px;
   cursor: pointer;
 }
 
@@ -73,12 +74,13 @@
 }
 
 .heroSearchBar input {
-  padding: 2.1875rem 0;
+  padding: 30px 0;
   text-align: left;
   background: none;
   border: none;
   font-size: 1.875rem;
-  color: #8d9da2;
+  color: #ffff;
+  opacity: 0.57;
   width: 89%;
 }
 
@@ -109,6 +111,14 @@ input:focus {
     justify-content: center;
   }
 
+  .heroSearchBar {
+    margin-top: 5vw;
+  }
+
+  .heroSearchBar input {
+    padding: 20px 0;
+  }
+
   .heroContainer h1 {
     font-size: 3.125rem;
     margin: 0 2vw;
@@ -124,6 +134,7 @@ input:focus {
   .heroHeader {
     align-items: center;
     justify-content: center;
+
   }
 
   .heroSearchBar input {
@@ -160,6 +171,8 @@ input:focus {
 
   .heroSearchBar {
     max-width: 20.625rem;
+    margin-top: 0;
+    margin-bottom: 5vw;
   }
 
   .heroSearchBar input {
