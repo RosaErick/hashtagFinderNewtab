@@ -16,14 +16,13 @@
   width: 42%;
   justify-content: space-around;
   align-items: center;
-  margin: 6vw 100px 30px 100px;
+  margin: 6.2vw 100px 30px 100px;
   gap: 1.0625rem;
   min-height: 3.125rem;
 }
 
 .heroContainer h1 {
   font-size: 5.125rem;
-  margin-top: 0.9375rem;
 }
 
 .heroContainer p {
@@ -38,7 +37,7 @@
   border-radius: 4.5rem;
   opacity: 1;
   border: none;
-  margin-top: 4vw;
+  margin-top: 2vw;
   width: 50vw;
   justify-content: baseline;
   gap: 0.625rem;

@@ -2,23 +2,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Rubik", sans-serif;
+  scroll-behavior: smooth;
 }
-
-
 
 /*Esquema de cores do layout */
 :root {
---dark-blue: #0A1744;
---dark-blue-variation:#0B1741;
---blue: #1E3E7B;
---white: #FFFFFF;
---purple-mid:#5538EE29;
---black:#000000;
---light-green:#72EFDB;
+  --dark-blue: #0a1744;
+  --dark-blue-variation: #0b1741;
+  --blue: #1e3e7b;
+  --white: #ffffff;
+  --purple-mid: #5538ee29;
+  --black: #000000;
+  --light-green: #72efdb;
 }

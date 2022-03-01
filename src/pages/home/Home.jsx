@@ -53,9 +53,9 @@ const Home = () => {
   });
 
   const asynCallsub = async () => {
-    !tweetsData.data
-      ? setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭")
-      : setSearchResponse("");
+    tweetsData.data
+      ? setSearchResponse("")
+      : setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭");
   };
 
   const handleScroll = () => {
@@ -167,6 +167,7 @@ const Home = () => {
           <img
             src={IconSearch}
             onClick={() => {
+              setSearchResponse("Aguarde a busca...");
               setMoreRequest(10);
               setSearchValue(
                 document
@@ -174,7 +175,6 @@ const Home = () => {
                   .value.replace(/[^a-zA-Z0-9_]/g, "")
                   .replace(" ", "")
               );
-              setSearchResponse("Aguarde a busca...");
 
               if (!document.getElementById("input").value.length) {
                 setSearchResponse(
@@ -226,10 +226,13 @@ const Home = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <h2>
-            Exibindo os {moreRequest > 0 ? moreRequest - 10 : null} resultados
-            mais recentes para #{titleTag}
-          </h2>
+          {tweetsData.data ? (
+            <h2>
+              Exibindo os {moreRequest > 0 ? moreRequest - 10 : null} resultados
+              mais recentes para #{titleTag}
+            </h2>
+          ) : null}
+
           <section className="mainGrid">
             <section className="gridLeftDesktop">
               <div className="imgBox">

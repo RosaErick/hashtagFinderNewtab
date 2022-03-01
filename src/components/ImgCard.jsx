@@ -1,12 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
 import ".././css/ImgCard.css";
 
 const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
   const [modal, setModal] = useState("");
-  const [hideGrid, setHideGrid] = useState("");
 
   return (
     <>
@@ -15,14 +13,40 @@ const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.4 }}
       >
-        <div className={modal ? "imgContainer hide" : "imgContainer show"}>
+        {modal ? (
+          <div className="modalContainer">
+            <img src={tweetImage} alt="" />{" "}
+            <button
+              onClick={() => {
+                setModal(!modal);
+              }}
+            >
+              X
+            </button>
+            <div className="Modaldata" id="modaldata">
+              <a
+                href={`https://twitter.com/${twitterUserName}/status/${tweetId}`}
+                target="_blank"
+                rel="noreferrer"
+                alt=""
+              >
+                <span>Postado por: </span>
+                <h4>@{twitterUserName}</h4>
+              </a>
+            </div>
+            <div className="boxshadow"></div>
+          </div>
+        ) : null}
+        <div className="imgContainer">
           <section>
             <img
               src={tweetImage}
               alt=""
               onClick={() => {
+                // window.scrollTo({ top: 900, behavior: "smooth" });
+                //const modaldata = document.getElementById("modaldata");
+
                 setModal(!modal);
-                setHideGrid(!hideGrid);
               }}
             />
             <div className="subTitle">
@@ -38,31 +62,6 @@ const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
             </div>
             <div className="boxshadow"></div>
           </section>
-        </div>
-
-        <div className={modal ? "modalContainer show" : "modalContainer hide"}>
-          <img src={tweetImage} alt="" />{" "}
-          <button
-            onClick={() => {
-              // window.scrollTo({ top: 'none', width: "80vw",
-              //right: "5vw",
-              // left: "5vw", behavior: "smooth" });
-              setModal(!modal);
-            }}
-          >
-            X
-          </button>
-          <div className="Modaldata">
-            <a
-              href={`https://twitter.com/${twitterUserName}/status/${tweetId}`}
-              target="_blank"
-              rel="noreferrer"
-              alt=""
-            >
-              <span>Postado por: </span>
-              <h4>@{twitterUserName}</h4>
-            </a>
-          </div>
         </div>
       </motion.div>
     </>
