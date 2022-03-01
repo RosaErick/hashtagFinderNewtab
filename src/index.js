@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter  } from "react-router-dom";
-import  AuthProvider from '../src/contexts/auth.jsx'; 
-import DefaultRoutes from "./routes/Index";
+import Routes from '../src/routes/index';
+import Context from "./contexts/Context";
+import App from "../src/App";
 
 //css imports
 import "./css/Global.css";
@@ -13,16 +13,10 @@ import "./css/index.css";
 
 ReactDOM.render(
   
-    
-  <AuthProvider>
-    <React.StrictMode>
-      <BrowserRouter>
-          <DefaultRoutes />
-        </BrowserRouter>
-      </React.StrictMode>     
-  </AuthProvider>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
       
-  
   ,
   document.getElementById("root")
 );

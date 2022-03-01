@@ -1,6 +1,9 @@
 const APIGET = "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=Squad%3D%22150222%22"
 
-const loginApi = async () => {
+
+
+export async function getList(){
+  
   const requestOptions = {
     method: "GET",
     headers: {
@@ -9,9 +12,11 @@ const loginApi = async () => {
     },
 
   };
-  fetch(APIGET, requestOptions)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+  
+  const response = await fetch(APIGET, requestOptions);
+  const data = await response.json();
+  console.log(data);
+  return data;
+  
+    
 };
-
-export { loginApi };

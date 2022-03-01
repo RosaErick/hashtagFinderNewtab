@@ -1,6 +1,5 @@
-import { useState, useContext } from "react";
-import AuthContext from '../../contexts/auth';
-
+import { useState, useEffect, useContext } from "react";
+import Context from "../../contexts/Context";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import iconHome from "../../assets/img/icon-home.svg";
@@ -11,11 +10,10 @@ import '../../css/login.css';
 //Testing netlify routes
 import { useNavigate } from "react-router-dom";
 
+const APIGET = 'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login';
 
 function Login() { 
   
-  //const { signed, loading } = useContext(AuthContext);
-
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState('');
   const [error, setError] = useState(false);
@@ -23,19 +21,41 @@ function Login() {
   const [showPassErrorText, setShowPassErrorText] = useState(false);
   const [userErr, setUserErr] = useState('');
   const [passErr, setPassErr] = useState('');
-
-  let navigate = useNavigate();
   
-  function handleSubmit(e) {
-    e.preventDefault();
-    e.stopPropagation();
+  const[loginTolkien, setLoginTolkien] = useState(false);
+
+  const navigate = useNavigate();
+  
+  const [usersList, setUsersList] = useState([]);
+  const {
+    userId, setUserId, 
+    userEmail, setUserEmail, 
+    userPassword, setUserPassword, 
+    signed, setSigned
+  } = useContext(Context);
     
-    //it is needed to perform a check if the credentials match the ones in database to redirect
-    navigate("/list");
-    //redirect to list page, after login is successful
-  }
-
-
+  useEffect(() => {
+    
+    async function getList(){
+  
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          authorization: "Bearer key2CwkHb0CKumjuM",
+          "Content-Type": "application/json",
+        },
+    
+      };
+      
+      const response = await fetch(APIGET, requestOptions);
+      const data = await response.json();
+      setUsersList(data.records);
+      
+    }
+    getList();  
+  }, [])
+  
+  //functions that handle input
   function handleUserBlur(e){
     
     
@@ -72,7 +92,6 @@ function Login() {
 
   function handlePassBlur(e){
     
-    
     if (e.target.value === ''){
       setError(true);
       setShowPassErrorText(true);
@@ -94,6 +113,67 @@ function Login() {
       setError(false)
       setShowPassErrorText(false);
       setPassErr('');
+    }
+  }
+
+  //function that handles the form submission
+  function handleSubmit(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    handleUser();
+    
+  }
+
+  //function called after submit is clicked. It verifies credentials and saves it on userData state
+  function handleUser(){
+    
+
+    console.log('HandleLogin called!');
+    let squad = '150222'
+    let userId = '';
+    let userEmail = '';
+    let userPassword = '';
+    
+    for (let user in usersList){
+      
+      if((usersList[user].fields.Squad === squad) && (usersList[user].fields.Email === userInput) && (usersList[user].fields.Senha === passwordInput) ){
+        
+        userId = usersList[user].id;
+        userEmail = usersList[user].fields.Email;
+        userPassword = usersList[user].fields.Senha;
+        console.log(userId, userEmail, userPassword);
+        setLoginTolkien(true);
+        
+      }else{
+
+        setShowUserErrorText(true);
+        setUserErr("Não Existe usuário cadastrado com estas credenciais");
+        setLoginTolkien(false);
+        
+      };
+      
+    } 
+    
+    handleRedirection();
+    
+  }
+
+  //function that handles redirection/rotes
+  function handleRedirection(){
+    
+    if(loginTolkien === true){
+      //it is needed to perform a check if the credentials match the ones in database to redirect
+      navigate("/list");
+      //redirect to list page, after login is successful
+      return
+    }else{
+      navigate("/login");
+    }
+  }  
+
+  function handleContext(){
+    if(loginTolkien === true){
+      setSigned(true); 
     }
   }
 
