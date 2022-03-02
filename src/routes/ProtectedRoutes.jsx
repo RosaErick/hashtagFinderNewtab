@@ -9,7 +9,7 @@ function ProtectedRoutes(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/list" component={<List />} />
+                {/* <Route path="/list" element={<List />} /> */}
             </Routes>
             
         </BrowserRouter>
@@ -17,4 +17,4 @@ function ProtectedRoutes(){
     
 }
 
-export default ProtectedRoutes
+export default ProtectedRoutes;
