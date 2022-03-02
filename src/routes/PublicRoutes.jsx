@@ -18,7 +18,7 @@ function PublicRoutes(){
                 <Route path="*" element={<NotFound />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/list" element={<List />} />
+                {/* <Route path="/list" element={<List />} /> */}
 
             </Routes>
         

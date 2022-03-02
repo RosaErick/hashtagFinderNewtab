@@ -9,7 +9,7 @@ function ProtectedRoutes(){
     return(
         <BrowserRouter>
             <Routes>
-                {/* <Route path="/list" element={<List />} /> */}
+                <Route path="/list" element={<List />} />
             </Routes>
             
         </BrowserRouter>
