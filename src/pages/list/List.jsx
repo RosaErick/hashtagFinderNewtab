@@ -29,7 +29,7 @@ const List = () => {
                         "title": "Sair",
                         "icon": logoutIcon,
                         "route": "/logout",
-                        "backgroundColor": "#0A1744",
+                        "backgroundColor": "#1E3E7B",
                         "textColor":
                             "#FFF"
                     }

@@ -45,7 +45,7 @@ export default function App() {
   return (
     <>
       <Navbar buttons={[{ "title": "Sobre", "icon": iconInfo, "route": "/about", "backgroundColor": "#72EFDB", "textColor": "#0A1744" },
-      { "title": "Login", "icon": iconUser, "route": "/login", "backgroundColor": "#0A1744", "textColor": "#FFF" }
+      { "title": "Login", "icon": iconUser, "route": "/login", "backgroundColor": "#1E3E7B", "textColor": "#FFF" }
       ]} />
       <div className="divContainer">
         <div className="divAboutProject">
