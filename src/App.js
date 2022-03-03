@@ -7,21 +7,13 @@ import Routes from "../src/routes/index";
 function App() {
     
     const[userId, setUserId] = useState('');
-    const[userEmail, setUserEmail] = useState('');
-    const[userPassword, setUserPassword] = useState('');
     const[signed, setSigned] = useState(false);
 
     return (
       
         <Context.Provider value={{
-                userId, 
-                setUserId, 
-                userEmail, 
-                setUserEmail, 
-                userPassword, 
-                setUserPassword, 
-                signed, 
-                setSigned
+                userId, setUserId,  
+                signed, setSigned
             }}>
             <Routes />
         </Context.Provider>

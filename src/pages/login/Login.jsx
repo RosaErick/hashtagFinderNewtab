@@ -29,8 +29,7 @@ function Login() {
   const [usersList, setUsersList] = useState([]);
   const {
     userId, setUserId, 
-    userEmail, setUserEmail, 
-    userPassword, setUserPassword, 
+     
     signed, setSigned
   } = useContext(Context);
     
@@ -154,26 +153,31 @@ function Login() {
       
     } 
     
-    handleRedirection();
+    handleContext();
     
   }
 
   //function that handles redirection/rotes
   function handleRedirection(){
     
-    if(loginTolkien === true){
+    handleContext();
+
+    if(signed === true){
       //it is needed to perform a check if the credentials match the ones in database to redirect
       navigate("/list");
       //redirect to list page, after login is successful
       return
     }else{
-      navigate("/login");
+      console.log("Não foi possível autenticar...");
+      console.log(userId);
     }
   }  
 
   function handleContext(){
     if(loginTolkien === true){
-      setSigned(true); 
+      setSigned(true);
+      setUserId('1234343');
+      handleRedirection();
     }
   }
 
