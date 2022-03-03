@@ -6,7 +6,7 @@ import NotFound from "../components/NotFound";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import About from "../pages/about/AppAbout";
-import List from '../pages/list/List';
+//import List from '../pages/list/List';
 
 function PublicRoutes(){
    

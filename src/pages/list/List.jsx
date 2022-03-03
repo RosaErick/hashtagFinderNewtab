@@ -1,16 +1,26 @@
-import React from "react";
+//import React, {useContext} from "react";
 import Navbar from "../../components/Navbar";
 import logIcon from "../../assets/img/icon-home.svg";
 import logoutIcon from "../../assets/img/icon-power-off.svg";
 
+
 //Components imports
 import Table from "./Table";
+//import Context from '../../contexts/Context';
 
 //CSS imports
 import '../../css/Global.css';
 import '../../css/list.css';
 
 const List = () => {
+
+    /* const{signed, setSigned} = useContext(Context);
+
+    function logOut(){
+        setSigned(false);
+        return(signed);
+    } */
+
     //Creating the body of page
     return (
         //Creating a main Div to use as a Body to working with height styles
@@ -31,7 +41,8 @@ const List = () => {
                         "route": "/logout",
                         "backgroundColor": "#1E3E7B",
                         "textColor":
-                            "#FFF"
+                            "#FFF",
+                        //logOut funcion should be here?
                     }
                 ]
             } />

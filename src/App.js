@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import React from "react";
 import Context from "./contexts/Context";
-import Routes from "./routes/Index";
+import Routes from '../src/routes/index';
 
 function App() {
     

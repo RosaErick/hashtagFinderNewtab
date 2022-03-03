@@ -8,7 +8,7 @@ import '../../css/login.css';
 
 
 //Testing netlify routes
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const APIGET = 'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login';
 
@@ -22,16 +22,8 @@ function Login() {
   const [userErr, setUserErr] = useState('');
   const [passErr, setPassErr] = useState('');
   
-  const[loginTolkien, setLoginTolkien] = useState(false);
-
-  const navigate = useNavigate();
-  
   const [usersList, setUsersList] = useState([]);
-  const {
-    userId, setUserId, 
-     
-    signed, setSigned
-  } = useContext(Context);
+  const {userId, setUserId, signed, setSigned} = useContext(Context);
     
   useEffect(() => {
     
@@ -53,6 +45,8 @@ function Login() {
     }
     getList();  
   }, [])
+  
+
   
   //functions that handle input
   function handleUserBlur(e){
@@ -126,60 +120,61 @@ function Login() {
   //function called after submit is clicked. It verifies credentials and saves it on userData state
   function handleUser(){
     
+    let idUser;
+    let emailUser;
+    let passwordUser;
+    let logged = false;
+    let users = usersList;
+    console.log(userId);
+    setUserId('Teste2');
+    for (let el in users){
 
-    console.log('HandleLogin called!');
-    let squad = '150222'
-    let userId = '';
-    let userEmail = '';
-    let userPassword = '';
-    
-    for (let user in usersList){
-      
-      if((usersList[user].fields.Squad === squad) && (usersList[user].fields.Email === userInput) && (usersList[user].fields.Senha === passwordInput) ){
-        
-        userId = usersList[user].id;
-        userEmail = usersList[user].fields.Email;
-        userPassword = usersList[user].fields.Senha;
-        console.log(userId, userEmail, userPassword);
-        setLoginTolkien(true);
-        
-      }else{
+      if((users[el].fields.Email === userInput) && 
+          (users[el].fields.Senha === passwordInput) && (users[el].fields.Squad === '150222'))
+        {
+          idUser = users[el].id;
+          emailUser = users[el].fields.Email;
+          passwordUser = users[el].fields.Senha;
+          setShowUserErrorText(false);
+          logged = true;
+          handleContext(idUser,emailUser, passwordUser, logged);
+
+        }else{
 
         setShowUserErrorText(true);
+        logged = false;
         setUserErr("Não Existe usuário cadastrado com estas credenciais");
-        setLoginTolkien(false);
-        
       };
       
-    } 
+    }  
+  }
+
+  function handleContext(id, email, password, logged){
     
-    handleContext();
-    
+    console.log("handleContext called");
+    if(logged === true){
+      setSigned(true);
+      setUserId(id);
+      console.log(password, email)
+      handleRedirection();
+    }
   }
 
   //function that handles redirection/rotes
   function handleRedirection(){
-    
-    handleContext();
-
+    console.log(signed);
     if(signed === true){
       //it is needed to perform a check if the credentials match the ones in database to redirect
-      navigate("/list");
+      <Navigate to="/list" />
       //redirect to list page, after login is successful
       return
     }else{
       console.log("Não foi possível autenticar...");
-      console.log(userId);
+      <Navigate to="/list" />
     }
   }  
 
-  function handleContext(){
-    if(loginTolkien === true){
-      setSigned(true);
-      setUserId('1234343');
-      handleRedirection();
-    }
-  }
+  
 
   return (
 
