@@ -106,8 +106,8 @@
 
   .cardContentTitle h3,
   .cardContainer p {
-    font: normal normal normal 1.125rem/0.875rem Rubik;
-    width: 90%;
+    font-size: .875rem;
+    width: 100%;
     line-height: 1;
   }
 
@@ -122,11 +122,11 @@
   }
 }
 
-@media (max-width: 25.875rem) {
+@media (max-width: 414px) {
   .cardContainer {
-    border: 0.0625rem solid #ffffff24;
-    border-radius: 0.3125rem;
+    border: .0625rem solid #ffffff24;
+    border-radius: .3125rem;
     margin: 0 0 5vw 0;
-    padding: 0.9375rem;
+    padding: .9375rem;
   }
 }
