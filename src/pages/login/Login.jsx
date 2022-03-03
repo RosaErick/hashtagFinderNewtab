@@ -125,8 +125,8 @@ function Login() {
     let passwordUser;
     let logged = false;
     let users = usersList;
-    console.log(userId);
     setUserId('Teste2');
+    console.log(userId);
     for (let el in users){
 
       if((users[el].fields.Email === userInput) && 
