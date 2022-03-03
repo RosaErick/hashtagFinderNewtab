@@ -6,7 +6,11 @@ import NotFound from "../components/NotFound";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import About from "../pages/about/AppAbout";
+<<<<<<< HEAD
 //import List from '../pages/list/List';
+=======
+
+>>>>>>> 63b3759233e6be68e9e8a2f5cf0d13ed423a9dbb
 
 function PublicRoutes(){
    
