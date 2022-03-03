@@ -4,10 +4,9 @@ const postData = async (postText) => {
   const date = new Date();
   const hour = date.getHours();
   const min = date.getMinutes();
-  const seconds = date.getSeconds();
 
-  const day = date.getDate();
-  const month = date.getMonth();
+  const day = `0${date.getDate()}`.slice(-2);
+  const month = `0${date.getMonth()+1}`.slice(-2);
   const year = date.getFullYear();
 
   const requestOptions = {
@@ -22,8 +21,8 @@ const postData = async (postText) => {
           fields: {
             Squad: "150222",
             Hashtag: postText,
-            Data: `${day}/${month + 1}/${year}`,
-            Hora: `${hour}:${min}:${seconds}`,
+            Data: `${day}/${month}/${year}`,
+            Hora: `${hour}:${min}`,
           },
         },
       ],

@@ -1,3 +1,4 @@
+/* Main and List Styles */
 .ListMain{
     min-height: 100vh;
     background-color: #1E3E7B;
@@ -19,17 +20,20 @@
     flex-direction: column;
     margin-top: 40px;
     margin-bottom: 85px;
-    background-color: rgba(24, 50, 107, 0.7);
+    background: rgba(24, 50, 107, 0.7) 0% 0% no-repeat padding-box;
     border-radius: 14px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    opacity: 1;
 }
 
 .ListColumns {
     display: flex;
     align-items: flex-end;
     padding: 30px;
-    background-color: rgba(24, 50, 107, 1);
+    background: rgba(24, 50, 107, 1) 0% 0% no-repeat padding-box;
     border-radius: 14px;
-    opacity: 0.78;
+    opacity: 1;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     color: #72EFDB;
@@ -38,12 +42,12 @@
 
 /* Columns width */
 .hashTagColumn{
-    width: 70%;
+    width: 65%;
     font-weight: 600;
 }
 
 .dateColumn, .hourColumn{
-    width: 15%;
+    width: 20%;
     font-weight: 600;
 }
 
@@ -54,17 +58,19 @@
     color: white;
 }
 
+/* Rows Width */
 .RowHashtagName{
-    width: 70%;
+    width: 65%;
 }
 
 .RowDate, .HourDate{
-    width: 15%;
+    width: 20%;
 }
 
 /* Responsive */
 
 @media only screen and (max-width: 768px) {
+    /* List and Main styles */
     .ListTitle{
         display: flex;
         justify-content: center;
@@ -77,20 +83,33 @@
     }
 
     /* Column Responsive Styles */
+    /* Columns Width */
     .hashTagColumn {
-        width: 60%;
+        width: 45%;
     }
 
-    .dateColumn, .hourColumn {
-        width: 20%;
+    .dateColumn{
+        width: 40%;
+    }
+
+    .hourColumn {
+        width: 15%;
+        text-align: end;
     }
 
     /* Row Responsive Styles */
+    /* Rows Width */
     .RowHashtagName {
-        width: 60%;
+        width: 45%;
     }
 
-    .RowDate, .HourDate {
-        width: 20%;
+    .RowDate{
+        width: 40%;
     }
+
+    .HourDate{
+        width: 15%;
+        text-align: end;
+    }
+
 }

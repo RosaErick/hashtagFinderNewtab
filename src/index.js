@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Routes from '../src/routes/index';
-import Context from "./contexts/Context";
 import App from "../src/App";
 
 //css imports
