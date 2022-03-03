@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import React from "react";
 import Context from "./contexts/Context";
 import Routes from './routes/Index';
@@ -11,10 +10,7 @@ function App() {
 
     return (
       
-        <Context.Provider value={{
-                userId, setUserId,  
-                signed, setSigned
-            }}>
+        <Context.Provider value={{userId, setUserId, signed, setSigned}}>
             <Routes />
         </Context.Provider>
     );

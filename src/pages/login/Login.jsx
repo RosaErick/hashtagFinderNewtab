@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useReducer } from "react";
 import Context from "../../contexts/Context";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -8,7 +8,7 @@ import '../../css/login.css';
 
 
 //Testing netlify routes
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const APIGET = 'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login';
 
@@ -21,10 +21,13 @@ function Login() {
   const [showPassErrorText, setShowPassErrorText] = useState(false);
   const [userErr, setUserErr] = useState('');
   const [passErr, setPassErr] = useState('');
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
   
   const [usersList, setUsersList] = useState([]);
   const {userId, setUserId, signed, setSigned} = useContext(Context);
-    
+  
+  const navigate = useNavigate();
+
   useEffect(() => {
     
     async function getList(){
@@ -41,13 +44,12 @@ function Login() {
       const response = await fetch(APIGET, requestOptions);
       const data = await response.json();
       setUsersList(data.records);
-      
+    
     }
     getList();  
   }, [])
-  
 
-  
+
   //functions that handle input
   function handleUserBlur(e){
     
@@ -119,58 +121,42 @@ function Login() {
 
   //function called after submit is clicked. It verifies credentials and saves it on userData state
   function handleUser(){
-    
+    forceUpdate();
     let idUser;
-    let emailUser;
-    let passwordUser;
-    let logged = false;
     let users = usersList;
-    setUserId('Teste2');
-    console.log(userId);
     for (let el in users){
-
+      
       if((users[el].fields.Email === userInput) && 
           (users[el].fields.Senha === passwordInput) && (users[el].fields.Squad === '150222'))
         {
           idUser = users[el].id;
-          emailUser = users[el].fields.Email;
-          passwordUser = users[el].fields.Senha;
           setShowUserErrorText(false);
-          logged = true;
-          handleContext(idUser,emailUser, passwordUser, logged);
+          setUserId(idUser);
+          handleRedirection();
+          
 
         }else{
 
         setShowUserErrorText(true);
-        logged = false;
+        setSigned(false);
         setUserErr("Não Existe usuário cadastrado com estas credenciais");
       };
       
     }  
   }
 
-  function handleContext(id, email, password, logged){
-    
-    console.log("handleContext called");
-    if(logged === true){
-      setSigned(true);
-      setUserId(id);
-      console.log(password, email)
-      handleRedirection();
-    }
-  }
-
   //function that handles redirection/rotes
   function handleRedirection(){
+    
     console.log(signed);
+    console.log(userId);
     if(signed === true){
       //it is needed to perform a check if the credentials match the ones in database to redirect
-      <Navigate to="/list" />
+      navigate("/list");
       //redirect to list page, after login is successful
-      return
     }else{
       console.log("Não foi possível autenticar...");
-      <Navigate to="/list" />
+      
     }
   }  
 
