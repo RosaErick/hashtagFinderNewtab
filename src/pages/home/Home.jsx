@@ -71,12 +71,14 @@ const Home = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    if (tweetsData) {
+      window.addEventListener("scroll", handleScroll, {
+        passive: true,
+      });
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   });
 
   const checkScrollTop = () => {
