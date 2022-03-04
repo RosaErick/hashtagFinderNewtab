@@ -11,8 +11,8 @@ import { useNavigate } from "react-router-dom";
 
 const APIGET = 'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login';
 
-function Login(props) { 
-  
+function Login(props) {
+
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState('');
   const [error, setError] = useState(false);
@@ -20,88 +20,88 @@ function Login(props) {
   const [showPassErrorText, setShowPassErrorText] = useState(false);
   const [userErr, setUserErr] = useState('');
   const [passErr, setPassErr] = useState('');
-  
+
   const [usersList, setUsersList] = useState([]);
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    
-    async function getList(){
-  
+
+    async function getList() {
+
       const requestOptions = {
         method: "GET",
         headers: {
           authorization: "Bearer key2CwkHb0CKumjuM",
           "Content-Type": "application/json",
         },
-    
+
       };
-      
+
       const response = await fetch(APIGET, requestOptions);
       const data = await response.json();
       setUsersList(data.records);
-    
+
     }
-    getList();  
+    getList();
   }, [])
 
 
   //functions that handle input
-  function handleUserBlur(e){
-    
-    
-    if (e.target.value === ''){
+  function handleUserBlur(e) {
+
+
+    if (e.target.value === '') {
       setError(true);
       setShowUserErrorText(true);
       setUserErr(' Campo vazio');
-     
-    }else if(e.target.validity.patternMismatch){
+
+    } else if (e.target.validity.patternMismatch) {
       setError(true);
       setShowUserErrorText(true);
       setUserErr(' O usuário precisa ser um endereço de e-mail válido (ex. usuario@provedor.com');
     }
-    else{
+    else {
       setError(false);
     }
 
   }
 
-  function handleUserInput(e){
-    if (error !== true){
+  function handleUserInput(e) {
+    if (error !== true) {
       setUserInput(e.target.value);
     }
 
   }
 
-  function handleUserFocus(e){
-    if (error === true){
+  function handleUserFocus(e) {
+    if (error === true) {
       setError(false)
       setShowUserErrorText(false);
       setUserErr('');
     }
   }
 
-  function handlePassBlur(e){
-    
-    if (e.target.value === ''){
+  function handlePassBlur(e) {
+
+    if (e.target.value === '') {
       setError(true);
       setShowPassErrorText(true);
       setPassErr(' Campo vazio');
-    }else{
+    } else {
       setError(false);
     }
 
   }
 
-  function handlePassInput(e){
-    if (error !== true){
+  function handlePassInput(e) {
+    if (error !== true) {
       setPasswordInput(e.target.value);
     }
   }
 
-  function handlePassFocus(e){
-    if (error === true){
+  function handlePassFocus(e) {
+    if (error === true) {
       setError(false)
       setShowPassErrorText(false);
       setPassErr('');
@@ -113,53 +113,52 @@ function Login(props) {
     e.preventDefault();
     e.stopPropagation();
     handleUser();
-    
+
   }
 
   //function called after submit is clicked. It verifies credentials and saves it on userData state
-  function handleUser(){
-    
+  function handleUser() {
+
     let users = usersList;
-    for (let el in users){
-      
-      if((users[el].fields.Email === userInput) && 
-          (users[el].fields.Senha === passwordInput) && (users[el].fields.Squad === '150222'))
-        {
-          setShowUserErrorText(false);
-          props.setUserId(users[el].id);
-          props.setSigned(true);
-          handleRedirection();
-          console.log(props.signed)
-          
-        }else{
+    for (let el in users) {
+
+      if ((users[el].fields.Email === userInput) &&
+        (users[el].fields.Senha === passwordInput) && (users[el].fields.Squad === '150222')) {
+        setShowUserErrorText(false);
+        props.setUserId(users[el].id);
+        props.setSigned(true);
+        handleRedirection();
+        console.log(props.signed)
+
+      } else {
 
         setShowUserErrorText(true);
         props.setSigned(false);
         setUserErr("Não Existe usuário cadastrado com estas credenciais");
       };
-      
-    }  
+
+    }
   }
 
   //function that handles redirection/rotes
-  function handleRedirection(){
+  function handleRedirection() {
     console.log("handleRedirection called!");
     let isSigned = props.signed;
-    if(isSigned === true){
+    if (isSigned === true) {
       //it is needed to perform a check if the credentials match the ones in database to redirect
       navigate("/list");
       //redirect to list page, after login is successful
-    }else{
+    } else {
       console.log("Não foi possível autenticar...");
-      
-    }
-  }  
 
-  
+    }
+  }
+
+
 
   return (
 
-    
+
     <>
       <Navbar buttons={[
         //navigation bar, on top
@@ -173,12 +172,12 @@ function Login(props) {
         },
 
       ]} />
-      
-      
+
+
       <main className="mainLogin">
-      
+
         <div className="formContainer">
-          
+
           <form className="loginForm" onSubmit={handleSubmit}>
             <h2>Login</h2>
             <div className="formInput">
@@ -198,7 +197,7 @@ function Login(props) {
                   Por favor, corrija o seguinte erro: {userErr}
                 </p>
               )}
-    
+
             </div>
             <div className="formInput">
               <label htmlFor="password">Senha</label>
@@ -216,7 +215,7 @@ function Login(props) {
                   Por favor, corrija o seguinte erro:  {passErr}
                 </p>
               )}
-    
+
             </div>
 
             <div className="navBtn">
@@ -227,11 +226,11 @@ function Login(props) {
                 </button>
               </div>
             </div>
-          
+
 
           </form>
         </div>
-      
+
       </main>
       <Footer />
     </>

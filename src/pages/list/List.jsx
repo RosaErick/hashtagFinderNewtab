@@ -12,14 +12,7 @@ import Table from "./Table";
 import '../../css/Global.css';
 import '../../css/list.css';
 
-const List = () => {
-
-    /* imagino que receberia uma props;
-
-    function logOut(){
-        props.setSigned(false);
-        return(signed);
-    } */
+const List = (props) => {
 
     //Creating the body of page
     return (
@@ -40,9 +33,7 @@ const List = () => {
                         "icon": logoutIcon,
                         "route": "/logout",
                         "backgroundColor": "#1E3E7B",
-                        "textColor":
-                            "#FFF",
-                        //logOut funcion should be here?
+                        "textColor": "#FFF",
                     }
                 ]
             } />
