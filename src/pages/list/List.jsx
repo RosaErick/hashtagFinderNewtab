@@ -14,10 +14,10 @@ import '../../css/list.css';
 
 const List = () => {
 
-    /* const{signed, setSigned} = useContext(Context);
+    /* imagino que receberia uma props;
 
     function logOut(){
-        setSigned(false);
+        props.setSigned(false);
         return(signed);
     } */
 

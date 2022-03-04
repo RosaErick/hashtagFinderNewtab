@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext, useReducer } from "react";
-import Context from "../../contexts/Context";
+import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import iconHome from "../../assets/img/icon-home.svg";
@@ -12,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const APIGET = 'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login';
 
-function Login() { 
+function Login(props) { 
   
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState('');
@@ -21,10 +20,8 @@ function Login() {
   const [showPassErrorText, setShowPassErrorText] = useState(false);
   const [userErr, setUserErr] = useState('');
   const [passErr, setPassErr] = useState('');
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
   
   const [usersList, setUsersList] = useState([]);
-  const {userId, setUserId, signed, setSigned} = useContext(Context);
   
   const navigate = useNavigate();
 
@@ -121,24 +118,23 @@ function Login() {
 
   //function called after submit is clicked. It verifies credentials and saves it on userData state
   function handleUser(){
-    forceUpdate();
-    let idUser;
+    
     let users = usersList;
     for (let el in users){
       
       if((users[el].fields.Email === userInput) && 
           (users[el].fields.Senha === passwordInput) && (users[el].fields.Squad === '150222'))
         {
-          idUser = users[el].id;
           setShowUserErrorText(false);
-          setUserId(idUser);
+          props.setUserId(users[el].id);
+          props.setSigned(true);
           handleRedirection();
+          console.log(props.signed)
           
-
         }else{
 
         setShowUserErrorText(true);
-        setSigned(false);
+        props.setSigned(false);
         setUserErr("Não Existe usuário cadastrado com estas credenciais");
       };
       
@@ -147,10 +143,9 @@ function Login() {
 
   //function that handles redirection/rotes
   function handleRedirection(){
-    
-    console.log(signed);
-    console.log(userId);
-    if(signed === true){
+    console.log("handleRedirection called!");
+    let isSigned = props.signed;
+    if(isSigned === true){
       //it is needed to perform a check if the credentials match the ones in database to redirect
       navigate("/list");
       //redirect to list page, after login is successful

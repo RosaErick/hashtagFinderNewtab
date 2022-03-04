@@ -1,15 +1,43 @@
-import { useContext } from "react";
-import Context from "../contexts/Context";
-import ProtectedRoutes from './ProtectedRoutes';
-import PublicRoutes from "./PublicRoutes";
+import React, {useState} from 'react';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
-function Routes(){
+//pages and imports
+import NotFound from "../components/NotFound";
+import Home from "../pages/home/Home";
+import Login from "../pages/login/Login";
+import About from "../pages/about/AppAbout";
+import List from '../pages/list/List';
 
-    const { signed } = useContext(Context);
+function MainRoutes(props){
+   
+    const [userId, setUserId] = useState('');
+    const [signed, setSigned] = useState(false);
 
-    //if signed is true, user may access exlusive routes. Otherwise, only public ones
-    return signed ? (<ProtectedRoutes /> && < PublicRoutes/>) : <PublicRoutes /> 
-}
+   return(
+        <BrowserRouter>     
+            <Routes>
+                 
+                <Route path="/" element={<Home />} />
+                <Route path="*" element={<NotFound />} />
+                <Route path="/login" element={<Login signed={signed} setSigned={setSigned} userId={userId} setUserId={setUserId}/>} />
+                <Route path="/about" element={<About />} />
 
-export default Routes;
+                    
+                {signed && (<Route path="/list" element={<List />}/> )}
+
+            </Routes>
+        
+        </BrowserRouter>
+   )
+   
+
+
+
+    
+
+    
+}   
+
+export default MainRoutes;
