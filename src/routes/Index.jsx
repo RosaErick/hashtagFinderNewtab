@@ -1,5 +1,5 @@
+//Main react components
 import React, {useState} from 'react';
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
@@ -12,7 +12,9 @@ import About from "../pages/about/AppAbout";
 import List from '../pages/list/List';
 
 function MainRoutes(props){
-   
+   //function that controls user access to routes
+
+    //variables used for authentication
     const [userId, setUserId] = useState('');
     const [signed, setSigned] = useState(false);
 
@@ -31,12 +33,6 @@ function MainRoutes(props){
         
         </BrowserRouter>
    )
-   
-
-
-
-    
-
     
 }   
 

@@ -1,8 +1,14 @@
+//Main React components
 import { useState, useEffect } from "react";
+
+//Project components
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+
+//Icons and UI
 import iconHome from "../../assets/img/icon-home.svg";
 
+//styles
 import '../../css/login.css';
 
 
@@ -10,9 +16,10 @@ import '../../css/login.css';
 import { useNavigate } from "react-router-dom";
 
 const APIGET = 'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login';
-
+  //Main Function
 function Login(props) {
-
+  
+  //Variables that control user inputs
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState('');
   const [error, setError] = useState(false);
@@ -21,12 +28,14 @@ function Login(props) {
   const [userErr, setUserErr] = useState('');
   const [passErr, setPassErr] = useState('');
 
+  //variable to store the users allowed to see restricted pages
   const [usersList, setUsersList] = useState([]);
 
+  //variable that allows to redirect (under routes)
   const navigate = useNavigate();
 
   useEffect(() => {
-
+    //function that retrieves users with priviliges
     async function getList() {
 
       const requestOptions = {
@@ -49,8 +58,7 @@ function Login(props) {
 
   //functions that handle input
   function handleUserBlur(e) {
-
-
+    //function that verifies input after user leaves the input
     if (e.target.value === '') {
       setError(true);
       setShowUserErrorText(true);
@@ -68,6 +76,7 @@ function Login(props) {
   }
 
   function handleUserInput(e) {
+    //function that handles username after it was validated
     if (error !== true) {
       setUserInput(e.target.value);
     }
@@ -75,6 +84,7 @@ function Login(props) {
   }
 
   function handleUserFocus(e) {
+    //function that handles input (field username) after user clicked inside it
     if (error === true) {
       setError(false)
       setShowUserErrorText(false);
@@ -83,7 +93,7 @@ function Login(props) {
   }
 
   function handlePassBlur(e) {
-
+    //function that verifies what was typed within password field (after user leaves)
     if (e.target.value === '') {
       setError(true);
       setShowPassErrorText(true);
@@ -95,12 +105,15 @@ function Login(props) {
   }
 
   function handlePassInput(e) {
+    //function that handles input (password field) after it was validated
+
     if (error !== true) {
       setPasswordInput(e.target.value);
     }
   }
 
   function handlePassFocus(e) {
+    //function that handles input (password field) when user inputs again
     if (error === true) {
       setError(false)
       setShowPassErrorText(false);
@@ -108,17 +121,18 @@ function Login(props) {
     }
   }
 
-  //function that handles the form submission
+  
   function handleSubmit(e) {
+    //function that handles the form submission
     e.preventDefault();
     e.stopPropagation();
     handleUser();
 
   }
 
-  //function called after submit is clicked. It verifies credentials and saves it on userData state
+  
   function handleUser() {
-
+  //function called after submit is clicked. It verifies credentials and stores two main variables (userId and signed) 
     let users = usersList;
     for (let el in users) {
 
@@ -140,17 +154,17 @@ function Login(props) {
     }
   }
 
-  //function that handles redirection/rotes
+  
   function handleRedirection() {
-    console.log("handleRedirection called!");
+    //function that handles redirection/rotes
     let isSigned = props.signed;
     if (isSigned === true) {
-      //it is needed to perform a check if the credentials match the ones in database to redirect
+      
       navigate("/list");
       //redirect to list page, after login is successful
     } else {
       console.log("Não foi possível autenticar...");
-
+      
     }
   }
 
