@@ -63,7 +63,7 @@ const Home = () => {
       Math.ceil(window.innerHeight + window.scrollY) >=
       document.documentElement.scrollHeight;
 
-    if (tweetsData) {
+    if (tweetsData.data) {
       if (bottom) {
         setTimeout(fetchMoreData(), 150);
       }
