@@ -35,7 +35,6 @@ function AirtableGETBuscas() {
 
             //forEach on records and adding on recordList array
             records.forEach(function (record) {
-                console.log(record);
                 recordsList.push({
                     "Hashtag": record.get("Hashtag"),
                     "Data": record.get("Data"),
