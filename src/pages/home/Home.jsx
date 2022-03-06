@@ -31,68 +31,69 @@ const Home = () => {
   const toogleHandle = () =>
     setActiveState(!imageActive) || setColorState(!colorMode);
 
+  const asyncCall = async () => {
+    const tweets = await getTweets(searchValue, moreRequest);
+    const tweetImgs = await getTweetImgs(searchValue, moreRequest);
+    setTweetsData(tweets);
+    setTweetImages(tweetImgs);
+    setTitleTag(searchValue);
+    setMoreRequest(moreRequest + 10);
+  };
+
   useEffect(() => {
     if (searchValue) {
-      const asyncCall = async () => {
-        const tweets = await getTweets(searchValue, moreRequest);
-        const tweetImgs = await getTweetImgs(searchValue, moreRequest);
-
-        setTweetsData(tweets);
-        setTweetImages(tweetImgs);
-        setSearchResponse("");
-        setTitleTag(searchValue);
-        setMoreRequest(moreRequest + 10);
-
-        asynCallsub();
-      };
       asyncCall();
       return () => {
+        tweetsData.data
+          ? setSearchResponse("")
+          : setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭");
+
         setSearchValue("");
       };
     }
   });
 
-  const asynCallsub = async () => {
-    tweetsData.data
-      ? setSearchResponse("")
-      : setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭");
-  };
-
-  const handleScroll = () => {
-    const bottom =
-      Math.ceil(window.innerHeight + window.scrollY) >=
-      document.documentElement.scrollHeight;
-
+  function handleScroll() {
     if (tweetsData.data) {
+      const bottom =
+        Math.ceil(window.innerHeight + window.scrollY) >=
+        document.documentElement.scrollHeight;
       if (bottom) {
+        function fetchMoreData() {
+          setSearchValue(document.getElementById("input").value);
+
+          setResultsNumber(resultsNumber + 5);
+
+          console.log(moreRequest);
+        }
         setTimeout(fetchMoreData(), 150);
       }
     }
-  };
+  }
 
   useEffect(() => {
-    if (tweetsData) {
+    if (tweetsData.data) {
+      const checkScrollTop = () => {
+        if (!showScroll && window.pageYOffset > 400) {
+          setShowScroll(true);
+        } else if (showScroll && window.pageYOffset <= 400) {
+          setShowScroll(false);
+        }
+      };
+
+      window.addEventListener("scroll", checkScrollTop);
       window.addEventListener("scroll", handleScroll, {
         passive: true,
       });
+
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
   });
-
-  const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 400) {
-      setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= 400) {
-      setShowScroll(false);
-    }
-  };
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  window.addEventListener("scroll", checkScrollTop);
 
   function handleValue(e) {
     if (e.keyCode === 13) {
@@ -126,13 +127,6 @@ const Home = () => {
     if (e.target.value.length >= 20) {
       setSearchResponse("Limite de caracteres atingido 🚨.");
     }
-  }
-  function fetchMoreData() {
-    const newSearchReq = document.getElementById("input").value;
-    setSearchValue(newSearchReq);
-    setResultsNumber(resultsNumber + 5);
-
-    console.log(moreRequest);
   }
 
   return (
@@ -208,21 +202,22 @@ const Home = () => {
       </header>
 
       <main className="mainHome">
-        <div className="mobileSelect">
-          <button
-            onClick={toogleHandle}
-            className={colorMode ? "" : "buttonSelected"}
-          >
-            Tweets
-          </button>
-          <button
-            onClick={toogleHandle}
-            className={colorMode ? "buttonSelected" : ""}
-          >
-            Imagens
-          </button>
-        </div>
-
+        {tweetsData.data ? (
+          <div className="mobileSelect">
+            <button
+              onClick={toogleHandle}
+              className={colorMode ? "" : "buttonSelected"}
+            >
+              Tweets
+            </button>
+            <button
+              onClick={toogleHandle}
+              className={colorMode ? "buttonSelected" : ""}
+            >
+              Imagens
+            </button>
+          </div>
+        ) : null}
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
