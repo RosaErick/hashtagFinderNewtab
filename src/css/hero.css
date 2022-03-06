@@ -47,6 +47,8 @@
   padding-left: 25px;
   padding-right: 10px;
   cursor: pointer;
+  width: 70px;
+  height: 90px;
 }
 
 .heroSearchBar > img:hover {
