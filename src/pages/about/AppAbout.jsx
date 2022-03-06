@@ -70,7 +70,7 @@ export default function App() {
                   {item.fields["Descrição"]}
                 </p>
                 <div className="ourIcons">
-                  <a href={item.fields.LinkGitHub}><img src={IconGitHub} alt="Imagem icone Github" /></a>
+                  <a href={item.fields.Github}><img src={IconGitHub} alt="Imagem icone Github" /></a>
                   <a href={item.fields.Email}><img src={IconMessage} alt="Imagem icone E-mail" /></a>
                   <a href={item.fields.LinkedIn}><img src={IconLinkedin} alt="Imagem icone Linkedin" /></a>
                 </div>
