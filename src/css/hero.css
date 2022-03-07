@@ -41,14 +41,16 @@
   width: 50vw;
   justify-content: baseline;
   gap: 0.625rem;
+  height: 70px;
+  margin-bottom: 1vw;
 }
 
 .heroSearchBar img {
   padding-left: 25px;
   padding-right: 10px;
   cursor: pointer;
-  width: 70px;
-  height: 90px;
+  width: 55px;
+  height: 70px;
 }
 
 .heroSearchBar > img:hover {
@@ -82,7 +84,8 @@
   font-size: 1.875rem;
   color: #ffff;
   opacity: 0.57;
-  width: 89%;
+  width: 100%;
+  border-radius: 4.5rem;
 }
 
 input:focus {

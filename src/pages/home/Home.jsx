@@ -14,28 +14,73 @@ import { motion } from "framer-motion";
 import { postData } from "../../api/AirtablePOST";
 import { FaArrowCircleUp } from "react-icons/fa";
 import { getTweetImgs } from "../../api/getTweetImages";
-
+import LoaderComponent from "../../components/Loader";
 const Home = () => {
   const [imageActive, setActiveState] = useState("");
   const [colorMode, setColorState] = useState("");
   const [animationMode, setanimationMode] = useState(0);
   const [searchValue, setSearchValue] = useState("");
   const [searchResponse, setSearchResponse] = useState("");
-  const [tweetsData, setTweetsData] = useState({});
-  const [tweetImages, setTweetImages] = useState({});
   const [titleTag, setTitleTag] = useState();
   const [moreRequest, setMoreRequest] = useState(10);
   const [resultsNumber, setResultsNumber] = useState(0);
   const [showScroll, setShowScroll] = useState(false);
+  const [tweets, setTweets] = useState(null);
+  const [tweetimgs, setTweetImgs] = useState(null);
+  const [scrollTopButton, setTopButton] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const toogleHandle = () =>
     setActiveState(!imageActive) || setColorState(!colorMode);
 
   const asyncCall = async () => {
-    const tweets = await getTweets(searchValue, moreRequest);
+    const tweetcall = await getTweets(searchValue, moreRequest);
     const tweetImgs = await getTweetImgs(searchValue, moreRequest);
-    setTweetsData(tweets);
-    setTweetImages(tweetImgs);
+
+    if (!tweetcall.data) {
+      setSearchResponse(
+        <motion.div
+          initial={{ y: animationMode, opacity: 0 }}
+          animate={{ y: animationMode, opacity: 1 }}
+          onClick={() => setanimationMode(animationMode)}
+          transition={{ duration: 0.9, delay: 0.1 }}
+        >
+          <p>"Nenhum tweet foi achado, tente novamente... 😭</p>
+        </motion.div>
+      );
+    }
+    const imgSet = tweetImgs.data.map((tweet) => {
+      const user = tweetImgs.includes.users.find(
+        (user) => tweet.author_id === user.id
+      );
+      const img = tweetImgs.includes.media.find(
+        (img) => tweet.attachments.media_keys[0] === img.media_key
+      );
+
+      return {
+        id: tweet.id,
+        img: img.url,
+        username: user.username,
+        user: user.name,
+      };
+    });
+
+    const tweetSet = tweetcall.data.map((tweet) => {
+      const user = tweetcall.includes.users.find(
+        (user) => tweet.author_id === user.id
+      );
+
+      return {
+        id: tweet.id,
+        text: tweet.text,
+        username: user.username,
+        user: user.name,
+        photo: user.profile_image_url,
+      };
+    });
+
+    setTweetImgs(imgSet);
+    setTweets(tweetSet);
     setTitleTag(searchValue);
     setMoreRequest(moreRequest + 10);
   };
@@ -44,35 +89,38 @@ const Home = () => {
     if (searchValue) {
       asyncCall();
       return () => {
-        tweetsData.data
-          ? setSearchResponse("")
-          : setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭");
-
-        setSearchValue("");
+        if (tweets) {
+          setSearchResponse("");
+          setSearchValue("");
+        }
       };
     }
   });
 
   function handleScroll() {
-    if (tweetsData.data) {
+    if (tweets) {
       const bottom =
         Math.ceil(window.innerHeight + window.scrollY) >=
         document.documentElement.scrollHeight;
       if (bottom) {
+        setLoading(true);
         function fetchMoreData() {
-          setSearchValue(document.getElementById("input").value);
+          const newSearch = document.getElementById("input").value;
+          setSearchValue(newSearch);
 
           setResultsNumber(resultsNumber + 5);
 
           console.log(moreRequest);
         }
-        setTimeout(fetchMoreData(), 150);
+        setTimeout(() => setLoading(false), 2000);
+        setTimeout(() => fetchMoreData(), 1500);
+        setTimeout(() => setTopButton(true), 3000);
       }
     }
   }
 
   useEffect(() => {
-    if (tweetsData.data) {
+    if (tweets) {
       const checkScrollTop = () => {
         if (!showScroll && window.pageYOffset > 400) {
           setShowScroll(true);
@@ -85,11 +133,11 @@ const Home = () => {
       window.addEventListener("scroll", handleScroll, {
         passive: true,
       });
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
     }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   });
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -105,7 +153,7 @@ const Home = () => {
         e.target.value.replace(/[^a-zA-Z0-9_]/g, "").replace(" ", "")
       );
 
-      setSearchResponse("Aguarde a busca...");
+      setSearchResponse(<LoaderComponent />);
       setResultsNumber(10);
       setMoreRequest(10);
 
@@ -163,7 +211,7 @@ const Home = () => {
           <img
             src={IconSearch}
             onClick={() => {
-              setSearchResponse("Aguarde a busca...");
+              setSearchResponse(<LoaderComponent />);
               setMoreRequest(10);
               setSearchValue(
                 document
@@ -192,9 +240,16 @@ const Home = () => {
         </div>
         {searchResponse ? (
           <>
-            <div className="searchResponse">
-              <p>{searchResponse}</p>
-            </div>
+            <motion.div
+              initial={{ y: animationMode, opacity: 0 }}
+              animate={{ y: animationMode, opacity: 1 }}
+              onClick={() => setanimationMode(animationMode)}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+              <div className="searchResponse">
+              <div className="responseText">{searchResponse}</div>
+              </div>
+            </motion.div>
           </>
         ) : null}
 
@@ -202,7 +257,7 @@ const Home = () => {
       </header>
 
       <main className="mainHome">
-        {tweetsData.data ? (
+        {tweets ? (
           <div className="mobileSelect">
             <button
               onClick={toogleHandle}
@@ -223,7 +278,7 @@ const Home = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          {tweetsData.data ? (
+          {tweets ? (
             <h2>
               Exibindo os {moreRequest > 0 ? moreRequest - 10 : null} resultados
               mais recentes para #{titleTag}
@@ -233,40 +288,36 @@ const Home = () => {
           <section className="mainGrid">
             <section className="gridLeftDesktop">
               <div className="imgBox">
-                {tweetImages.includes
-                  ? tweetImages.includes.users.map((item, index) => {
-                      return (
-                        <>
-                          <ImgCard
-                            twitterUserName={item.username}
-                            tweetImage={tweetImages.includes.media[index].url}
-                            tweetId={tweetImages.data[index].id}
-                            key={index}
-                          />
-                        </>
-                      );
-                    })
-                  : null}
+                {tweetimgs?.map(({ user, username, img, id }) => {
+                  return (
+                    <>
+                      <ImgCard
+                        twitterUserName={username}
+                        tweetImage={img}
+                        tweetId={id}
+                        key={id}
+                      />
+                    </>
+                  );
+                })}
               </div>
             </section>
 
             <section className="gridRightDesktop">
-              {tweetsData.data
-                ? tweetsData.includes.users.map((item, index) => {
-                    return (
-                      <>
-                        <TweetCard
-                          tweetText={tweetsData.data[index].text}
-                          userName={item.username}
-                          user={item.name}
-                          userImage={item.profile_image_url}
-                          tweetId={tweetsData.data[index].id}
-                          key={index}
-                        />
-                      </>
-                    );
-                  })
-                : null}
+              {tweets?.map(({ user, username, text, id, photo }) => {
+                return (
+                  <>
+                    <TweetCard
+                      tweetText={text}
+                      userName={username}
+                      user={user}
+                      userImage={photo}
+                      tweetId={id}
+                      key={id}
+                    />
+                  </>
+                );
+              })}
             </section>
 
             {imageActive ? (
@@ -278,22 +329,18 @@ const Home = () => {
               >
                 <>
                   <section className="gridLeft">
-                    {tweetImages.includes
-                      ? tweetImages.includes.users.map((item, index) => {
-                          return (
-                            <>
-                              <ImgCard
-                                twitterUserName={item.username}
-                                tweetImage={
-                                  tweetImages.includes.media[index].url
-                                }
-                                tweetId={tweetImages.data[index].id}
-                                key={index}
-                              />
-                            </>
-                          );
-                        })
-                      : null}
+                    {tweetimgs?.map(({ user, username, img, id }) => {
+                      return (
+                        <>
+                          <ImgCard
+                            twitterUserName={username}
+                            tweetImage={img}
+                            tweetId={id}
+                            key={id}
+                          />
+                        </>
+                      );
+                    })}
                   </section>
                 </>
               </motion.div>
@@ -306,38 +353,48 @@ const Home = () => {
                     onClick={() => setanimationMode(!animationMode)}
                     transition={{ duration: 0.7, delay: 0.4 }}
                   >
-                    {tweetsData.data
-                      ? tweetsData.includes.users.map((item, index) => {
-                          return (
-                            <>
-                              <TweetCard
-                                tweetText={tweetsData.data[index].text}
-                                userName={item.username}
-                                userImage={item.profile_image_url}
-                                tweetId={tweetsData.data[index].id}
-                                key={index}
-                              />
-                            </>
-                          );
-                        })
-                      : null}
+                    {tweets?.map(({ user, username, text, id, photo }) => {
+                      return (
+                        <>
+                          <TweetCard
+                            tweetText={text}
+                            userName={username}
+                            user={user}
+                            userImage={photo}
+                            tweetId={id}
+                            key={id}
+                          />
+                        </>
+                      );
+                    })}
                   </motion.div>
                 </section>
               </>
             )}
           </section>
         </motion.div>
-        {tweetsData.data ? (
+
+        {loading ? (
+          <motion.div
+            initial={{ y: animationMode, opacity: 0 }}
+            animate={{ y: animationMode, opacity: 1 }}
+            onClick={() => setanimationMode(animationMode)}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
+            <div className="loaderComp">
+              <LoaderComponent />
+            </div>
+          </motion.div>
+        ) : null}
+
+        {scrollTopButton ? (
           <>
-            <div className=" buttonBox">
-              <button
-                className=" moreRequestButton scrollTop"
-                onClick={scrollTop}
-                style={{ height: 40, display: showScroll ? "flex" : "none" }}
-              >
-                Voltar ao topo?
-                <FaArrowCircleUp />
-              </button>
+            <div
+              className="topScrollButton scrollTop"
+              onClick={scrollTop}
+              style={{ height: 40, display: showScroll ? "flex" : "none" }}
+            >
+              <FaArrowCircleUp />
             </div>
           </>
         ) : null}
