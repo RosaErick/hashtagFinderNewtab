@@ -18,9 +18,9 @@
 }
 
 .descriptionAboutProject{
-   width: 60vw;
+   width: 55vw;
    padding: 40px;
-
+   margin-left: 28px;
 }
 
 .ilustrationAboutProject{
@@ -46,7 +46,7 @@
     color: #FCFCFC;
     opacity: 1;
     margin-top: 40px;
-    font-size: 1.2vw;
+    font-size: 1.25vw;
     line-height: 1.5;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .profile{
-    width: 20%;
+    width: 18%;
     height: auto;
     background: #0B1A49 0% 0% no-repeat padding-box;
     box-shadow: 0px 5px 10px #5538EE14;
@@ -96,8 +96,8 @@
 }
 
 .imgProfile{
-    width: 80%;
-    margin-top: 35px;
+    width: 70%;
+    margin-top: 40px;
     border-radius: 50%;
 }
 
@@ -140,7 +140,7 @@
     }
 
     .descriptionAboutProject{
-        width: 100vw;
+        width: 96vw;
         padding: 0px;
     }
 
@@ -151,8 +151,8 @@
     }
 
     .descriptionAboutProject p{
-        margin: 20px 26px 0 26px;
-        font-size: 15px;
+        margin: 26px 36px 0 26px;
+        font-size: 18px;
         line-height: 1.4;
     }
 
@@ -162,9 +162,9 @@
     }
 
     .ilustrationAboutProject img{
-        width: 320px;
+        width: 540px;
         margin-left: 39px;
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     .divWhoWeAre, .boxAboutWe{
@@ -178,7 +178,7 @@
 
     .divWhoWeAre h2{
         font-size: 30px;
-        margin-left: 26px;
+        margin-left: 56px;
         padding-top: 60px;
     }
 
@@ -190,7 +190,11 @@
     .profile{
         margin-top:46px;
         margin-right: 0px;
-        width: 80%;
+        width: 70%;
+    }
+
+    .profile p{
+        font: normal normal normal 20px/25px Rubik;
     }
 }
 /*Final da responsividade 412px*/

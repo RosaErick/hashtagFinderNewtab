@@ -51,8 +51,8 @@ export default function App() {
         <div className="divAboutProject">
           <div className="descriptionAboutProject">
             <h1>Sobre o projeto</h1>
-            <p>
-              {textSobre}
+            <p dangerouslySetInnerHTML={{ __html: textSobre}}>
+            
             </p>
           </div>
           <div className="ilustrationAboutProject">
@@ -72,7 +72,7 @@ export default function App() {
                 <div className="ourIcons">
                   <a href={item.fields.Github} target="_blank" rel="noopener noreferrer"><img src={IconGitHub} alt="Imagem icone Github" /></a>
                   <a href={item.fields.Email} target="_blank" rel="noopener noreferrer"><img src={IconMessage} alt="Imagem icone E-mail" /></a>
-                  <a href={item.fields.LinkedIn} target="_blank" rel="noopener noreferrer"><img src={IconLinkedin} alt="Imagem icone Linkedin" /></a>
+                  <a href={item.fields.LinkedIn} target="_blank" rel="noopener noreferrer" ><img src={IconLinkedin} alt="Imagem icone Linkedin" /></a>
                 </div>
               </div>
             ))}
