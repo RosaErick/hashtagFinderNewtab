@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <footer className="footerDiv">
-        <p>&copy;Concreare 2022. Todos os direitos reservados.</p>
+        <p>Newtab Academy 2022</p>
       </footer>
     </>
   );

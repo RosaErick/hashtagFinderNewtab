@@ -41,12 +41,16 @@
   width: 50vw;
   justify-content: baseline;
   gap: 0.625rem;
+  height: 70px;
+  margin-bottom: 1vw;
 }
 
 .heroSearchBar img {
   padding-left: 25px;
   padding-right: 10px;
   cursor: pointer;
+  width: 55px;
+  height: 70px;
 }
 
 .heroSearchBar > img:hover {
@@ -80,7 +84,8 @@
   font-size: 1.875rem;
   color: #ffff;
   opacity: 0.57;
-  width: 89%;
+  width: 100%;
+  border-radius: 4.5rem;
 }
 
 input:focus {
@@ -99,23 +104,12 @@ input:focus {
 }
 
 @media (max-width: 90rem) {
-  .heroHeader {
-    align-items: center;
-  }
-
-  .heroContainer {
-    width: 100%;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-  }
-
   .heroSearchBar {
-    margin-top: 5vw;
+    margin-top: 7vw;
   }
 
   .heroSearchBar input {
-    padding: 20px 0;
+    padding: 0;
   }
 
   .heroContainer h1 {
@@ -192,6 +186,9 @@ input:focus {
     padding: 0;
     height: 15vw;
     width: 100vw;
+  }
+  .heroSearchBar {
+    margin-top: 4vw;
   }
 
   .heroContainer {

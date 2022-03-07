@@ -1,6 +1,6 @@
 .footerDiv {
   background-color: #1e3e7b;
-  height: 200px;
+  height: 140px;
   width: 100%;
   color: #1e3e7b;
   display: flex;
@@ -10,7 +10,7 @@
 
 .footerDiv p {
   color: #fff;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 @media (max-width: 768px) {
