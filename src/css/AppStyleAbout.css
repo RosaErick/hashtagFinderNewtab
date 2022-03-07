@@ -202,3 +202,11 @@
     }
 }
 /*Final da responsividade 412px*/
+
+/*Início responsividade 590px*/
+@media only screen and (max-width: 590px){
+    .ilustrationAboutProject img{
+        width: 380px;
+    } 
+}
+/*Final responsividade 590px*/
