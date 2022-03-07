@@ -62,7 +62,7 @@ function formateTimestamp(timestamp) {
                 //Formula to return only from specific squad
                 filterByFormula: "{Squad}=150222",
                 //Sort to GET result by descending order, or last from first added elements to table.
-                sort: [{ field: "Hashtag", direction: "desc" }]
+                sort: [{ field: "Data", direction: "desc" }]
             }).eachPage(function page(records, fetchNextPage) {
                 //array to concat with searchList state
                 let recordsList = [];
