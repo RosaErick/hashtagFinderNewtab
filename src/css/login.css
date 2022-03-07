@@ -13,17 +13,20 @@
 
 
 .formContainer{
-    height: 90vh;
-    width: 30%;
+    height: 80vh;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: #18326B;
-    opacity: 80%;
     border-radius: 10px;
-    z-index: 0;
-    margin-top: 10%;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    background: #0a1744 0% 0% transparent padding-box;
+    box-shadow: 0px 3px 29px #5538ee1f;
+    z-index: 2;
+    opacity: 1;
+    backdrop-filter: blur(12px);
    
 }
 @supports (backdrop-filter: blur(5px)) {
@@ -34,8 +37,8 @@
 
 
 .formContainer h2{
-    margin-top: 20%;
-    margin-bottom: 20%;
+    margin-top: 10%;
+    margin-bottom: 10%;
     color: #72EFDB;
     
 }
@@ -51,8 +54,6 @@
     color: #E9E9F0;
     opacity: 100%;
     border-radius: 10px;
-   
-    
 }
     
 .formInput {
@@ -63,12 +64,13 @@
     align-items: left;
     justify-content: space-evenly;
     margin: 8px;
-    background-color: #18326B;
+    opacity: 100%;
     border-color: #E9E9F0;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     margin-bottom: 5%;
+    background: transparent;
 
 }
 
@@ -76,15 +78,16 @@
     font-size: large;
 }
  
-
 .textInput{
     width: 90%;
-    border-bottom: #E9E9F0;
+    color: #E9E9F0;
+    
     
 }
 
 .formInput{
     color: #E9E9F0;
+    
 }
 
 .submitBtn {

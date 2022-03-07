@@ -85,11 +85,11 @@ function Login(props) {
 
   function handleUserFocus(e) {
     //function that handles input (field username) after user clicked inside it
-    if (error === true) {
-      setError(false)
-      setShowUserErrorText(false);
-      setUserErr('');
-    }
+    
+    setError(false)
+    setShowUserErrorText(false);
+    setUserErr('');
+    
   }
 
   function handlePassBlur(e) {
@@ -114,11 +114,11 @@ function Login(props) {
 
   function handlePassFocus(e) {
     //function that handles input (password field) when user inputs again
-    if (error === true) {
-      setError(false)
-      setShowPassErrorText(false);
-      setPassErr('');
-    }
+    
+    setError(false)
+    setShowPassErrorText(false);
+    setPassErr('');
+    
   }
 
   
@@ -142,7 +142,6 @@ function Login(props) {
         props.setUserId(users[el].id);
         props.setSigned(true);
         handleRedirection();
-        console.log(props.signed)
 
       } else {
 
@@ -158,6 +157,7 @@ function Login(props) {
   function handleRedirection() {
     //function that handles redirection/rotes
     let isSigned = props.signed;
+    console.log(isSigned);
     if (isSigned === true) {
       
       navigate("/list");
@@ -207,7 +207,7 @@ function Login(props) {
                 onChange={handleUserInput}
               />
               {showUserErrorText && (
-                <p role="alert" style={{ color: "rgb(255, 0, 0)" }}>
+                <p role="alert" style={{ color: "rgb(255, 0, 0)", textShadow: " 0px 1px #F9F" }}>
                   Por favor, corrija o seguinte erro: {userErr}
                 </p>
               )}
@@ -225,7 +225,7 @@ function Login(props) {
                 onFocus={handlePassFocus}
               />
               {showPassErrorText && (
-                <p role="alert" style={{ color: "rgb(255, 0, 0)" }}>
+                <p role="alert" style={{ color: "rgb(255, 0, 0)", textShadow: " 0px 1px #F9F"}}>
                   Por favor, corrija o seguinte erro:  {passErr}
                 </p>
               )}
