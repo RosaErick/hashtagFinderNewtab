@@ -1,14 +1,6 @@
 const APIPOST = "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas";
 
 const postData = async (postText) => {
-  const date = new Date();
-  const hour = `0${date.getHours()}`.slice(-2);
-  const min = `0${date.getMinutes()}`.slice(-2);
-
-  const day = `0${date.getDate()}`.slice(-2);
-  const month = `0${date.getMonth()+1}`.slice(-2);
-  const year = date.getFullYear();
-
   const requestOptions = {
     method: "POST",
     headers: {
@@ -21,8 +13,7 @@ const postData = async (postText) => {
           fields: {
             Squad: "150222",
             Hashtag: postText,
-            Data: `${day}/${month}/${year}`,
-            Hora: `${hour}:${min}`,
+            Data: Date.now(),
           },
         },
       ],
