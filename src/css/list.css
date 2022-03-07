@@ -60,7 +60,7 @@
     padding: 30px;
     color: #72EFDB;
     background-clip: padding-box;
-    border-bottom: thin rgba(114, 239, 219, .1) solid;
+    border-top: thin rgba(114, 239, 219, .1) solid;
     margin: 0 20px 0 20px;
 }
 
