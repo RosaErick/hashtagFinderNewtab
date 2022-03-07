@@ -1,7 +1,10 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 
-//import enviroments variables from json Object.
+//Importing Loader
+import LoaderComponent from "../components/Loader";
+
+//importing enviroments variables from json Object.
 import process from '../api/env.json';
 
 //importing airtable package
@@ -47,6 +50,7 @@ function formateTimestamp(timestamp) {
 
         //creating searchList to return rows based in this Array
         const [searchList, setSearchList] = useState([]);
+        const [loading, setLoading] = useState(true);
 
         /*with some experiences using Airtable fetchNextPage() function with IntersectionObserver, sometimes
         we have unexpected  behaviors like multiple fetchNextPage() called. This is a useRef to control and
@@ -72,7 +76,6 @@ function formateTimestamp(timestamp) {
                     recordsList.push({
                         "Hashtag": record.get("Hashtag"),
                         "Data": record.get("Data"),
-                        "Hora": record.get("Hora"),
                     });
                 });
 
@@ -114,7 +117,7 @@ function formateTimestamp(timestamp) {
         }, [])
 
         //Mapping the searchList state and return rows
-        return searchList.map((search, index) => {
+        return (searchList.map((search, index) => {
             //calling function to format and return object with row timestamp
             let rowDate = formateTimestamp(search["Data"]);
             return (
@@ -124,7 +127,7 @@ function formateTimestamp(timestamp) {
                     <p className="HourDate">{rowDate.hora}</p>
                 </div>
             )
-        });
+        }));
     }
 
     export default AirtableGETBuscas;
