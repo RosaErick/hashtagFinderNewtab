@@ -50,6 +50,10 @@
     line-height: 1.5;
 }
 
+.descriptionAboutProject a{
+    color: white;
+}
+
 .ilustrationAboutProject img{
     width: 80%;
 }
