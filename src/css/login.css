@@ -1,8 +1,8 @@
 
 .mainLogin{
     width: 100%;
-    height: 150vh;
-    background:var(--dark-blue-variation);
+    height: auto;
+    background: var(--dark-blue-variation) no-repeat;
     background-image: url('../assets/img/hero-bg.jpg');
     background-position: 40%;
     display: flex;
@@ -13,7 +13,6 @@
 
 
 .formContainer{
-    height: 80vh;
     width: 35%;
     display: flex;
     flex-direction: column;
@@ -82,7 +81,6 @@
     width: 90%;
     color: #E9E9F0;
     
-    
 }
 
 .formInput{
@@ -94,6 +92,7 @@
     background-color: #72efdb;
     color: #0b1741;
     margin-top: 20%;
+    margin-bottom: 20%;
 }
 
 .navBtn{
@@ -104,7 +103,7 @@
     
     .mainLogin{
 
-        height: 120vh;
+        height: auto;
         background-position: 60% 30%;
     }
 
@@ -140,13 +139,9 @@
 
 @media screen and (min-width: 415px) and (max-width: 768px) {
     
-    .mainLogin{
-
-        height: 110vh;
-    }
 
     .loginForm{
-       
+        height: auto;
         margin-top: 0%;
         margin-bottom: 0%;
     }
@@ -165,8 +160,9 @@
     }
 
     .navBtn{
-        margin-top: 20%;
+
         margin-left: 50%;
+        margin-bottom: 20%;
         
     }
     

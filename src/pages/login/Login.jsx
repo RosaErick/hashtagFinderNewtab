@@ -140,6 +140,7 @@ function Login(props) {
         (users[el].fields.Senha === passwordInput) && (users[el].fields.Squad === '150222')) {
         setShowUserErrorText(false);
         props.setUserId(users[el].id);
+        console.log(props.signed);
         props.setSigned(true);
         handleRedirection();
 
@@ -149,7 +150,7 @@ function Login(props) {
         props.setSigned(false);
         setUserErr("Não Existe usuário cadastrado com estas credenciais");
       };
-
+      
     }
   }
 
@@ -157,7 +158,7 @@ function Login(props) {
   function handleRedirection() {
     //function that handles redirection/rotes
     let isSigned = props.signed;
-    console.log(isSigned);
+    
     if (isSigned === true) {
       
       navigate("/list");
@@ -167,8 +168,6 @@ function Login(props) {
       
     }
   }
-
-
 
   return (
 
@@ -208,7 +207,7 @@ function Login(props) {
               />
               {showUserErrorText && (
                 <p role="alert" style={{ color: "rgb(255, 0, 0)", textShadow: " 0px 1px #F9F" }}>
-                  Por favor, corrija o seguinte erro: {userErr}
+                  {userErr}
                 </p>
               )}
 
@@ -226,7 +225,7 @@ function Login(props) {
               />
               {showPassErrorText && (
                 <p role="alert" style={{ color: "rgb(255, 0, 0)", textShadow: " 0px 1px #F9F"}}>
-                  Por favor, corrija o seguinte erro:  {passErr}
+                  {passErr}
                 </p>
               )}
 

@@ -11,7 +11,7 @@ import Logout from "../pages/login/Logout";
 import About from "../pages/about/AppAbout";
 import List from '../pages/list/List';
 
-function MainRoutes(props){
+function MainRoutes(){
    //function that controls user access to routes
 
     //variables used for authentication
