@@ -1,7 +1,7 @@
 /* Main and List Styles */
 .ListMain{
     min-height: 100vh;
-    background-color: #1E3E7B;
+    background-image: linear-gradient(to bottom right, #132B66, #001D5A);
     display: flex;
     justify-content: center;
 }
@@ -20,7 +20,7 @@
     flex-direction: column;
     margin-top: 40px;
     margin-bottom: 85px;
-    background: rgba(24, 50, 107, 0.7) 0% 0% no-repeat padding-box;
+    background: #002063;
     border-radius: 14px;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
@@ -31,13 +31,16 @@
     display: flex;
     align-items: flex-end;
     padding: 30px;
-    background: rgba(24, 50, 107, 1) 0% 0% no-repeat padding-box;
+    background: #000F63;
     border-radius: 14px;
     opacity: 1;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    color: #72EFDB;
     height: 100px;
+}
+
+.ListColumns > *, .ListRow > *{
+    color: #72EFDB;
 }
 
 /* Columns width */
@@ -55,7 +58,10 @@
 .ListRow {
     display: flex;
     padding: 30px;
-    color: white;
+    color: #72EFDB;
+    background-clip: padding-box;
+    border-bottom: thin rgba(114, 239, 219, .1) solid;
+    margin: 0 20px 0 20px;
 }
 
 /* Rows Width */
