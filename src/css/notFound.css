@@ -1,84 +1,85 @@
-.NotFoundMain{
-    height: 100vh;
-    background-image: url('../assets/img/table-bg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
+.NotFoundMain {
+  height: 100vh;
+  background-image: url("../assets/img/table-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
 }
 
-.NotFoundContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
+.NotFoundContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 }
 
-.searchImg{
-    width: 20%;
-    margin: 20px;
+.searchImg {
+  width: 20%;
+  margin: 20px;
 }
 
-.searchImg > img{
-    width: 100%;
-    animation: floating 4s infinite;
-    position: relative;
+.searchImg > img {
+  width: 100%;
+  animation: floating 4s infinite;
+  position: relative;
 }
 
 .texts {
-    font-size: 1.5vw;
-    color: white;
-    font-weight: 700;
+  font-size: 1.5vw;
+  color: white;
+  font-weight: 700;
 }
 
-.texts > h2{
-    font-weight: 300;
+.texts > h2 {
+  font-weight: 300;
 }
 
-#home{
-    font-weight: 700;
-    display: inline;
-    text-decoration: underline;
+#home {
+  font-weight: 700;
+  display: inline;
+  text-decoration: underline;
+  font-size: unset;
 }
 
-#home:hover{
-    cursor: pointer;
+#home:hover {
+  cursor: pointer;
 }
 
-.Body{
-    width: 20%;
+.Body {
+  width: 20%;
 }
 
 /* Keyframe floating effect */
 @keyframes floating {
-	0%{
-		bottom: 0px;
-	}
-    50%{
-		bottom: 20px;
-	}
-    100%{
-		bottom: 0px;	
-	}
+  0% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0px;
+  }
 }
 
 /* unset Link tag style */
-.link{
-    text-decoration: none;
-    color: unset;
+.link {
+  text-decoration: none;
+  color: unset;
 }
 
 /* Mobile reponsive */
 @media only screen and (max-width: 768px) {
-    .NotFoundContainer{
-        flex-direction: column-reverse;
-    }
-    .searchImg{
-        padding-top: 30px;
-    }
+  .NotFoundContainer {
+    flex-direction: column-reverse;
+  }
+  .searchImg {
+    padding-top: 30px;
+  }
 
-    .texts{
-        width: 90%;
-        font-size: 3vw;
-    }
+  .texts {
+    width: 90%;
+    font-size: 3vw;
+  }
 }

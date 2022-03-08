@@ -38,16 +38,7 @@ const Home = () => {
     const tweetImgs = await getTweetImgs(searchValue, moreRequest);
 
     if (!tweetcall.data) {
-      setSearchResponse(
-        <motion.div
-          initial={{ y: animationMode, opacity: 0 }}
-          animate={{ y: animationMode, opacity: 1 }}
-          onClick={() => setanimationMode(animationMode)}
-          transition={{ duration: 0.9, delay: 0.1 }}
-        >
-          <p>"Nenhum tweet foi achado, tente novamente... 😭</p>
-        </motion.div>
-      );
+      setSearchResponse("Nenhum tweet foi achado, tente novamente... 😭");
     }
     const imgSet = tweetImgs.data.map((tweet) => {
       const user = tweetImgs.includes.users.find(
@@ -90,9 +81,10 @@ const Home = () => {
       asyncCall();
       return () => {
         if (tweets) {
-          setSearchResponse("");
-          setSearchValue("");
         }
+
+        setSearchResponse("");
+        setSearchValue("");
       };
     }
   });
@@ -110,7 +102,7 @@ const Home = () => {
 
           setResultsNumber(resultsNumber + 5);
 
-          console.log(moreRequest);
+          return console.log(moreRequest);
         }
         setTimeout(() => setLoading(false), 2000);
         setTimeout(() => fetchMoreData(), 1500);
@@ -247,7 +239,7 @@ const Home = () => {
               transition={{ duration: 0.7, delay: 0.4 }}
             >
               <div className="searchResponse">
-              <div className="responseText">{searchResponse}</div>
+                <div className="responseText">{searchResponse}</div>
               </div>
             </motion.div>
           </>
@@ -257,148 +249,154 @@ const Home = () => {
       </header>
 
       <main className="mainHome">
-        {tweets ? (
-          <div className="mobileSelect">
-            <button
-              onClick={toogleHandle}
-              className={colorMode ? "" : "buttonSelected"}
-            >
-              Tweets
-            </button>
-            <button
-              onClick={toogleHandle}
-              className={colorMode ? "buttonSelected" : ""}
-            >
-              Imagens
-            </button>
-          </div>
-        ) : null}
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.4 }}
+          className="mainAnimation"
         >
           {tweets ? (
-            <h2>
-              Exibindo os {moreRequest > 0 ? moreRequest - 10 : null} resultados
-              mais recentes para #{titleTag}
-            </h2>
+            <div className="mobileSelect">
+              <button
+                onClick={toogleHandle}
+                className={colorMode ? "" : "buttonSelected"}
+              >
+                Tweets
+              </button>
+              <button
+                onClick={toogleHandle}
+                className={colorMode ? "buttonSelected" : ""}
+              >
+                Imagens
+              </button>
+            </div>
           ) : null}
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
+            {tweets ? (
+              <h2>
+                Exibindo os {moreRequest > 0 ? moreRequest - 10 : null}{" "}
+                resultados mais recentes para #{titleTag}
+              </h2>
+            ) : null}
 
-          <section className="mainGrid">
-            <section className="gridLeftDesktop">
-              <div className="imgBox">
-                {tweetimgs?.map(({ user, username, img, id }) => {
+            <section className="mainGrid">
+              <section className="gridLeftDesktop">
+                <div className="imgBox">
+                  {tweetimgs?.map(({ user, username, img, id }) => {
+                    return (
+                      <>
+                        <ImgCard
+                          twitterUserName={username}
+                          tweetImage={img}
+                          tweetId={id}
+                          key={id}
+                        />
+                      </>
+                    );
+                  })}
+                </div>
+              </section>
+
+              <section className="gridRightDesktop">
+                {tweets?.map(({ user, username, text, id, photo }) => {
                   return (
                     <>
-                      <ImgCard
-                        twitterUserName={username}
-                        tweetImage={img}
+                      <TweetCard
+                        tweetText={text}
+                        userName={username}
+                        user={user}
+                        userImage={photo}
                         tweetId={id}
                         key={id}
                       />
                     </>
                   );
                 })}
-              </div>
-            </section>
+              </section>
 
-            <section className="gridRightDesktop">
-              {tweets?.map(({ user, username, text, id, photo }) => {
-                return (
+              {imageActive ? (
+                <motion.div
+                  initial={{ y: animationMode, opacity: 0 }}
+                  animate={{ y: animationMode, opacity: 1 }}
+                  onClick={() => setanimationMode(animationMode)}
+                  transition={{ duration: 0.7, delay: 0.4 }}
+                >
                   <>
-                    <TweetCard
-                      tweetText={text}
-                      userName={username}
-                      user={user}
-                      userImage={photo}
-                      tweetId={id}
-                      key={id}
-                    />
+                    <section className="gridLeft">
+                      {tweetimgs?.map(({ user, username, img, id }) => {
+                        return (
+                          <>
+                            <ImgCard
+                              twitterUserName={username}
+                              tweetImage={img}
+                              tweetId={id}
+                              key={id}
+                            />
+                          </>
+                        );
+                      })}
+                    </section>
                   </>
-                );
-              })}
-            </section>
-
-            {imageActive ? (
-              <motion.div
-                initial={{ y: animationMode, opacity: 0 }}
-                animate={{ y: animationMode, opacity: 1 }}
-                onClick={() => setanimationMode(animationMode)}
-                transition={{ duration: 0.7, delay: 0.4 }}
-              >
+                </motion.div>
+              ) : (
                 <>
-                  <section className="gridLeft">
-                    {tweetimgs?.map(({ user, username, img, id }) => {
-                      return (
-                        <>
-                          <ImgCard
-                            twitterUserName={username}
-                            tweetImage={img}
-                            tweetId={id}
-                            key={id}
-                          />
-                        </>
-                      );
-                    })}
+                  <section className="gridRight">
+                    <motion.div
+                      initial={{ y: animationMode, opacity: 0 }}
+                      animate={{ y: animationMode, opacity: 1 }}
+                      onClick={() => setanimationMode(!animationMode)}
+                      transition={{ duration: 0.7, delay: 0.4 }}
+                    >
+                      {tweets?.map(({ user, username, text, id, photo }) => {
+                        return (
+                          <>
+                            <TweetCard
+                              tweetText={text}
+                              userName={username}
+                              user={user}
+                              userImage={photo}
+                              tweetId={id}
+                              key={id}
+                            />
+                          </>
+                        );
+                      })}
+                    </motion.div>
                   </section>
                 </>
-              </motion.div>
-            ) : (
-              <>
-                <section className="gridRight">
-                  <motion.div
-                    initial={{ y: animationMode, opacity: 0 }}
-                    animate={{ y: animationMode, opacity: 1 }}
-                    onClick={() => setanimationMode(!animationMode)}
-                    transition={{ duration: 0.7, delay: 0.4 }}
-                  >
-                    {tweets?.map(({ user, username, text, id, photo }) => {
-                      return (
-                        <>
-                          <TweetCard
-                            tweetText={text}
-                            userName={username}
-                            user={user}
-                            userImage={photo}
-                            tweetId={id}
-                            key={id}
-                          />
-                        </>
-                      );
-                    })}
-                  </motion.div>
-                </section>
-              </>
-            )}
-          </section>
-        </motion.div>
-
-        {loading ? (
-          <motion.div
-            initial={{ y: animationMode, opacity: 0 }}
-            animate={{ y: animationMode, opacity: 1 }}
-            onClick={() => setanimationMode(animationMode)}
-            transition={{ duration: 0.7, delay: 0.4 }}
-          >
-            <div className="loaderComp">
-              <LoaderComponent />
-            </div>
+              )}
+            </section>
           </motion.div>
-        ) : null}
 
-        {scrollTopButton ? (
-          <>
-            <div
-              className="topScrollButton scrollTop"
-              onClick={scrollTop}
-              style={{ height: 40, display: showScroll ? "flex" : "none" }}
+          {loading ? (
+            <motion.div
+              initial={{ y: animationMode, opacity: 0 }}
+              animate={{ y: animationMode, opacity: 1 }}
+              onClick={() => setanimationMode(animationMode)}
+              transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <FaArrowCircleUp />
-            </div>
-          </>
-        ) : null}
+              <div className="loaderComp">
+                <LoaderComponent />
+              </div>
+            </motion.div>
+          ) : null}
+        </motion.div>
       </main>
+      {scrollTopButton ? (
+        <>
+          <div
+            className="topScrollButton scrollTop"
+            onClick={scrollTop}
+            style={{ height: 40, display: showScroll ? "flex" : "none" }}
+          >
+            <FaArrowCircleUp />
+          </div>
+        </>
+      ) : null}
       <Footer />
     </>
   );

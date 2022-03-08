@@ -97,7 +97,7 @@
   }
 
   .tweetText {
-    font: normal normal normal 0.875rem/.75rem Rubik;
+    font: normal normal normal 0.875rem/0.75rem Rubik;
     letter-spacing: 0.0125rem;
     margin-top: 0.625rem;
     min-height: 3.125rem;
@@ -106,7 +106,7 @@
 
   .cardContentTitle h3,
   .cardContainer p {
-    font-size: .875rem;
+    font-size: 0.875rem;
     width: 100%;
     line-height: 1;
   }
@@ -124,9 +124,9 @@
 
 @media (max-width: 414px) {
   .cardContainer {
-    border: .0625rem solid #ffffff24;
-    border-radius: .3125rem;
+    border: 0.0625rem solid #ffffff24;
+    border-radius: 0.3125rem;
     margin: 0 0 5vw 0;
-    padding: .9375rem;
+    padding: 0.9375rem;
   }
 }

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import ".././css/ImgCard.css";
 
 const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
-  const [modal, setModal] = useState("");
+  const [modal, setModal] = useState(null);
 
   return (
     <>
@@ -14,27 +14,34 @@ const ImgCard = ({ twitterUserName, tweetImage, tweetId }) => {
         transition={{ duration: 0.7, delay: 0.4 }}
       >
         {modal ? (
-          <div className="modalContainer">
-            <img src={tweetImage} alt="" />{" "}
-            <button
-              onClick={() => {
-                setModal(!modal);
-              }}
-            >
-              X
-            </button>
-            <div className="Modaldata" id="modaldata">
-              <a
-                href={`https://twitter.com/${twitterUserName}/status/${tweetId}`}
-                target="_blank"
-                rel="noreferrer"
-                alt=""
+          <div
+            className="modal"
+            onClick={() => {
+              setModal(!modal);
+            }}
+          >
+            <div className="modalContainer">
+              <img src={tweetImage} alt="" />{" "}
+              <button
+                onClick={() => {
+                  setModal(!modal);
+                }}
               >
-                <span>Postado por: </span>
-                <h4>@{twitterUserName}</h4>
-              </a>
+                X
+              </button>
+              <div className="Modaldata" id="modaldata">
+                <a
+                  href={`https://twitter.com/${twitterUserName}/status/${tweetId}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  alt=""
+                >
+                  <span>Postado por: </span>
+                  <h4>@{twitterUserName}</h4>
+                </a>
+              </div>
+              <div className="boxshadow"></div>
             </div>
-            <div className="boxshadow"></div>
           </div>
         ) : null}
         <div className="imgContainer">
