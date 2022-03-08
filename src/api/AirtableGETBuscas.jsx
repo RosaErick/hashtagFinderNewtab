@@ -1,8 +1,7 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 
-//Importing Loader
-import LoaderComponent from "../components/Loader";
+
 
 //importing enviroments variables from json Object.
 import process from '../api/env.json';
@@ -50,7 +49,7 @@ function formateTimestamp(timestamp) {
 
         //creating searchList to return rows based in this Array
         const [searchList, setSearchList] = useState([]);
-        const [loading, setLoading] = useState(true);
+   
 
         /*with some experiences using Airtable fetchNextPage() function with IntersectionObserver, sometimes
         we have unexpected  behaviors like multiple fetchNextPage() called. This is a useRef to control and
