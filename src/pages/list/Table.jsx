@@ -19,11 +19,6 @@ const Table = () => {
 
             {/* Calling Airtable component that will be returning rows list */}
             <AirtableGETBuscas />
-            
-            {/* This element is used to track when user scrolled to end of div.
-             Must be used IntersectionObserver with this element.
-             You can see the Observer Logic in <AirtableGETBuscas /> component */}
-            <div id="loaderRef"></div>
         </div>
     )
 }

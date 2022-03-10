@@ -36,7 +36,7 @@ function formateTimestamp(timestamp) {
         }
     }
     //If not have Timestamp parameter, return a object with default value to sinalize no date time on table.
-    else{
+    else {
         return {
             data: `SEM HORA`,
             hora: `SEM DATA`
@@ -44,89 +44,90 @@ function formateTimestamp(timestamp) {
     }
 }
 
-    //Main function to return component
-    function AirtableGETBuscas() {
+//Main function to return component
+function AirtableGETBuscas() {
 
-        //creating searchList to return rows based in this Array
-        const [searchList, setSearchList] = useState([]);
-   
+    //creating searchList to return rows based in this Array
+    const [searchList, setSearchList] = useState([]);
 
-        /*with some experiences using Airtable fetchNextPage() function with IntersectionObserver, sometimes
-        we have unexpected  behaviors like multiple fetchNextPage() called. This is a useRef to control and
-        help prevent this unexpected behavior*/
-        const canFetchNextPage = useRef();
-        canFetchNextPage.current = true;
 
-        //useEffect with request api to prevent looping call
-        useEffect(() => {
-            base('Buscas').select({
-                // Selecting the first 3 records in Grid view
-                view: "Grid view",
-                //Formula to return only from specific squad
-                filterByFormula: "{Squad}=150222",
-                //Sort to GET result by descending order, or last from first added elements to table.
-                sort: [{ field: "Data", direction: "desc" }]
-            }).eachPage(function page(records, fetchNextPage) {
-                //array to concat with searchList state
-                let recordsList = [];
+    /*with some experiences using Airtable fetchNextPage() function with IntersectionObserver, sometimes
+    we have unexpected behaviors like multiple fetchNextPage() called. This is a useRef to control and
+    help prevent this unexpected behavior*/
+    const canFetchNextPage = useRef();
+    canFetchNextPage.current = true;
 
-                //forEach on records and adding on recordList array
-                records.forEach(function (record) {
-                    recordsList.push({
-                        "Hashtag": record.get("Hashtag"),
-                        "Data": record.get("Data"),
-                    });
+    //useEffect with request api to prevent looping call
+    useEffect(() => {
+        base('Buscas').select({
+            // Selecting the first 3 records in Grid view
+            view: "Grid view",
+            //Formula to return only from specific squad
+            filterByFormula: "{Squad}=150222",
+            //Sort to GET result by descending order, or last from first added elements to table.
+            sort: [{ field: "Data", direction: "desc" }]
+        }).eachPage(function page(records, fetchNextPage) {
+            //array to concat with searchList state
+            let recordsList = [];
+
+            //forEach on records and adding on recordList array
+            records.forEach(function (record) {
+                recordsList.push({
+                    "Hashtag": record.get("Hashtag"),
+                    "Data": record.get("Data"),
                 });
-
-                /* This is one more step to prevent the unexpected behavior previously mentioned
-                Will only update the state element if canFetchNextPage ref is equals true
-                */
-                if (canFetchNextPage.current) {
-                    setSearchList(oldArray => oldArray.concat(...recordsList));
-                };
-
-                // Options to observer Intersection, rootMargin to intersection with margin of 20px
-                const options = {
-                    root: null,
-                    rootMargin: "20px",
-                    threshold: 1.0
-                };
-
-                /*creating a observer with interSectionObserver, to track when user scrolled to end of page.
-                Is using the div "loaderRef" as reference to observer*/
-                const observer = new IntersectionObserver((entities) => {
-                    const target = entities[0];
-                    if (target.isIntersecting && canFetchNextPage.current) {
-                        fetchNextPage();
-                        //one more step to prevent multiple calls on fetchNextPage();
-                        observer.disconnect();
-                    }
-                }, options);
-
-                //adding Observer to "loaderRef" element.
-                if (document.getElementById("loaderRef")) {
-                    observer.observe(document.getElementById("loaderRef"));
-                }
-
-            }, function done(err) {
-                if (err) { console.error(err); return; }
-                //this function is called when fetchNextPage() reach the last page, so we set canFetchNextPage to false;
-                canFetchNextPage.current = false;
             });
-        }, [])
 
-        //Mapping the searchList state and return rows
-        return (searchList.map((search, index) => {
-            //calling function to format and return object with row timestamp
-            let rowDate = formateTimestamp(search["Data"]);
-            return (
-                <div key={index} className="ListRow">
-                    <p className="RowHashtagName">{search["Hashtag"]}</p>
-                    <p className="RowDate">{rowDate.data}</p>
-                    <p className="HourDate">{rowDate.hora}</p>
-                </div>
-            )
-        }));
-    }
+            /* This is one more step to prevent the unexpected behavior previously mentioned
+            Will only update the state element if canFetchNextPage ref is equals true
+            */
+            if (canFetchNextPage.current) {
+                setSearchList(oldArray => oldArray.concat(...recordsList));
+            };
 
-    export default AirtableGETBuscas;
+            // Options to observer Intersection, rootMargin to intersection with margin of 20px
+            const options = {
+                root: null,
+                rootMargin: "20px",
+                threshold: 1.0
+            };
+
+            /*creating a observer with interSectionObserver, to track when user scrolled to end of page.
+            Is using the div "loaderRef" as reference to observer*/
+            const observer = new IntersectionObserver((entities) => {
+                const target = entities[0];
+                if (target.isIntersecting && canFetchNextPage.current) {
+                    fetchNextPage();
+                    //one more step to prevent multiple calls on fetchNextPage();
+                    observer.disconnect();
+                }
+            }, options);
+
+            //adding Observer to "loaderRef" element.
+            if (document.getElementById("loaderRef")) {
+                observer.observe(document.getElementById("loaderRef"));
+            }
+
+        }, function done(err) {
+            if (err) { console.error(err); return; }
+            //this function is called when fetchNextPage() reach the last page, so we set canFetchNextPage to false;
+            canFetchNextPage.current = false;
+            document.getElementById("loaderRef").innerText = "Não existe mais resultados para exibir."
+        });
+    }, [])
+
+    //Mapping the searchList state and return rows
+    return (searchList.map((search, index) => {
+        //calling function to format and return object with row timestamp
+        let rowDate = formateTimestamp(search["Data"]);
+        return (
+            <div key={index} className="ListRow">
+                <p className="RowHashtagName">{search["Hashtag"]}</p>
+                <p className="RowDate">{rowDate.data}</p>
+                <p className="HourDate">{rowDate.hora}</p>
+            </div>
+        )
+    }));
+}
+
+export default AirtableGETBuscas;

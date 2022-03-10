@@ -13,13 +13,14 @@
 
 .ListTitle{
     color: #72EFDB;
+    font-size: 40px;
+    font-family: 'Rubik';
 }
 
 .ListTable {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
-    margin-bottom: 85px;
     background: #002063;
     border-radius: 14px;
     backdrop-filter: blur(30px);
@@ -41,6 +42,7 @@
 
 .ListColumns > *, .ListRow > *{
     color: #72EFDB;
+    font-family: 'Rubik';
 }
 
 /* Columns width */
@@ -73,11 +75,22 @@
     width: 20%;
 }
 
+/* Feedback request styles */
+#loaderRef{
+    color: #72EFDB;
+    margin-bottom: 85px;
+    padding-top: 15px;
+    font-family: 'Rubik';
+    display: flex;
+    justify-content: center;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 768px) {
     /* List and Main styles */
     .ListTitle{
+        font-size: 33px;
         display: flex;
         justify-content: center;
     }
@@ -119,3 +132,4 @@
     }
 
 }
+
