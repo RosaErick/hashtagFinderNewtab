@@ -57,7 +57,7 @@ function Login(props) {
 
     }
     getList();
-  }, [props.signed])
+  }, [props.signed,  navigate])
 
 
   //functions that handle input
@@ -136,7 +136,6 @@ function Login(props) {
 
 
   function handleUser() {
-    console.log(usersList)
     //function called after submit is clicked. It verifies credentials and stores two main variables (userId and signed) 
     let users = usersList;
     for (let el in users) {
@@ -145,7 +144,6 @@ function Login(props) {
         (users[el].fields.Senha === passwordInput) && (users[el].fields.Squad === '150222')) {
         setShowUserErrorText(false);
         props.setUserId(users[el].id);
-        console.log(props.signed);
         props.setSigned(true);
         handleRedirection();
       } else {
@@ -167,12 +165,10 @@ function Login(props) {
 
       navigate("/list");
       //redirect to list page, after login is successful
-    } else {
-      console.log("Não foi possível autenticar...");
-
+      
     }
   }
-
+  
   return (
 
 
