@@ -16,9 +16,9 @@ import '../../css/login.css';
 import { useNavigate } from "react-router-dom";
 
 const APIGET = 'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login';
-  //Main Function
+//Main Function
 function Login(props) {
-  
+
   //Variables that control user inputs
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState('');
@@ -36,6 +36,10 @@ function Login(props) {
 
   useEffect(() => {
     //function that retrieves users with priviliges
+    if(props.signed){
+      navigate("/list");
+      return;
+    }
     async function getList() {
 
       const requestOptions = {
@@ -53,7 +57,7 @@ function Login(props) {
 
     }
     getList();
-  }, [])
+  }, [props.signed])
 
 
   //functions that handle input
@@ -85,11 +89,11 @@ function Login(props) {
 
   function handleUserFocus(e) {
     //function that handles input (field username) after user clicked inside it
-    
+
     setError(false)
     setShowUserErrorText(false);
     setUserErr('');
-    
+
   }
 
   function handlePassBlur(e) {
@@ -114,14 +118,14 @@ function Login(props) {
 
   function handlePassFocus(e) {
     //function that handles input (password field) when user inputs again
-    
+
     setError(false)
     setShowPassErrorText(false);
     setPassErr('');
-    
+
   }
 
-  
+
   function handleSubmit(e) {
     //function that handles the form submission
     e.preventDefault();
@@ -130,9 +134,10 @@ function Login(props) {
 
   }
 
-  
+
   function handleUser() {
-  //function called after submit is clicked. It verifies credentials and stores two main variables (userId and signed) 
+    console.log(usersList)
+    //function called after submit is clicked. It verifies credentials and stores two main variables (userId and signed) 
     let users = usersList;
     for (let el in users) {
 
@@ -143,29 +148,28 @@ function Login(props) {
         console.log(props.signed);
         props.setSigned(true);
         handleRedirection();
-
       } else {
 
         setShowUserErrorText(true);
         props.setSigned(false);
         setUserErr("Não Existe usuário cadastrado com estas credenciais");
       };
-      
+
     }
   }
 
-  
+
   function handleRedirection() {
     //function that handles redirection/rotes
     let isSigned = props.signed;
-    
+
     if (isSigned === true) {
-      
+
       navigate("/list");
       //redirect to list page, after login is successful
     } else {
       console.log("Não foi possível autenticar...");
-      
+
     }
   }
 
@@ -224,7 +228,7 @@ function Login(props) {
                 onFocus={handlePassFocus}
               />
               {showPassErrorText && (
-                <p role="alert" style={{ color: "rgb(255, 0, 0)", textShadow: " 0px 1px #F9F"}}>
+                <p role="alert" style={{ color: "rgb(255, 0, 0)", textShadow: " 0px 1px #F9F" }}>
                   {passErr}
                 </p>
               )}

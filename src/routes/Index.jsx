@@ -1,6 +1,6 @@
 //Main react components
 import React, {useState} from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
 
 //pages and imports
@@ -13,7 +13,6 @@ import List from '../pages/list/List';
 
 function MainRoutes(){
    //function that controls user access to routes
-
     //variables used for authentication
     const [userId, setUserId] = useState('');
     const [signed, setSigned] = useState(false);
