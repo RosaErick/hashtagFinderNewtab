@@ -38,8 +38,8 @@ function formateTimestamp(timestamp) {
     //If not have Timestamp parameter, return a object with default value to sinalize no date time on table.
     else {
         return {
-            data: `SEM HORA`,
-            hora: `SEM DATA`
+            data: `SEM DATA`,
+            hora: `SEM HORA`
         }
     }
 }
