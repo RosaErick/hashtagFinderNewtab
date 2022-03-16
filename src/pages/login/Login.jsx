@@ -206,7 +206,13 @@ function Login(props) {
                 onChange={handleUserInput}
               />
               {showUserErrorText && (
-                <p role="alert" style={{ color: "rgb(255, 0, 0)", textShadow: " 0px 1px #F9F" }}>
+                <p role="alert" 
+                  style={{ 
+                    color: "rgb(255, 0, 0)", 
+                    backgroundColor: "rgb(255, 255, 255)", 
+                    borderRadius: "3px",
+                    textAlign: "center" 
+                  }}>
                   {userErr}
                 </p>
               )}
@@ -224,7 +230,13 @@ function Login(props) {
                 onFocus={handlePassFocus}
               />
               {showPassErrorText && (
-                <p role="alert" style={{ color: "rgb(255, 0, 0)", textShadow: " 0px 1px #F9F" }}>
+                <p role="alert" 
+                  style={{ 
+                    color: "rgb(255, 0, 0)", 
+                    backgroundColor: "rgb(255, 245, 245)", 
+                    borderRadius: "3px",
+                    textAlign: "center" 
+                  }}>
                   {passErr}
                 </p>
               )}

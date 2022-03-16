@@ -18,9 +18,9 @@
 }
 
 .descriptionAboutProject{
-   width: 55vw;
+   width: 60vw;
    padding: 40px;
-   margin-left: 28px;
+
 }
 
 .ilustrationAboutProject{
@@ -46,12 +46,8 @@
     color: #FCFCFC;
     opacity: 1;
     margin-top: 40px;
-    font-size: 1.25vw;
+    font-size: 1.2vw;
     line-height: 1.5;
-}
-
-.descriptionAboutProject a{
-    color: white;
 }
 
 .ilustrationAboutProject img{
@@ -85,7 +81,7 @@
 }
 
 .profile{
-    width: 18%;
+    width: 20%;
     height: auto;
     background: #0B1A49 0% 0% no-repeat padding-box;
     box-shadow: 0px 5px 10px #5538EE14;
@@ -100,8 +96,8 @@
 }
 
 .imgProfile{
-    width: 70%;
-    margin-top: 40px;
+    width: 80%;
+    margin-top: 35px;
     border-radius: 50%;
 }
 
@@ -133,7 +129,7 @@
 .ourIcons img{
     margin-right: 30px;  
 }
-/*Fnal da Estilização div Quem Somos*/
+/*Final da Estilização div Quem Somos*/
 
 /*Início da responsividade 768px*/
 @media only screen and (max-width: 768px){
@@ -144,7 +140,7 @@
     }
 
     .descriptionAboutProject{
-        width: 96vw;
+        width: 100vw;
         padding: 0px;
     }
 
@@ -155,8 +151,8 @@
     }
 
     .descriptionAboutProject p{
-        margin: 26px 36px 0 26px;
-        font-size: 18px;
+        margin: 20px 26px 0 26px;
+        font-size: 15px;
         line-height: 1.4;
     }
 
@@ -166,9 +162,9 @@
     }
 
     .ilustrationAboutProject img{
-        width: 540px;
+        width: 320px;
         margin-left: 39px;
-        margin-top: 60px;
+        margin-top: 40px;
     }
 
     .divWhoWeAre, .boxAboutWe{
@@ -182,7 +178,7 @@
 
     .divWhoWeAre h2{
         font-size: 30px;
-        margin-left: 56px;
+        margin-left: 26px;
         padding-top: 60px;
     }
 
@@ -194,19 +190,7 @@
     .profile{
         margin-top:46px;
         margin-right: 0px;
-        width: 70%;
-    }
-
-    .profile p{
-        font: normal normal normal 20px/25px Rubik;
+        width: 80%;
     }
 }
 /*Final da responsividade 412px*/
-
-/*Início responsividade 590px*/
-@media only screen and (max-width: 590px){
-    .ilustrationAboutProject img{
-        width: 380px;
-    } 
-}
-/*Final responsividade 590px*/
